@@ -341,8 +341,10 @@ async function prepararInicio(){
  if(!firebaseListo||!auth.currentUser){alert('Sin conexión con Firebase. Verifique la conexión y el inicio de sesión anónimo.');return}
  alumno={nombre,cedula,materia,curso,fecha};
  const ref=db.collection(COLECCION).doc(cedula);
- try{await db.runTransaction(async t=>{const s=await t.get(ref);if(s.exists)throw Error('INTENTO_EXISTENTE');t.set(ref,{ownerUid:auth.currentUser.uid,...alumno,docente:'Ing. Janeth Intriago',estado:'EN PROCESO',nota:null,aciertos:0,total:preguntas.length,inicio:firebase.firestore.FieldValue.serverTimestamp(),ultimaActualizacion:firebase.firestore.FieldValue.serverTimestamp()})})}
- catch(e){alert(e.message==='INTENTO_EXISTENTE'?'Esta cédula ya registra un intento de este examen.':'No se pudo registrar el intento: '+e.message);return}
+ // No se consulta la cédula previamente: Firestore autoriza crear el documento
+ // pero prohíbe reiniciar un intento existente mediante sus reglas de seguridad.
+ try{await ref.set({ownerUid:auth.currentUser.uid,...alumno,docente:'Ing. Janeth Intriago',estado:'EN PROCESO',nota:null,aciertos:0,total:preguntas.length,inicio:firebase.firestore.FieldValue.serverTimestamp(),ultimaActualizacion:firebase.firestore.FieldValue.serverTimestamp()})}
+ catch(e){alert(e.code==='permission-denied'?'Firebase no autorizó el registro. Puede existir un intento anterior para esta cédula o faltar la regla de permisos de esta colección.':'No se pudo registrar el intento: '+e.message);return}
  try{if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen()}catch(e){await registrarInfraccionFirebase('No se pudo activar la pantalla completa');alert('No se pudo activar pantalla completa; el intento quedó registrado.');return}
  iniciarExamen();
 }
