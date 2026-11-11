@@ -1,140 +1,352 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Examen de 2 Trimestre de Estudios Sociales | 9no JBP</title><style>
-:root{
-  --vino:#6f1734;
-  --vino2:#8c2949;
-  --gris:#5f6368;
-  --fondo:#eef0f3;
-  --blanco:#fff;
-  --verde:#198754;
-  --rojo:#c62828;
-  --amarillo:#f9a825;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:linear-gradient(135deg,#f6f7f8,#e6e9ed);
-  color:#202124;
-}
-header{
-  background:linear-gradient(135deg,var(--vino),#4a0e22);
-  color:white;
-  padding:18px 24px;
-  box-shadow:0 3px 12px rgba(0,0,0,.18);
-  text-align:center;
-}
-header h1{margin:0;font-size:25px}
-header p{margin:5px 0 0;opacity:.92}
-.container{max-width:1050px;margin:24px auto;padding:0 16px}
-.card{
-  background:white;border-radius:16px;padding:22px;margin-bottom:20px;
-  box-shadow:0 8px 28px rgba(0,0,0,.09);
-}
-.hidden{display:none!important}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-label{font-weight:700;font-size:14px}
-input,select,textarea{
-  width:100%;padding:11px 12px;border:1px solid #cbd0d6;border-radius:9px;
-  font-size:15px;margin-top:6px;background:white;
-}
-textarea{min-height:90px;resize:vertical}
-button{
-  border:0;border-radius:9px;padding:11px 17px;font-weight:700;cursor:pointer;font-size:14px
-}
-button:disabled{opacity:.45;cursor:not-allowed}
-.btn-primary{background:var(--vino);color:white}
-.btn-secondary{background:#666;color:white}
-.btn-success{background:var(--verde);color:white}
-.btn-danger{background:var(--rojo);color:white}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.reglamento{
-  border:2px solid #e0c16b;background:#fff9e6;border-radius:14px;padding:18px;margin-top:18px
-}
-.reglamento h3{margin-top:0;color:#775500}
-.reglamento ul{line-height:1.7;margin-bottom:15px}
-.acepta{
-  display:flex;align-items:flex-start;gap:10px;background:white;padding:12px;border-radius:10px;
-  border:1px solid #e6d59a
-}
-.acepta input{width:18px;height:18px;margin:1px 0 0}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.timer{
-  min-width:120px;text-align:center;background:#fff1f5;color:var(--vino);
-  border:2px solid #edcad5;border-radius:14px;padding:10px 16px;font-size:28px;font-weight:800
-}
-.badge{background:#eceff1;padding:8px 12px;border-radius:999px;font-weight:700}
-.progress{height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin:14px 0 22px}
-.progress div{height:100%;background:var(--vino);width:0;transition:width .2s}
-.student-strip{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;background:#f5f6f8;
-  padding:12px;border-radius:10px;margin-bottom:18px
-}
-.student-strip strong{display:block;color:var(--vino);font-size:12px;margin-bottom:3px}
-.question{font-size:21px;font-weight:800;line-height:1.45;margin-bottom:16px;white-space:pre-line}
-.option{
-  display:block;border:2px solid #e0e3e7;border-radius:13px;padding:14px;
-  margin:10px 0;cursor:pointer;font-weight:500;transition:.18s;background:white
-}
-.option:hover{border-color:#b36a80;background:#fff8fa}
-.option input{width:auto;margin-right:10px}
-.procedimiento{margin-top:16px}
-.notice{
-  background:#eef6ff;border-left:5px solid #4078c0;padding:13px 14px;border-radius:8px;margin:14px 0
-}
-.warning{
-  background:#fff0f0;border-left:5px solid var(--rojo);padding:14px;border-radius:8px;margin:14px 0
-}
-.result-big{font-size:46px;font-weight:800;color:var(--vino);margin:10px 0}
-.violation{
-  border:3px solid var(--rojo);background:#fff2f2;color:#7f1111;border-radius:14px;padding:18px;
-  font-size:18px;font-weight:700
-}
-table{width:100%;border-collapse:collapse;margin-top:14px}
-th,td{border-bottom:1px solid #ddd;padding:10px;text-align:left;font-size:14px}
-th{background:#f1f3f4}
-.admin-q{border:1px solid #ddd;border-radius:12px;padding:15px;margin:12px 0;background:#fafafa}
-.admin-q .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.small{font-size:12px;color:#666}
-@media(max-width:760px){
-  .grid,.student-strip,.admin-q .grid3{grid-template-columns:1fr}
-  header h1{font-size:21px}
-}
-@media print{
-  header,.no-print{display:none!important}
-  body{background:white}
-  .card{box-shadow:none}
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examen de 2do Trimestre de Lengua y Literatura | 9no EGB JBP</title>
+  <style>
+    :root {
+      --vino: #6f1734;
+      --vino2: #8c2949;
+      --gris: #5f6368;
+      --fondo: #eef0f3;
+      --blanco: #fff;
+      --verde: #198754;
+      --rojo: #c62828;
+      --amarillo: #f9a825;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #f6f7f8, #e6e9ed);
+      color: #202124;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(135deg, var(--vino), #4a0e22);
+      color: white;
+      padding: 20px 24px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .18);
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 0.5px; }
+    header p { margin: 6px 0 0; opacity: 0.95; }
+    header .subtitle { font-weight: 700; letter-spacing: .03em; font-size: 16px; margin-top: 4px; }
+    .container { max-width: 1050px; margin: 24px auto; padding: 0 16px; flex: 1; width: 100%; }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .09);
+    }
+    .hidden { display: none !important; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    label { font-weight: 700; font-size: 14px; display: block; margin-top: 8px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #cbd0d6;
+      border-radius: 9px;
+      font-size: 15px;
+      margin-top: 6px;
+      background: white;
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    button {
+      border: 0;
+      border-radius: 9px;
+      padding: 11px 17px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    .btn-primary { background: var(--vino); color: white; }
+    .btn-primary:hover:not(:disabled) { background: var(--vino2); }
+    .btn-secondary { background: #666; color: white; }
+    .btn-success { background: var(--verde); color: white; }
+    .btn-danger { background: var(--rojo); color: white; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .reglamento {
+      border: 2px solid #e0c16b;
+      background: #fff9e6;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 18px;
+    }
+    .reglamento h3 { margin-top: 0; color: #775500; }
+    .reglamento ul { line-height: 1.7; margin-bottom: 15px; }
+    .acepta {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: white;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #e6d59a;
+    }
+    .acepta input { width: 18px; height: 18px; margin: 1px 0 0; cursor: pointer; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .timer {
+      min-width: 120px;
+      text-align: center;
+      background: #fff1f5;
+      color: var(--vino);
+      border: 2px solid #edcad5;
+      border-radius: 14px;
+      padding: 10px 16px;
+      font-size: 28px;
+      font-weight: 800;
+    }
+    .badge { background: #eceff1; padding: 8px 12px; border-radius: 999px; font-weight: 700; }
+    .progress { height: 12px; background: #e5e7eb; border-radius: 999px; overflow: hidden; margin: 14px 0 22px; }
+    .progress div { height: 100%; background: var(--vino); width: 0; transition: width .2s; }
+    .student-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      background: #f5f6f8;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+    }
+    .student-strip strong { display: block; color: var(--vino); font-size: 11px; margin-bottom: 3px; }
+    .question { font-size: 20px; font-weight: 800; line-height: 1.45; margin-bottom: 16px; white-space: pre-line; }
+    .option {
+      display: block;
+      border: 2px solid #e0e3e7;
+      border-radius: 13px;
+      padding: 14px;
+      margin: 10px 0;
+      cursor: pointer;
+      font-weight: 500;
+      transition: .18s;
+      background: white;
+    }
+    .option:hover { border-color: #b36a80; background: #fff8fa; }
+    .option:has(input:checked) { background: #fbedf2; border-color: var(--vino); }
+    .option input { width: auto; margin-right: 10px; }
+    .notice { background: #eef6ff; border-left: 5px solid #4078c0; padding: 13px 14px; border-radius: 8px; margin: 14px 0; }
+    .warning { background: #fff0f0; border-left: 5px solid var(--rojo); padding: 14px; border-radius: 8px; margin: 14px 0; }
+    .result-big { font-size: 46px; font-weight: 800; color: var(--vino); margin: 10px 0; }
+    .violation {
+      border: 3px solid var(--rojo);
+      background: #fff2f2;
+      color: #7f1111;
+      border-radius: 14px;
+      padding: 18px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+    th, td { border-bottom: 1px solid #ddd; padding: 10px; text-align: left; font-size: 13px; }
+    th { background: #f1f3f4; font-weight: 700; }
+    .admin-q { border: 1px solid #ddd; border-radius: 12px; padding: 15px; margin: 12px 0; background: #fafafa; }
+    .points {
+      display: inline-block;
+      background: #f6e6ec;
+      color: var(--vino);
+      padding: 6px 11px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .footer { text-align: center; padding: 12px 12px 28px; color: #666; font-size: 13px; margin-top: auto; }
+    .small { font-size: 12px; color: #666; }
+    .teacher-access { margin-top: 12px; background: transparent; color: #666; border: 1px solid #ccc; }
+    .section-sub { color: #667085; font-size: 14px; margin-top: 4px; }
+    
+    @media(max-width: 760px) {
+      .grid, .student-strip { grid-template-columns: 1fr; }
+      header h1 { font-size: 20px; }
+    }
+    @media print {
+      header, .no-print { display: none !important; }
+      body { background: white; }
+      .card { box-shadow: none; border: 1px solid #ccc; }
+      .footer { display: none; }
+    }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
 
-header .subtitle{font-weight:700;letter-spacing:.03em}.section-sub{color:#667085;font-size:14px}.points{display:inline-block;background:#f6e6ec;color:#6f1734;padding:6px 11px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:10px}.footer{text-align:center;padding:8px 12px 28px;color:#666}.option:has(input:checked){background:#fbedf2;border-color:#6f1734}.admin-q textarea{min-height:72px}.status-ok{color:#146c43}.status-bad{color:#a61b1b}.toolbar-note{font-size:13px;color:#555}.teacher-access{margin-top:12px;background:transparent;color:#666;border:1px solid #ccc}.hide-key{display:none}@media print{.footer{display:none}}</style>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script></head><body>
-<header><h1>UNIDAD EDUCATIVA PARTICULAR “JACINTO BURGOS PINARGOTE”</h1><p class="subtitle">EXAMEN DE 2 TRIMESTRE DE ESTUDIOS SOCIALES</p><p>9no de Educación General Básica · Ing. Janeth Intriago</p></header>
-<main class="container"><div id="firebaseEstado" class="notice" role="status">Conectando con Firebase...</div>
-<section id="inicio" class="card"><h2 style="color:#6f1734;margin-top:0">Datos del estudiante</h2><p class="section-sub">Complete los datos para rendir la evaluación.</p><div class="grid">
-<label>Apellidos y nombres completos<input id="nombre" autocomplete="name" placeholder="Apellidos y nombres"></label>
-<label>Número de cédula<input id="cedula" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="10 dígitos" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)"></label>
-<label>Materia<select id="materia"><option value="Estudios Sociales">Estudios Sociales</option></select></label>
-<label>Curso<select id="curso"><option value="">Seleccione el paralelo...</option><option value="Noveno EGB A">Noveno EGB A</option><option value="Noveno EGB B">Noveno EGB B</option><option value="Noveno EGB C">Noveno EGB C</option><option value="Noveno EGB">Noveno EGB (sin paralelo)</option></select></label>
-<label>Fecha<input id="fecha" type="date"></label><label>Docente responsable<input disabled value="Ing. Janeth Intriago"></label></div>
-<div class="reglamento"><h3>Reglamento del examen</h3><ul>
-<li>Este examen contiene 15 preguntas de selección múltiple y se califica sobre 10 puntos.</li><li>Debe seleccionar una sola opción (A, B, C o D) por pregunta; no se solicitan procedimientos.</li>
-<li>Cada pregunta dispone de <strong>15 segundos</strong>. Al agotarse el tiempo, el examen avanza automáticamente a la siguiente pregunta.</li><li>No cambie de pestaña ni abandone la pantalla completa: el sistema puede finalizar la evaluación por infracción.</li><li>Se permite un solo intento por cédula para este examen.</li><li>Responda de manera individual y honesta.</li></ul>
-<label class="acepta"><input type="checkbox" id="acepto" onchange="actualizarBotonInicio()"><span><strong>ACEPTO LAS CONDICIONES Y EL REGLAMENTO DEL EXAMEN.</strong></span></label></div>
-<div class="actions"><button id="btnIniciar" class="btn-primary" disabled onclick="prepararInicio()">Iniciar examen</button></div>
-<p class="small">Al comenzar se solicitará pantalla completa. Se recomienda usar una computadora.</p>
-<button class="teacher-access no-print" onclick="accesoDocente()" type="button">Acceso docente</button></section>
-<section id="examen" class="card hidden"><div class="topbar"><span class="badge" id="contador">Pregunta 1 de 15</span><div class="timer" id="timer">01:00</div></div><div class="progress"><div id="barra"></div></div><div class="student-strip" id="datosBarra"></div><span class="points" id="valorPregunta"></span><div class="question" id="preguntaTexto"></div><div id="opciones"></div><div class="actions"><button id="btnSiguiente" class="btn-primary" onclick="siguiente()">Guardar respuesta y continuar</button></div></section>
-<section id="resultado" class="card hidden"><h2 style="color:#6f1734">Examen finalizado</h2><div id="estadoFinal"></div><div class="result-big" id="nota"></div><div id="resumen"></div><div class="actions no-print"><button class="btn-secondary" onclick="window.print()">Imprimir comprobante</button></div></section>
-<section id="docente" class="card hidden"><div class="topbar"><div><h2 style="color:#6f1734">Panel de la docente</h2><p>Responsable: <strong>Ing. Janeth Intriago</strong></p></div><button class="btn-secondary" onclick="cerrarDocente()">Cerrar configuración</button></div><div class="actions"><button class="btn-primary" onclick="verSeccion('config')">Configurar preguntas</button><button class="btn-success" onclick="verSeccion('resultados')">Consultar calificaciones</button></div>
-<div id="config"><div class="notice"><strong>Examen de Estudios Sociales de 9no EGB.</strong> Las preguntas tienen únicamente cuatro opciones; seleccione la letra correcta y el tiempo asignado. La puntuación total es de 10 puntos. <strong>Tiempo fijo de 15 segundos por pregunta en todos los computadores.</strong> Los cambios de enunciados y opciones realizados en este panel se guardan únicamente en este navegador.</div><div id="editor"></div><div class="actions"><button class="btn-success" onclick="guardarConfig()">Guardar configuración local</button><button class="btn-secondary" onclick="restaurarConfig()">Restaurar preguntas del Word</button></div></div>
-<div id="resultados" class="hidden"><div class="topbar"><h3 id="tituloResultados">Resultados de Estudios Sociales</h3><div class="actions"><button class="btn-secondary" onclick="exportarCSV()">Exportar CSV</button><button class="btn-danger" onclick="borrarResultados()">Borrar resultados de este examen</button></div></div><div style="overflow:auto"><table><thead><tr><th>Estudiante</th><th>Cédula</th><th>Materia</th><th>Curso</th><th>Fecha</th><th>Nota / 10</th><th>Aciertos</th><th>Estado</th><th>Docente</th><th>Finalizado</th></tr></thead><tbody id="tablaResultados"></tbody></table></div></div></section></main>
-<footer class="footer">Unidad Educativa Particular “Jacinto Burgos Pinargote” · Docente: Ing. Janeth Intriago</footer>
+<header>
+  <h1>UNIDAD EDUCATIVA PARTICULAR “JACINTO BURGOS PINARGOTE”</h1>
+  <p class="subtitle">EXAMEN DEL SEGUNDO TRIMESTRE DE LENGUA Y LITERATURA</p>
+  <p>9no de Educación General Básica · Profesora Lisbeth Menéndez</p>
+</header>
+
+<main class="container">
+  <div id="firebaseEstado" class="notice" role="status">Cargando sistema de evaluación...</div>
+
+  <!-- REGISTRO DE DATOS DE ESTUDIANTE -->
+  <section id="inicio" class="card">
+    <h2 style="color: var(--vino); margin-top: 0;">Datos del Estudiante</h2>
+    <p class="section-sub">Complete la información requerida para rendir la evaluación de Lengua y Literatura.</p>
+    
+    <div class="grid">
+      <label>Apellidos y nombres completos
+        <input id="nombre" autocomplete="name" placeholder="Ej. Mendoza Vera Juan Carlos">
+      </label>
+      <label>Número de cédula
+        <input id="cedula" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="10 dígitos" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+      </label>
+      <label>Materia
+        <select id="materia" disabled>
+          <option value="Lengua y Literatura" selected>Lengua y Literatura</option>
+        </select>
+      </label>
+      <label>Curso / Paralelo
+        <select id="curso">
+          <option value="">Seleccione el paralelo...</option>
+          <option value="9no de Básica A">9no de Básica A</option>
+          <option value="9no de Básica B">9no de Básica B</option>
+          <option value="9no de Básica C">9no de Básica C</option>
+          <option value="9no de Básica">9no de Básica (General)</option>
+        </select>
+      </label>
+      <label>Fecha
+        <input id="fecha" type="date">
+      </label>
+      <label>Docente responsable
+        <input disabled value="Profesora Lisbeth Menéndez">
+      </label>
+    </div>
+
+    <div class="reglamento">
+      <h3>Instrucciones y Reglamento del Examen</h3>
+      <ul>
+        <li>Este examen contiene <strong>20 preguntas de opción múltiple</strong> y se califica sobre <strong>10.00 puntos</strong> (0.50 pts por respuesta correcta).</li>
+        <li>Seleccione una sola opción (A, B, C o D) por cada pregunta antes de continuar.</li>
+        <li>Cada pregunta dispone de <strong>estrictamente 15 segundos</strong>. Transcurrido el tiempo, el sistema avanza automáticamente guardando la respuesta o dejándola nula si no fue respondida.</li>
+        <li>Está prohibido cambiar de pestaña, minimizar la ventana o salir de la pantalla completa. Cualquier intento registrará una infracción.</li>
+        <li>Se permite un solo intento por número de cédula.</li>
+        <li>Se recuerda que la deshonestidad académica es una falta grave sancionada por la institución.</li>
+      </ul>
+      <label class="acepta">
+        <input type="checkbox" id="acepto" onchange="actualizarBotonInicio()">
+        <span><strong>HE LEÍDO Y ACEPTO LAS CONDICIONES Y EL REGLAMENTO DEL EXAMEN.</strong></span>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button id="btnIniciar" class="btn-primary" disabled onclick="prepararInicio()">Iniciar Examen de Lengua</button>
+    </div>
+    <p class="small" style="margin-top: 12px;">Al comenzar se solicitará pantalla completa. Se recomienda rendir el examen desde una computadora.</p>
+    <button class="teacher-access no-print" onclick="accesoDocente()" type="button">Acceso docente (Profesora Lisbeth Menéndez)</button>
+  </section>
+
+  <!-- PANTALLA DE EXAMEN -->
+  <section id="examen" class="card hidden">
+    <div class="topbar">
+      <span class="badge" id="contador">Pregunta 1 de 20</span>
+      <div class="timer" id="timer">00:15</div>
+    </div>
+    <div class="progress"><div id="barra"></div></div>
+    
+    <div class="student-strip" id="datosBarra"></div>
+    <span class="points" id="valorPregunta">Valor: 0,50 puntos</span>
+    
+    <div class="question" id="preguntaTexto"></div>
+    <div id="opciones"></div>
+    
+    <div class="actions">
+      <button id="btnSiguiente" class="btn-primary" onclick="siguiente()">Guardar respuesta y continuar</button>
+    </div>
+  </section>
+
+  <!-- PANTALLA DE RESULTADOS -->
+  <section id="resultado" class="card hidden">
+    <h2 style="color: var(--vino); margin-top: 0;">Examen Finalizado</h2>
+    <div id="estadoFinal"></div>
+    <div class="result-big" id="nota">0.00 / 10</div>
+    <div id="resumen"></div>
+    <div class="actions no-print">
+      <button class="btn-secondary" onclick="window.print()">Imprimir Comprobante</button>
+    </div>
+  </section>
+
+  <!-- PANEL DOCENTE -->
+  <section id="docente" class="card hidden">
+    <div class="topbar">
+      <div>
+        <h2 style="color: var(--vino); margin-top: 0;">Panel de Administración Docente</h2>
+        <p>Docente a cargo: <strong>Profesora Lisbeth Menéndez</strong> | Vicerrectora: <strong>Mg. Rita Loor Chávez</strong></p>
+      </div>
+      <button class="btn-secondary" onclick="cerrarDocente()">Cerrar Sesión Panel</button>
+    </div>
+    
+    <div class="actions" style="margin-bottom: 16px;">
+      <button class="btn-primary" onclick="verSeccion('config')">Configurar Banco de Preguntas</button>
+      <button class="btn-success" onclick="verSeccion('resultados')">Consultar Calificaciones</button>
+    </div>
+
+    <!-- SUBSECCIÓN CONFIGURACIÓN DE PREGUNTAS -->
+    <div id="config">
+      <div class="notice">
+        <strong>Examen de Lengua y Literatura - 9no EGB.</strong> Posee 20 preguntas ponderadas con 0.50 pts cada una. Tiempo fijo de <strong>15 segundos por pregunta</strong>.
+      </div>
+      <div id="editor"></div>
+      <div class="actions">
+        <button class="btn-success" onclick="guardarConfig()">Guardar Cambios Localmente</button>
+        <button class="btn-secondary" onclick="restaurarConfig()">Restaurar Preguntas del Word Original</button>
+      </div>
+    </div>
+
+    <!-- SUBSECCIÓN TABLA DE RESULTADOS -->
+    <div id="resultados" class="hidden">
+      <div class="topbar">
+        <h3 id="tituloResultados">Calificaciones de Lengua y Literatura</h3>
+        <div class="actions">
+          <button class="btn-secondary" onclick="exportarCSV()">Exportar Reporte a CSV</button>
+          <button class="btn-danger" onclick="borrarResultados()">Borrar Todos los Resultados</button>
+        </div>
+      </div>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Estudiante</th>
+              <th>Cédula</th>
+              <th>Materia</th>
+              <th>Curso</th>
+              <th>Fecha</th>
+              <th>Nota / 10</th>
+              <th>Aciertos</th>
+              <th>Estado</th>
+              <th>Docente</th>
+              <th>Finalizado</th>
+            </tr>
+          </thead>
+          <tbody id="tablaResultados"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  Unidad Educativa Particular “Jacinto Burgos Pinargote” · Portoviejo - Manabí<br>
+  Docente: Profesora Lisbeth Menéndez | Vicerrectora Académica: Mg. Rita Loor Chávez
+</footer>
+
 <script>
-const CLAVE_DOCENTE = "JBP 2026"; // Compatibilidad con el acceso local del archivo original; NO es autenticación segura.
-const STORAGE_PREGUNTAS="jbp_sociales_9no_t2_preguntas_v1";
-const STORAGE_RESULTADOS="jbp_sociales_9no_t2_resultados_v1";
-const COLECCION="resultados_sociales_9no_t2";
+// Clave por defecto para acceso administrativo docente
+const CLAVE_DOCENTE = "JBP2026";
+const STORAGE_PREGUNTAS = "jbp_lengua_9no_t2_preguntas_v2";
+const STORAGE_RESULTADOS = "jbp_lengua_9no_t2_resultados_v2";
+const COLECCION = "resultados_lengua_9no_t2";
+
+// Configuración opcional Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyA3IAQjjTagk02SrSErowf8hnCkDvyP1lA",
   authDomain: "examen-jbp-2026.firebaseapp.com",
@@ -143,242 +355,784 @@ const firebaseConfig = {
   messagingSenderId: "451434970006",
   appId: "1:451434970006:web:954be11b701acf15eebbb7"
 };
-let db=null,auth=null,firebaseListo=false;
+
+let db = null, auth = null, firebaseListo = false;
+
+// Banco oficial de 20 preguntas del Word de Lengua y Literatura (0.50 puntos c/u)
 const preguntasOriginales = [
   {
-    "texto": "¿Cuál fue uno de los principales aportes de las culturas americanas antes de la llegada de los europeos?",
+    "texto": "1. ¿Cuál es la principal finalidad de un texto argumentativo?",
     "opciones": [
-      "La construcción de fábricas industriales.",
-      "El desarrollo de conocimientos agrícolas, matemáticos y arquitectónicos.",
-      "La creación de automóviles.",
-      "La fabricación de aviones."
+      "Narrar acontecimientos reales o imaginarios.",
+      "Describir detalladamente las características de un personaje.",
+      "Defender una opinión mediante razones y argumentos.",
+      "Entretener al lector mediante situaciones ficticias."
     ],
-    "correcta": 1,
-    "puntos": 0.5,
+    "correcta": 2,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Qué diferencia existía entre las sociedades americanas y europeas antes de la conquista?",
+    "texto": "2. ¿Qué función cumple la tesis dentro de un texto argumentativo?",
     "opciones": [
-      "Todas tenían las mismas costumbres y organización.",
-      "En América existían grandes civilizaciones con sus propias formas de gobierno y cultura.",
-      "Europa no tenía ciudades.",
-      "América no conocía la agricultura."
+      "Presentar los ejemplos que acompañan al texto.",
+      "Expresar la postura o idea principal que se pretende defender.",
+      "Describir el contexto histórico del tema.",
+      "Presentar una conclusión sin argumentos."
     ],
     "correcta": 1,
-    "puntos": 0.5,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Cuál fue uno de los principales motivos de las exploraciones marítimas europeas?",
+    "texto": "3. Lee el siguiente enunciado:\n«El uso excesivo del celular afecta el rendimiento académico porque disminuye la concentración de los estudiantes».\n¿Qué elemento argumentativo se evidencia principalmente?",
     "opciones": [
-      "Buscar nuevas rutas comerciales y riquezas.",
-      "Evitar el comercio con otros pueblos.",
-      "Conocer únicamente los animales de América.",
-      "Abandonar las actividades comerciales."
+      "Una narración.",
+      "Una descripción.",
+      "Un argumento.",
+      "Un diálogo."
+    ],
+    "correcta": 2,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "4. ¿Cuál es la función de la conclusión en un texto argumentativo?",
+    "opciones": [
+      "Introducir un tema completamente diferente.",
+      "Repetir todos los ejemplos sin analizarlos.",
+      "Presentar nuevos personajes y situaciones.",
+      "Cerrar el razonamiento reafirmando la postura defendida."
+    ],
+    "correcta": 3,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "5. Un estudiante afirma:\n«Considero que la lectura debe fomentarse en los adolescentes, ya que mejora el vocabulario y desarrolla el pensamiento crítico».\n¿Qué elemento representa la expresión «Considero que la lectura debe fomentarse en los adolescentes»?",
+    "opciones": [
+      "La tesis.",
+      "La conclusión.",
+      "La evidencia.",
+      "El contraargumento."
     ],
     "correcta": 0,
-    "puntos": 0.5,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Qué avances facilitaron las exploraciones marítimas europeas?",
+    "texto": "6. Una obra literaria relata las aventuras de un personaje, presenta acontecimientos y desarrolla una secuencia de hechos. ¿A qué género pertenece?",
     "opciones": [
-      "La televisión y la radio.",
-      "El automóvil y el tren.",
-      "La brújula, el astrolabio y las carabelas.",
-      "Los teléfonos y las computadoras."
+      "Lírico.",
+      "Dramático.",
+      "Narrativo.",
+      "Didáctico."
     ],
     "correcta": 2,
-    "puntos": 0.5,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Qué significa interculturalidad?",
+    "texto": "7. ¿Cuál de las siguientes características corresponde al género lírico?",
     "opciones": [
-      "Rechazar las culturas diferentes.",
-      "Imponer una sola forma de pensar.",
-      "Promover el respeto, el diálogo y la convivencia entre diferentes culturas.",
-      "Evitar relacionarse con otras personas."
-    ],
-    "correcta": 2,
-    "puntos": 0.5,
-    "tiempo": 15
-  },
-  {
-    "texto": "¿Cuál de las siguientes situaciones representa la interculturalidad en nuestra vida cotidiana?",
-    "opciones": [
-      "Burlarse de las costumbres de otras comunidades.",
-      "Respetar las tradiciones, lenguas y creencias de otras culturas.",
-      "Discriminar a las personas por su origen.",
-      "Considerar que una cultura es superior a otra."
+      "Presenta instrucciones para enseñar un conocimiento.",
+      "Expresa sentimientos, emociones y pensamientos.",
+      "Desarrolla una historia mediante un narrador.",
+      "Presenta conflictos representados por actores."
     ],
     "correcta": 1,
-    "puntos": 0.6,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Qué se entiende por exploración de América?",
+    "texto": "8. Una fábula que presenta animales con características humanas y termina con una enseñanza pertenece principalmente al género:",
     "opciones": [
-      "El proceso mediante el cual los europeos recorrieron y conocieron territorios americanos.",
-      "La independencia de todos los países americanos.",
-      "La construcción de las primeras fábricas.",
-      "La creación de nuevas constituciones."
+      "Dramático.",
+      "Lírico.",
+      "Narrativo.",
+      "Didáctico."
+    ],
+    "correcta": 2,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "9. ¿Qué característica permite identificar principalmente al género dramático?",
+    "opciones": [
+      "Está escrito para ser representado mediante diálogos y acciones.",
+      "Expresa emociones utilizando versos y rimas.",
+      "Presenta una enseñanza mediante consejos.",
+      "Relata acontecimientos a través de un narrador."
     ],
     "correcta": 0,
-    "puntos": 0.6,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Qué ocurrió durante la conquista de América?",
+    "texto": "10. Lee el siguiente fragmento:\n«El viento susurra entre los árboles, mientras mi corazón recuerda los momentos felices».\n¿Por qué este fragmento se relaciona con el género lírico?",
     "opciones": [
-      "Los pueblos americanos conquistaron Europa.",
-      "Los europeos establecieron su dominio sobre diversos territorios y pueblos americanos.",
-      "Desaparecieron todas las diferencias culturales.",
-      "América dejó de tener habitantes."
+      "Porque explica un conocimiento científico.",
+      "Porque presenta una conversación entre personajes.",
+      "Porque relata una aventura con inicio y desenlace.",
+      "Porque expresa sentimientos mediante un lenguaje poético."
+    ],
+    "correcta": 3,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "11. En la oración «La profesora explicó la lección a sus estudiantes», ¿qué clasificación corresponde al sustantivo «profesora»?",
+    "opciones": [
+      "Propio, abstracto e individual.",
+      "Común, concreto e individual.",
+      "Colectivo, concreto y derivado.",
+      "Común, abstracto y compuesto."
     ],
     "correcta": 1,
-    "puntos": 0.6,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Cuál fue una consecuencia de la conquista para los pueblos indígenas?",
+    "texto": "12. ¿Cuál de las siguientes opciones contiene únicamente sustantivos propios?",
     "opciones": [
-      "Mantuvieron intactas todas sus formas de organización.",
-      "Aumentó su independencia política.",
-      "Sufrieron pérdida de territorios, enfermedades y cambios en sus formas de vida.",
-      "Se convirtieron en gobernantes de Europa."
-    ],
-    "correcta": 2,
-    "puntos": 0.6,
-    "tiempo": 15
-  },
-  {
-    "texto": "¿Qué fue la colonización de América?",
-    "opciones": [
-      "El proceso de organización y control de los territorios americanos por parte de las potencias europeas.",
-      "La unión de todos los países americanos.",
-      "La eliminación del comercio europeo.",
-      "El proceso de independencia de América."
+      "Ecuador, Manabí, Daniela.",
+      "Ciudad, provincia, estudiante.",
+      "Escuela, Portoviejo, montaña.",
+      "María, profesora, cuaderno."
     ],
     "correcta": 0,
-    "puntos": 0.6,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Cuál fue una de las principales actividades económicas durante la colonización?",
+    "texto": "13. ¿Qué opción presenta correctamente un sustantivo abstracto?",
     "opciones": [
-      "La fabricación de computadoras.",
-      "La minería y la agricultura.",
-      "La producción de tecnología digital.",
-      "La exploración espacial."
-    ],
-    "correcta": 1,
-    "puntos": 0.9,
-    "tiempo": 15
-  },
-  {
-    "texto": "¿Qué relación existe entre exploración, conquista y colonización?",
-    "opciones": [
-      "Son acontecimientos sin ninguna relación histórica.",
-      "Fueron procesos relacionados con la llegada, el dominio y la organización europea de territorios americanos.",
-      "Ocurrieron únicamente en Europa.",
-      "Fueron procesos que sucedieron después de la independencia."
-    ],
-    "correcta": 1,
-    "puntos": 0.9,
-    "tiempo": 15
-  },
-  {
-    "texto": "¿En qué país se desarrolló la Revolución Mexicana?",
-    "opciones": [
-      "Ecuador.",
-      "Colombia.",
-      "México.",
-      "Perú."
+      "Ventana.",
+      "Montaña.",
+      "Honestidad.",
+      "Escritorio."
     ],
     "correcta": 2,
-    "puntos": 0.9,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿En qué año comenzó la Revolución Mexicana?",
+    "texto": "14. ¿Cuál es la diferencia entre un sustantivo individual y uno colectivo?",
     "opciones": [
-      "1492.",
-      "1810.",
-      "1910.",
-      "1945."
+      "El individual nombra sentimientos y el colectivo objetos.",
+      "El individual siempre es propio y el colectivo siempre es común.",
+      "El individual nombra una cualidad y el colectivo una acción.",
+      "El individual nombra un solo ser y el colectivo, en singular, representa un conjunto."
     ],
-    "correcta": 2,
-    "puntos": 0.9,
+    "correcta": 3,
+    "puntos": 0.50,
     "tiempo": 15
   },
   {
-    "texto": "¿Cuál fue uno de los principales objetivos de la Revolución Mexicana?",
+    "texto": "15. En la expresión «El enjambre rodeó las flores», ¿qué clasificación tiene la palabra «enjambre»?",
     "opciones": [
-      "Defender la desigualdad social.",
-      "Conseguir cambios políticos y sociales, incluyendo una mayor justicia en la distribución de tierras.",
-      "Establecer el dominio europeo en México.",
-      "Eliminar los derechos de los campesinos."
+      "Sustantivo individual.",
+      "Sustantivo colectivo.",
+      "Sustantivo abstracto.",
+      "Sustantivo propio."
     ],
     "correcta": 1,
-    "puntos": 0.9,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "16. ¿Cuál de los siguientes grupos contiene únicamente sustantivos no contables?",
+    "opciones": [
+      "Mesa, lápiz y cuaderno.",
+      "Manzana, naranja y pera.",
+      "Arena, leche y aceite.",
+      "Libro, silla y botella."
+    ],
+    "correcta": 2,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "17. ¿Qué opción contiene un sustantivo primitivo y su correspondiente derivado?",
+    "opciones": [
+      "Pan – panadero.",
+      "Flor – jardín.",
+      "Casa – edificio.",
+      "Libro – biblioteca."
+    ],
+    "correcta": 0,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "18. ¿Cuál de las siguientes palabras es un sustantivo derivado?",
+    "opciones": [
+      "Mar.",
+      "Sol.",
+      "Pan.",
+      "Librería."
+    ],
+    "correcta": 3,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "19. Identifica la opción que contiene únicamente sustantivos simples.",
+    "opciones": [
+      "Paraguas, sacapuntas y abrelatas.",
+      "Flor, mesa y papel.",
+      "Lavaplatos, automóvil y girasol.",
+      "Ciempiés, medianoche y cumpleaños."
+    ],
+    "correcta": 1,
+    "puntos": 0.50,
+    "tiempo": 15
+  },
+  {
+    "texto": "20. En la oración «El limpiaparabrisas del automóvil estaba dañado», ¿qué clasificación corresponde a la palabra «limpiaparabrisas»?",
+    "opciones": [
+      "Sustantivo primitivo.",
+      "Sustantivo simple.",
+      "Sustantivo compuesto.",
+      "Sustantivo abstracto."
+    ],
+    "correcta": 2,
+    "puntos": 0.50,
     "tiempo": 15
   }
 ];
-function clonar(x){return JSON.parse(JSON.stringify(x))}
-function obtenerPreguntas(){try{const v=JSON.parse(localStorage.getItem(STORAGE_PREGUNTAS)||"null");if(Array.isArray(v)&&v.length===15&&v.every(q=>Array.isArray(q.opciones)&&q.opciones.length===4))return v;}catch(e){}return clonar(preguntasOriginales)}
-let preguntas=obtenerPreguntas(), alumno={}, respuestas=[], indice=0,segundos=0,intervalo=null,examenActivo=false,finalizando=false,modoDocente=false,proteccionActiva=false,blurTimer=null,resultadosOnlineCache=[];
-const $=id=>document.getElementById(id);
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-$('fecha').value=new Date().toLocaleDateString('en-CA');
-try{firebase.initializeApp(firebaseConfig);auth=firebase.auth();db=firebase.firestore();auth.signInAnonymously().then(()=>{firebaseListo=true;$('firebaseEstado').innerHTML='<strong>✓ Conectado a Firebase.</strong> Los intentos y resultados de este examen se registran en línea.'}).catch(e=>{$('firebaseEstado').innerHTML='<strong>No se pudo conectar a Firebase:</strong> '+esc(e.message)})}catch(e){$('firebaseEstado').textContent='Error de inicialización de Firebase: '+e.message}
-function actualizarBotonInicio(){$('btnIniciar').disabled=!$('acepto').checked}
-async function prepararInicio(){
- const nombre=$('nombre').value.trim(),cedula=$('cedula').value.trim(),materia=$('materia').value,curso=$('curso').value,fecha=$('fecha').value;
- if(!nombre||!/^\d{10}$/.test(cedula)||!curso||!fecha){alert('Complete nombres, cédula de 10 dígitos, curso y fecha.');return}
- if(!$('acepto').checked)return;
- if(!firebaseListo||!auth.currentUser){alert('Sin conexión con Firebase. Verifique la conexión y el inicio de sesión anónimo.');return}
- alumno={nombre,cedula,materia,curso,fecha};
- const ref=db.collection(COLECCION).doc(cedula);
- // No se consulta la cédula previamente: Firestore autoriza crear el documento
- // pero prohíbe reiniciar un intento existente mediante sus reglas de seguridad.
- try{await ref.set({ownerUid:auth.currentUser.uid,...alumno,docente:'Ing. Janeth Intriago',estado:'EN PROCESO',nota:null,aciertos:0,total:preguntas.length,inicio:firebase.firestore.FieldValue.serverTimestamp(),ultimaActualizacion:firebase.firestore.FieldValue.serverTimestamp()})}
- catch(e){alert(e.code==='permission-denied'?'Firebase no autorizó el registro. Puede existir un intento anterior para esta cédula o faltar la regla de permisos de esta colección.':'No se pudo registrar el intento: '+e.message);return}
- try{if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen()}catch(e){await registrarInfraccionFirebase('No se pudo activar la pantalla completa');alert('No se pudo activar pantalla completa; el intento quedó registrado.');return}
- iniciarExamen();
+
+function clonar(obj) { return JSON.parse(JSON.stringify(obj)); }
+
+function obtenerPreguntas() {
+  try {
+    const v = JSON.parse(localStorage.getItem(STORAGE_PREGUNTAS) || "null");
+    if (Array.isArray(v) && v.length === 20 && v.every(q => Array.isArray(q.opciones) && q.opciones.length === 4)) {
+      return v;
+    }
+  } catch (e) {}
+  return clonar(preguntasOriginales);
 }
-function iniciarExamen(){indice=0;respuestas=[];examenActivo=true;finalizando=false;proteccionActiva=false;$('inicio').classList.add('hidden');$('examen').classList.remove('hidden');setTimeout(()=>{if(examenActivo)proteccionActiva=true},1500);mostrarPregunta()}
-function mostrarPregunta(){clearInterval(intervalo);if(indice>=preguntas.length){finalizarNormal();return}const p=preguntas[indice];$('contador').textContent=`Pregunta ${indice+1} de ${preguntas.length}`;$('barra').style.width=`${100*indice/preguntas.length}%`;$('preguntaTexto').textContent=p.texto;$('valorPregunta').textContent=`Valor: ${Number(p.puntos).toFixed(2).replace('.',',')} puntos`;
- $('datosBarra').innerHTML=`<div><strong>ESTUDIANTE</strong>${esc(alumno.nombre)}</div><div><strong>CÉDULA</strong>${esc(alumno.cedula)}</div><div><strong>MATERIA</strong>${esc(alumno.materia)}</div><div><strong>CURSO</strong>${esc(alumno.curso)}</div><div><strong>FECHA</strong>${esc(alumno.fecha)}</div>`;
- $('opciones').innerHTML='';p.opciones.forEach((o,i)=>{const l=document.createElement('label');l.className='option';l.innerHTML=`<input type="radio" name="respuesta" value="${i}"><strong>${'ABCD'[i]}.</strong> ${esc(o)}`;$('opciones').appendChild(l)});
- $('btnSiguiente').textContent=indice===preguntas.length-1?'Finalizar examen':'Guardar respuesta y continuar';segundos=15;pintarTimer();intervalo=setInterval(()=>{segundos--;pintarTimer();if(segundos<=0){clearInterval(intervalo);guardarRespuesta(true)}},1000)}
-function pintarTimer(){const t=$('timer');t.textContent=`${String(Math.floor(segundos/60)).padStart(2,'0')}:${String(segundos%60).padStart(2,'0')}`;t.style.color=segundos<=10?'#c62828':'#6f1734'}
-function siguiente(){if(!document.querySelector('input[name="respuesta"]:checked')){alert('Seleccione una respuesta antes de continuar.');return}guardarRespuesta(false)}
-function guardarRespuesta(porTiempo){if(!examenActivo||finalizando)return;clearInterval(intervalo);const sel=document.querySelector('input[name="respuesta"]:checked');respuestas.push({pregunta:indice,respuesta:sel?Number(sel.value):null,agotadoTiempo:!!porTiempo});indice++;if(indice>=preguntas.length)finalizarNormal();else mostrarPregunta()}
-function completarNoRespondidas(){for(let i=respuestas.length;i<preguntas.length;i++)respuestas.push({pregunta:i,respuesta:null,agotadoTiempo:false})}
-function calcularNota(){let aciertos=0,nota=0;respuestas.forEach((r,i)=>{if(r.respuesta!==null&&r.respuesta===Number(preguntas[i].correcta)){aciertos++;nota+=Number(preguntas[i].puntos)||0}});return {aciertos,nota:Math.round((nota+Number.EPSILON)*100)/100}}
-async function finalizarNormal(){if(finalizando)return;finalizando=true;examenActivo=false;proteccionActiva=false;clearInterval(intervalo);completarNoRespondidas();const {aciertos,nota}=calcularNota();guardarResultado('FINALIZADO',aciertos,nota);mostrarResultado(false,'',aciertos,nota);try{if(document.fullscreenElement)await document.exitFullscreen()}catch(e){}}
-async function finalizarPorInfraccion(motivo){if(!examenActivo||finalizando||modoDocente)return;finalizando=true;examenActivo=false;proteccionActiva=false;clearInterval(intervalo);completarNoRespondidas();const {aciertos,nota}=calcularNota();guardarResultado('INFRACCIÓN DEL REGLAMENTO',aciertos,nota,motivo);mostrarResultado(true,motivo,aciertos,nota);try{if(document.fullscreenElement)await document.exitFullscreen()}catch(e){}}
-async function registrarInfraccionFirebase(motivo){try{await db.collection(COLECCION).doc(alumno.cedula).update({estado:'INFRACCIÓN DEL REGLAMENTO',motivo,finalizado:firebase.firestore.FieldValue.serverTimestamp()})}catch(e){console.error(e)}}
-async function actualizarResultadoFirebase(estado,aciertos,nota,motivo){try{await db.collection(COLECCION).doc(alumno.cedula).update({estado,nota,aciertos,motivo,docente:'Ing. Janeth Intriago',respuestas:respuestas.map((r,i)=>({pregunta:i+1,respuesta:r.respuesta,agotadoTiempo:r.agotadoTiempo})),finalizado:firebase.firestore.FieldValue.serverTimestamp(),ultimaActualizacion:firebase.firestore.FieldValue.serverTimestamp()})}catch(e){console.error('No se pudo guardar en Firebase',e);$('estadoFinal').innerHTML='<div class="warning">No se pudo confirmar el envío a Firebase. Comuníquelo a la docente.</div>'}}
-function guardarResultado(estado,aciertos,nota,motivo=''){const r={...alumno,docente:'Ing. Janeth Intriago',estado,aciertos,nota,total:preguntas.length,motivo,respuestas:clonar(respuestas),finalizado:new Date().toLocaleString('es-EC')};try{const arr=JSON.parse(localStorage.getItem(STORAGE_RESULTADOS)||'[]');arr.push(r);localStorage.setItem(STORAGE_RESULTADOS,JSON.stringify(arr))}catch(e){}actualizarResultadoFirebase(estado,aciertos,nota,motivo)}
-function mostrarResultado(infraccion,motivo,aciertos,nota){$('examen').classList.add('hidden');$('resultado').classList.remove('hidden');$('estadoFinal').innerHTML=infraccion?`<div class="violation">EXAMEN FINALIZADO POR INFRACCIÓN DEL REGLAMENTO. ${esc(motivo)}</div>`:'<div class="notice">Evaluación finalizada. El sistema intentará almacenar el resultado en línea.</div>';$('nota').textContent=`${nota.toFixed(2)} / 10`;$('resumen').innerHTML=`<p><strong>Estudiante:</strong> ${esc(alumno.nombre)}</p><p><strong>Cédula:</strong> ${esc(alumno.cedula)}</p><p><strong>Materia:</strong> Estudios Sociales</p><p><strong>Curso:</strong> ${esc(alumno.curso)}</p><p><strong>Fecha:</strong> ${esc(alumno.fecha)}</p><p><strong>Docente:</strong> Ing. Janeth Intriago</p><p><strong>Aciertos:</strong> ${aciertos} de ${preguntas.length}</p><div class="notice">Cada respuesta correcta suma el valor de su pregunta (0,50; 0,60 o 0,90 puntos). Calificación máxima: 10 puntos.</div>`}
-// Las protecciones del navegador disuaden conductas, pero no son un sistema antifraude infalible.
-document.addEventListener('visibilitychange',()=>{if(examenActivo&&proteccionActiva&&document.hidden)finalizarPorInfraccion('Cambio de pestaña o ventana')});
-window.addEventListener('blur',()=>{if(!examenActivo||!proteccionActiva||modoDocente)return;clearTimeout(blurTimer);blurTimer=setTimeout(()=>{if(examenActivo&&proteccionActiva&&!document.hasFocus())finalizarPorInfraccion('La ventana perdió el foco')},700)});
-document.addEventListener('fullscreenchange',()=>{if(examenActivo&&proteccionActiva&&!document.fullscreenElement)finalizarPorInfraccion('Salida de pantalla completa')});
-window.addEventListener('beforeunload',e=>{if(examenActivo){e.preventDefault();e.returnValue=''}});
-document.addEventListener('contextmenu',e=>{if(examenActivo)e.preventDefault()});
-document.addEventListener('keydown',e=>{if(examenActivo){const k=e.key.toLowerCase();if(['f11','f12','escape'].includes(k)||(e.ctrlKey&&['r','l','t','w','u','s','p'].includes(k))||(e.ctrlKey&&e.shiftKey&&['i','j','c'].includes(k))){e.preventDefault();return}}if(!examenActivo&&e.altKey&&e.shiftKey&&e.key.toLowerCase()==='d'){e.preventDefault();accesoDocente()}});
-function accesoDocente(){if(examenActivo)return;const clave=prompt('Contraseña de acceso docente:');if(clave===CLAVE_DOCENTE){modoDocente=true;$('inicio').classList.add('hidden');$('resultado').classList.add('hidden');$('docente').classList.remove('hidden');verSeccion('config');renderEditor()}else if(clave!==null)alert('Contraseña incorrecta.')}
-function cerrarDocente(){modoDocente=false;$('docente').classList.add('hidden');$('inicio').classList.remove('hidden')}
-function verSeccion(sec){$('config').classList.toggle('hidden',sec!=='config');$('resultados').classList.toggle('hidden',sec!=='resultados');if(sec==='resultados')cargarResultados()}
-function renderEditor(){$('editor').innerHTML='';preguntas.forEach((p,i)=>{const box=document.createElement('div');box.className='admin-q';box.innerHTML=`<h4>Pregunta ${i+1} · ${Number(p.puntos).toFixed(2).replace('.',',')} puntos</h4><label>Enunciado<textarea data-field="texto">${esc(p.texto)}</textarea></label><div class="grid">${p.opciones.map((o,j)=>`<label>Opción ${'ABCD'[j]}<input data-op="${j}" value="${esc(o)}"></label>`).join('')}</div><div class="grid" style="margin-top:12px"><label>Respuesta correcta<select data-field="correcta">${p.opciones.map((_,j)=>`<option value="${j}" ${j===Number(p.correcta)?'selected':''}>${'ABCD'[j]}</option>`).join('')}</select></label></div>`;$('editor').appendChild(box)})}
-function guardarConfig(){const nuevas=[];document.querySelectorAll('.admin-q').forEach((box,i)=>{nuevas.push({texto:box.querySelector('[data-field="texto"]').value.trim(),opciones:[0,1,2,3].map(j=>box.querySelector(`[data-op="${j}"]`).value.trim()),correcta:Number(box.querySelector('[data-field="correcta"]').value),puntos:preguntasOriginales[i].puntos,tiempo:15})});if(nuevas.length!==15||nuevas.some(q=>!q.texto||q.opciones.some(x=>!x))){alert('Complete los enunciados y las cuatro opciones de las 15 preguntas.');return}preguntas=nuevas;localStorage.setItem(STORAGE_PREGUNTAS,JSON.stringify(preguntas));alert('Configuración guardada en este navegador. Los cambios de contenido no se sincronizan con otros dispositivos; el tiempo de 15 segundos sí está fijado para todos.')}
-function restaurarConfig(){if(confirm('¿Restaurar las 15 preguntas originales del documento Word?')){preguntas=clonar(preguntasOriginales);localStorage.removeItem(STORAGE_PREGUNTAS);renderEditor()}}
-function fechaFirebase(v){try{return v&&typeof v.toDate==='function'?v.toDate().toLocaleString('es-EC'):v?.seconds?new Date(v.seconds*1000).toLocaleString('es-EC'):String(v||'')}catch(e){return ''}}
-async function cargarResultados(){const tb=$('tablaResultados');tb.innerHTML='<tr><td colspan="10">Consultando resultados...</td></tr>';let datos=[];try{if(!firebaseListo)throw Error('Sin conexión');const snap=await db.collection(COLECCION).get();snap.forEach(d=>{const r=d.data();datos.push({...r,cedula:r.cedula||d.id,finalizado:fechaFirebase(r.finalizado||r.ultimaActualizacion||r.inicio)})});$('tituloResultados').textContent=`Resultados almacenados en línea (${datos.length})`}catch(e){datos=JSON.parse(localStorage.getItem(STORAGE_RESULTADOS)||'[]');$('tituloResultados').textContent='Resultados locales (sin acceso a Firestore)';console.warn(e)}resultadosOnlineCache=datos;tb.innerHTML=datos.length?'':'<tr><td colspan="10">No hay resultados.</td></tr>';datos.forEach(r=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${esc(r.nombre)}</td><td>${esc(r.cedula)}</td><td>${esc(r.materia)}</td><td>${esc(r.curso)}</td><td>${esc(r.fecha)}</td><td><strong>${r.nota==null?'—':Number(r.nota).toFixed(2)}</strong></td><td>${Number(r.aciertos||0)}/${Number(r.total||15)}</td><td>${esc(r.estado)}</td><td>${esc(r.docente||'Ing. Janeth Intriago')}</td><td>${esc(r.finalizado)}</td>`;tb.appendChild(tr)})}
-async function borrarResultados(){if(!confirm('¿Eliminar TODOS los resultados de Estudios Sociales de 9no, segundo trimestre? Esta acción no se puede deshacer.'))return;if(!firebaseListo){alert('Sin conexión con Firebase.');return}try{const snap=await db.collection(COLECCION).get();for(let i=0;i<snap.docs.length;i+=400){const batch=db.batch();snap.docs.slice(i,i+400).forEach(d=>batch.delete(d.ref));await batch.commit()}localStorage.removeItem(STORAGE_RESULTADOS);await cargarResultados();alert('Resultados eliminados.')}catch(e){alert('Error eliminando resultados: '+e.message)}}
-async function exportarCSV(){if(!resultadosOnlineCache.length)await cargarResultados();if(!resultadosOnlineCache.length){alert('No hay resultados');return}const rows=[['Estudiante','Cédula','Materia','Curso','Fecha','Nota','Aciertos','Total','Estado','Motivo','Docente','Finalizado']];resultadosOnlineCache.forEach(r=>rows.push([r.nombre,r.cedula,r.materia,r.curso,r.fecha,r.nota??'',r.aciertos??0,r.total??15,r.estado,r.motivo??'','Ing. Janeth Intriago',r.finalizado]));const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}));const a=document.createElement('a');a.href=url;a.download='Resultados_Estudios_Sociales_9no_Segundo_Trimestre.csv';a.click();URL.revokeObjectURL(url)}
-</script></body></html>
+
+let preguntas = obtenerPreguntas();
+let alumno = {};
+let respuestas = [];
+let indice = 0;
+let segundos = 0;
+let intervalo = null;
+let examenActivo = false;
+let finalizando = false;
+let modoDocente = false;
+let proteccionActiva = false;
+let blurTimer = null;
+let resultadosOnlineCache = [];
+
+const $ = id => document.getElementById(id);
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+// Inicializar fecha de hoy
+$('fecha').value = new Date().toLocaleDateString('en-CA');
+
+// Inicializar Firebase (si está activo)
+try {
+  firebase.initializeApp(firebaseConfig);
+  auth = firebase.auth();
+  db = firebase.firestore();
+  auth.signInAnonymously().then(() => {
+    firebaseListo = true;
+    $('firebaseEstado').innerHTML = '<strong>✓ Sistema conectado online.</strong> Sus respuestas y calificaciones serán sincronizadas automáticamente.';
+  }).catch(e => {
+    $('firebaseEstado').innerHTML = '<strong>Modo Local:</strong> Almacenamiento local activado en este dispositivo.';
+  });
+} catch (e) {
+  $('firebaseEstado').textContent = 'Modo Local (Sin conexión remota)';
+}
+
+function actualizarBotonInicio() {
+  $('btnIniciar').disabled = !$('acepto').checked;
+}
+
+async function prepararInicio() {
+  const nombre = $('nombre').value.trim();
+  const cedula = $('cedula').value.trim();
+  const materia = "Lengua y Literatura";
+  const curso = $('curso').value;
+  const fecha = $('fecha').value;
+
+  if (!nombre || !/^\d{10}$/.test(cedula) || !curso || !fecha) {
+    alert('Por favor complete todos los datos: Nombres, Cédula válida de 10 dígitos, Curso y Fecha.');
+    return;
+  }
+  if (!$('acepto').checked) return;
+
+  alumno = { nombre, cedula, materia, curso, fecha, docente: "Profesora Lisbeth Menéndez" };
+
+  if (firebaseListo && auth.currentUser) {
+    const ref = db.collection(COLECCION).doc(cedula);
+    try {
+      await ref.set({
+        ownerUid: auth.currentUser.uid,
+        ...alumno,
+        estado: 'EN PROCESO',
+        nota: null,
+        aciertos: 0,
+        total: preguntas.length,
+        inicio: firebase.firestore.FieldValue.serverTimestamp(),
+        ultimaActualizacion: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    } catch (e) {
+      if (e.code === 'permission-denied') {
+        alert('Existe una restricción para registrar este examen o el número de cédula ya rindió la prueba.');
+        return;
+      }
+    }
+  }
+
+  try {
+    if (document.documentElement.requestFullscreen) {
+      await document.documentElement.requestFullscreen();
+    }
+  } catch (e) {
+    console.warn("Pantalla completa no disponible o denegada.");
+  }
+
+  iniciarExamen();
+}
+
+function iniciarExamen() {
+  indice = 0;
+  respuestas = [];
+  examenActivo = true;
+  finalizando = false;
+  proteccionActiva = false;
+  
+  $('inicio').classList.add('hidden');
+  $('examen').classList.remove('hidden');
+  
+  setTimeout(() => {
+    if (examenActivo) proteccionActiva = true;
+  }, 1500);
+  
+  mostrarPregunta();
+}
+
+function mostrarPregunta() {
+  clearInterval(intervalo);
+  
+  if (indice >= preguntas.length) {
+    finalizarNormal();
+    return;
+  }
+
+  const p = preguntas[indice];
+  $('contador').textContent = `Pregunta ${indice + 1} de ${preguntas.length}`;
+  $('barra').style.width = `${(100 * indice) / preguntas.length}%`;
+  $('preguntaTexto').textContent = p.texto;
+  $('valorPregunta').textContent = `Valor: ${Number(p.puntos).toFixed(2).replace('.', ',')} puntos`;
+
+  $('datosBarra').innerHTML = `
+    <div><strong>ESTUDIANTE</strong>${esc(alumno.nombre)}</div>
+    <div><strong>CÉDULA</strong>${esc(alumno.cedula)}</div>
+    <div><strong>MATERIA</strong>${esc(alumno.materia)}</div>
+    <div><strong>CURSO</strong>${esc(alumno.curso)}</div>
+    <div><strong>DOCENTE</strong>${esc(alumno.docente)}</div>
+  `;
+
+  $('opciones').innerHTML = '';
+  p.opciones.forEach((opc, i) => {
+    const label = document.createElement('label');
+    label.className = 'option';
+    label.innerHTML = `<input type="radio" name="respuesta" value="${i}"> <strong>${'ABCD'[i]}.</strong> ${esc(opc)}`;
+    $('opciones').appendChild(label);
+  });
+
+  $('btnSiguiente').textContent = (indice === preguntas.length - 1) ? 'Finalizar Examen' : 'Guardar respuesta y continuar';
+  
+  // Asignar temporizador exacto de 15 segundos
+  segundos = 15;
+  pintarTimer();
+  
+  intervalo = setInterval(() => {
+    segundos--;
+    pintarTimer();
+    if (segundos <= 0) {
+      clearInterval(intervalo);
+      guardarRespuesta(true);
+    }
+  }, 1000);
+}
+
+function pintarTimer() {
+  const t = $('timer');
+  t.textContent = `00:${String(segundos).padStart(2, '0')}`;
+  t.style.color = segundos <= 5 ? '#c62828' : '#6f1734';
+}
+
+function siguiente() {
+  const seleccionado = document.querySelector('input[name="respuesta"]:checked');
+  if (!seleccionado) {
+    alert('Por favor, seleccione una opción antes de continuar.');
+    return;
+  }
+  guardarRespuesta(false);
+}
+
+function guardarRespuesta(porTiempo) {
+  if (!examenActivo || finalizando) return;
+  clearInterval(intervalo);
+  
+  const sel = document.querySelector('input[name="respuesta"]:checked');
+  respuestas.push({
+    pregunta: indice,
+    respuesta: sel ? Number(sel.value) : null,
+    agotadoTiempo: !!porTiempo
+  });
+  
+  indice++;
+  if (indice >= preguntas.length) {
+    finalizarNormal();
+  } else {
+    mostrarPregunta();
+  }
+}
+
+function completarNoRespondidas() {
+  for (let i = respuestas.length; i < preguntas.length; i++) {
+    respuestas.push({ pregunta: i, respuesta: null, agotadoTiempo: false });
+  }
+}
+
+function calcularNota() {
+  let aciertos = 0;
+  let nota = 0;
+  respuestas.forEach((r, i) => {
+    if (r.respuesta !== null && r.respuesta === Number(preguntas[i].correcta)) {
+      aciertos++;
+      nota += Number(preguntas[i].puntos) || 0.50;
+    }
+  });
+  return { aciertos, nota: Math.min(10, Math.round((nota + Number.EPSILON) * 100) / 100) };
+}
+
+async function finalizarNormal() {
+  if (finalizando) return;
+  finalizando = true;
+  examenActivo = false;
+  proteccionActiva = false;
+  clearInterval(intervalo);
+  
+  completarNoRespondidas();
+  const { aciertos, nota } = calcularNota();
+  
+  guardarResultado('FINALIZADO', aciertos, nota);
+  mostrarResultado(false, '', aciertos, nota);
+  
+  try {
+    if (document.fullscreenElement) await document.exitFullscreen();
+  } catch (e) {}
+}
+
+async function finalizarPorInfraccion(motivo) {
+  if (!examenActivo || finalizando || modoDocente) return;
+  finalizando = true;
+  examenActivo = false;
+  proteccionActiva = false;
+  clearInterval(intervalo);
+  
+  completarNoRespondidas();
+  const { aciertos, nota } = calcularNota();
+  
+  guardarResultado('INFRACCIÓN DEL REGLAMENTO', aciertos, nota, motivo);
+  mostrarResultado(true, motivo, aciertos, nota);
+  
+  try {
+    if (document.fullscreenElement) await document.exitFullscreen();
+  } catch (e) {}
+}
+
+async function actualizarResultadoFirebase(estado, aciertos, nota, motivo) {
+  if (!firebaseListo || !db) return;
+  try {
+    await db.collection(COLECCION).doc(alumno.cedula).update({
+      estado,
+      nota,
+      aciertos,
+      motivo,
+      docente: 'Profesora Lisbeth Menéndez',
+      respuestas: respuestas.map((r, i) => ({ pregunta: i + 1, respuesta: r.respuesta, agotadoTiempo: r.agotadoTiempo })),
+      finalizado: firebase.firestore.FieldValue.serverTimestamp(),
+      ultimaActualizacion: firebase.firestore.FieldValue.serverTimestamp()
+    });
+  } catch (e) {
+    console.error('Error al guardar en servidor:', e);
+  }
+}
+
+function guardarResultado(estado, aciertos, nota, motivo = '') {
+  const r = {
+    ...alumno,
+    docente: 'Profesora Lisbeth Menéndez',
+    estado,
+    aciertos,
+    nota,
+    total: preguntas.length,
+    motivo,
+    respuestas: clonar(respuestas),
+    finalizado: new Date().toLocaleString('es-EC')
+  };
+  
+  try {
+    const arr = JSON.parse(localStorage.getItem(STORAGE_RESULTADOS) || '[]');
+    arr.push(r);
+    localStorage.setItem(STORAGE_RESULTADOS, JSON.stringify(arr));
+  } catch (e) {}
+  
+  actualizarResultadoFirebase(estado, aciertos, nota, motivo);
+}
+
+function mostrarResultado(infraccion, motivo, aciertos, nota) {
+  $('examen').classList.add('hidden');
+  $('resultado').classList.remove('hidden');
+  
+  $('estadoFinal').innerHTML = infraccion
+    ? `<div class="violation">EXAMEN ANULADO POR INFRACCIÓN AL REGLAMENTO.<br>Detalle: ${esc(motivo)}</div>`
+    : '<div class="notice">Evaluación completada exitosamente. La calificación ha sido almacenada.</div>';
+    
+  $('nota').textContent = `${nota.toFixed(2)} / 10.00`;
+  
+  $('resumen').innerHTML = `
+    <p><strong>Estudiante:</strong> ${esc(alumno.nombre)}</p>
+    <p><strong>Cédula:</strong> ${esc(alumno.cedula)}</p>
+    <p><strong>Materia:</strong> Lengua y Literatura</p>
+    <p><strong>Curso:</strong> ${esc(alumno.curso)}</p>
+    <p><strong>Fecha:</strong> ${esc(alumno.fecha)}</p>
+    <p><strong>Docente Responsable:</strong> Profesora Lisbeth Menéndez</p>
+    <p><strong>Vicerrectora Académica:</strong> Mg. Rita Loor Chávez</p>
+    <p><strong>Aciertos:</strong> ${aciertos} de ${preguntas.length} (0.50 pts cada una)</p>
+  `;
+}
+
+// Seguridad de ventana y navegación
+document.addEventListener('visibilitychange', () => {
+  if (examenActivo && proteccionActiva && document.hidden) {
+    finalizarPorInfraccion('Cambio de pestaña o minimización de navegador');
+  }
+});
+
+window.addEventListener('blur', () => {
+  if (!examenActivo || !proteccionActiva || modoDocente) return;
+  clearTimeout(blurTimer);
+  blurTimer = setTimeout(() => {
+    if (examenActivo && proteccionActiva && !document.hasFocus()) {
+      finalizarPorInfraccion('Pérdida de foco de la ventana');
+    }
+  }, 700);
+});
+
+document.addEventListener('fullscreenchange', () => {
+  if (examenActivo && proteccionActiva && !document.fullscreenElement) {
+    finalizarPorInfraccion('Salida del modo Pantalla Completa');
+  }
+});
+
+window.addEventListener('beforeunload', e => {
+  if (examenActivo) {
+    e.preventDefault();
+    e.returnValue = '';
+  }
+});
+
+document.addEventListener('contextmenu', e => {
+  if (examenActivo) e.preventDefault();
+});
+
+document.addEventListener('keydown', e => {
+  if (examenActivo) {
+    const k = e.key.toLowerCase();
+    if (['f11', 'f12', 'escape'].includes(k) || (e.ctrlKey && ['r', 'l', 't', 'w', 'u', 's', 'p'].includes(k)) || (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(k))) {
+      e.preventDefault();
+      return;
+    }
+  }
+  if (!examenActivo && e.altKey && e.shiftKey && e.key.toLowerCase() === 'd') {
+    e.preventDefault();
+    accesoDocente();
+  }
+});
+
+// Funciones del Panel Docente
+function accesoDocente() {
+  if (examenActivo) return;
+  const clave = prompt('Contraseña de acceso para la Profesora Lisbeth Menéndez:');
+  if (clave === CLAVE_DOCENTE) {
+    modoDocente = true;
+    $('inicio').classList.add('hidden');
+    $('resultado').classList.add('hidden');
+    $('docente').classList.remove('hidden');
+    verSeccion('config');
+    renderEditor();
+  } else if (clave !== null) {
+    alert('Contraseña incorrecta.');
+  }
+}
+
+function cerrarDocente() {
+  modoDocente = false;
+  $('docente').classList.add('hidden');
+  $('inicio').classList.remove('hidden');
+}
+
+function verSeccion(sec) {
+  $('config').classList.toggle('hidden', sec !== 'config');
+  $('resultados').classList.toggle('hidden', sec !== 'resultados');
+  if (sec === 'resultados') cargarResultados();
+}
+
+function renderEditor() {
+  $('editor').innerHTML = '';
+  preguntas.forEach((p, i) => {
+    const box = document.createElement('div');
+    box.className = 'admin-q';
+    box.innerHTML = `
+      <h4>Pregunta ${i + 1} · 0,50 puntos</h4>
+      <label>Enunciado
+        <textarea data-field="texto">${esc(p.texto)}</textarea>
+      </label>
+      <div class="grid">
+        ${p.opciones.map((opc, j) => `<label>Opción ${'ABCD'[j]}<input data-op="${j}" value="${esc(opc)}"></label>`).join('')}
+      </div>
+      <div class="grid" style="margin-top: 12px;">
+        <label>Respuesta correcta
+          <select data-field="correcta">
+            ${p.opciones.map((_, j) => `<option value="${j}" ${j === Number(p.correcta) ? 'selected' : ''}>Opción ${'ABCD'[j]}</option>`).join('')}
+          </select>
+        </label>
+      </div>
+    `;
+    $('editor').appendChild(box);
+  });
+}
+
+function guardarConfig() {
+  const nuevas = [];
+  document.querySelectorAll('.admin-q').forEach((box, i) => {
+    nuevas.push({
+      texto: box.querySelector('[data-field="texto"]').value.trim(),
+      opciones: [0, 1, 2, 3].map(j => box.querySelector(`[data-op="${j}"]`).value.trim()),
+      correcta: Number(box.querySelector('[data-field="correcta"]').value),
+      puntos: 0.50,
+      tiempo: 15
+    });
+  });
+
+  if (nuevas.length !== 20 || nuevas.some(q => !q.texto || q.opciones.some(x => !x))) {
+    alert('Por favor complete todos los campos de las 20 preguntas.');
+    return;
+  }
+
+  preguntas = nuevas;
+  localStorage.setItem(STORAGE_PREGUNTAS, JSON.stringify(preguntas));
+  alert('Configuración guardada correctamente en este equipo.');
+}
+
+function restaurarConfig() {
+  if (confirm('¿Desea restaurar el banco original de 20 preguntas del examen de Lengua?')) {
+    preguntas = clonar(preguntasOriginales);
+    localStorage.removeItem(STORAGE_PREGUNTAS);
+    renderEditor();
+  }
+}
+
+function fechaFirebase(v) {
+  try {
+    return v && typeof v.toDate === 'function' ? v.toDate().toLocaleString('es-EC') : v?.seconds ? new Date(v.seconds * 1000).toLocaleString('es-EC') : String(v || '');
+  } catch (e) {
+    return '';
+  }
+}
+
+async function cargarResultados() {
+  const tb = $('tablaResultados');
+  tb.innerHTML = '<tr><td colspan="10">Cargando calificaciones...</td></tr>';
+  let datos = [];
+
+  try {
+    if (!firebaseListo) throw Error('Sin conexión online');
+    const snap = await db.collection(COLECCION).get();
+    snap.forEach(d => {
+      const r = d.data();
+      datos.push({
+        ...r,
+        cedula: r.cedula || d.id,
+        finalizado: fechaFirebase(r.finalizado || r.ultimaActualizacion || r.inicio)
+      });
+    });
+    $('tituloResultados').textContent = `Resultados en línea de Lengua y Literatura (${datos.length})`;
+  } catch (e) {
+    datos = JSON.parse(localStorage.getItem(STORAGE_RESULTADOS) || '[]');
+    $('tituloResultados').textContent = 'Resultados almacenados localmente';
+  }
+
+  resultadosOnlineCache = datos;
+  tb.innerHTML = datos.length ? '' : '<tr><td colspan="10">No hay calificaciones registradas.</td></tr>';
+  
+  datos.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${esc(r.nombre)}</td>
+      <td>${esc(r.cedula)}</td>
+      <td>${esc(r.materia)}</td>
+      <td>${esc(r.curso)}</td>
+      <td>${esc(r.fecha)}</td>
+      <td><strong>${r.nota == null ? '—' : Number(r.nota).toFixed(2)}</strong></td>
+      <td>${Number(r.aciertos || 0)}/${Number(r.total || 20)}</td>
+      <td>${esc(r.estado)}</td>
+      <td>${esc(r.docente || 'Profesora Lisbeth Menéndez')}</td>
+      <td>${esc(r.finalizado)}</td>
+    `;
+    tb.appendChild(tr);
+  });
+}
+
+async function borrarResultados() {
+  if (!confirm('¿Está segura de borrar TODAS las calificaciones de Lengua y Literatura de 9no grado?')) return;
+  
+  if (firebaseListo) {
+    try {
+      const snap = await db.collection(COLECCION).get();
+      const batch = db.batch();
+      snap.docs.forEach(d => batch.delete(d.ref));
+      await batch.commit();
+    } catch (e) {}
+  }
+  
+  localStorage.removeItem(STORAGE_RESULTADOS);
+  await cargarResultados();
+  alert('Se han eliminado los resultados.');
+}
+
+async function exportarCSV() {
+  if (!resultadosOnlineCache.length) await cargarResultados();
+  if (!resultadosOnlineCache.length) {
+    alert('No existen resultados para exportar.');
+    return;
+  }
+  
+  const rows = [['Estudiante', 'Cédula', 'Materia', 'Curso', 'Fecha', 'Nota', 'Aciertos', 'Total', 'Estado', 'Motivo', 'Docente', 'Finalizado']];
+  resultadosOnlineCache.forEach(r => rows.push([
+    r.nombre, r.cedula, r.materia || 'Lengua y Literatura', r.curso, r.fecha, r.nota ?? '', r.aciertos ?? 0, r.total ?? 20, r.estado, r.motivo ?? '', 'Profesora Lisbeth Menéndez', r.finalizado
+  ]));
+  
+  const csv = rows.map(row => row.map(v => '"' + String(v ?? '').replaceAll('"', '""') + '"').join(',')).join('\r\n');
+  const url = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' }));
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Calificaciones_Lengua_9no_Segundo_Trimestre.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
