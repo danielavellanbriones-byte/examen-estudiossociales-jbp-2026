@@ -1,2506 +1,384 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Evaluaciones en línea | UE Jacinto Burgos Pinargote</title>
-<style>
-:root{--wine:#651b37;--wine2:#892b4c;--wineSoft:#faedf2;--ink:#232732;--muted:#707786;--line:#e0e3e8;--bg:#f2f3f6;--white:#fff;--good:#166a47;--bad:#bb2946;--gold:#9a6210;--shadow:0 14px 45px rgba(28,24,38,.08)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.55}a{color:var(--wine)}.hidden{display:none!important}
-header{background:#fff;border-bottom:1px solid var(--line);padding:14px 4.5%;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:10} .brand{display:flex;align-items:center;gap:12px}.brandmark{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:var(--wine);color:#fff;font-weight:900;letter-spacing:-1px;font-size:17px}.brand strong{display:block;font-size:15px;letter-spacing:.1px}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:3px}.header-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.pill{border:1px solid #ead1dc;background:#fff7fa;border-radius:100px;padding:7px 11px;font-size:12px;color:var(--wine);font-weight:700}.pill.online{border-color:#b8e4cf;background:#f0fbf5;color:var(--good)}.pill.offline{border-color:#f1bbc7;background:#fff4f6;color:var(--bad)}.wrap{max-width:1180px;margin:0 auto;padding:34px 22px 70px}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:25px;align-items:center;padding:38px;border-radius:25px;background:linear-gradient(125deg,#56182e,#8d3754);color:white;box-shadow:var(--shadow)}.eyebrow{font-weight:700;letter-spacing:2px;font-size:11px;text-transform:uppercase;opacity:.76}.hero h1{font-size:clamp(29px,4vw,46px);line-height:1.08;margin:14px 0}.hero p{opacity:.87;max-width:540px;line-height:1.7}.hero-art{border:1px solid #ffffff48;border-radius:20px;padding:24px;background:#ffffff12}.hero-art .circle{width:100px;height:100px;border:10px solid #fff5;border-left-color:#fff;border-top-color:#fff;display:grid;place-items:center;border-radius:100%;margin:auto;font-size:28px;font-weight:900}.hero-art p{text-align:center;font-size:13px}.tabs{display:flex;gap:8px;background:#e9eaee;padding:5px;border-radius:13px;width:max-content;max-width:100%;margin:25px 0;flex-wrap:wrap}.tab{padding:11px 18px;border:0;background:transparent;color:#5d6070;border-radius:10px;font-weight:800}.tab.active{background:#fff;color:var(--wine);box-shadow:0 3px 12px #0001}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 3px 12px #11111105}.section-title{margin:0 0 5px;font-size:23px}.hint{color:var(--muted);font-size:13px;line-height:1.6}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field>span{font-size:12px;font-weight:800;color:#555d6b}.field input,.field select,.field textarea{width:100%;border:1px solid #d6d9e1;background:white;border-radius:10px;padding:11px 13px;color:var(--ink);min-width:0;outline:none}.field textarea{resize:vertical;min-height:86px}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--wine2);box-shadow:0 0 0 3px #892b4c19}.btn{border:0;background:var(--wine);color:#fff;padding:12px 17px;border-radius:10px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:.18s}.btn:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}.btn.light{background:#f3e8ee;color:var(--wine)}.btn.neutral{background:#eef0f3;color:#333c4b}.btn.danger{background:#fdebf0;color:#ab2341}.btn.outline{background:white;color:var(--wine);border:1px solid #cfa9ba}.btn.small{padding:8px 12px;font-size:12px}.btn.xs{padding:5px 9px;font-size:11px;border-radius:7px}.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.between{justify-content:space-between}.topgap{margin-top:20px}.stack{display:grid;gap:14px}.tile{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}.tile h3{margin:0 0 6px;font-size:17px}.tag{display:inline-flex;border-radius:99px;background:#f3f4f7;padding:6px 10px;color:#596174;font-size:11px;font-weight:800}.tag.good{color:var(--good);background:#eaf7ee}.tag.bad{color:var(--bad);background:#fff0f2}.tag.warn{color:var(--gold);background:#fff6e5}.tile p{margin:8px 0;color:#636b78;font-size:13px;line-height:1.5}.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.divider{height:1px;background:var(--line);margin:24px 0}.stat{padding:20px;border:1px solid var(--line);border-radius:14px;background:#fff}.stat b{font-size:30px;display:block;margin-top:7px;color:var(--wine)}.stat small{color:var(--muted);font-size:12px}.empty{text-align:center;padding:37px 12px;color:var(--muted);background:#f9f9fb;border:1px dashed #d9dce3;border-radius:14px}.notice{border:1px solid #e9d7af;background:#fffaf0;color:#775918;padding:13px 15px;border-radius:11px;font-size:13px;line-height:1.6}.notice.red{border-color:#f1bbc7;background:#fff4f6;color:#972e48}.notice.good{border-color:#b8e4cf;background:#f0fbf5;color:#176a47}.question-box{border:1px solid #dfd8dd;border-radius:15px;background:#fefcfd;padding:18px;margin-bottom:14px}.question-box h4{margin:0}.options-editor{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.question-editor-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}.select-small{padding:9px;border:1px solid #d7dbe2;border-radius:8px;background:#fff}.tablewrap{overflow-x:auto}.report-table{width:100%;border-collapse:collapse;font-size:13px}.report-table th{text-align:left;background:#f5f5f7;color:#606878;padding:12px;white-space:nowrap}.report-table td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}.report-table tr:last-child td{border-bottom:0}.report-table .score{font-weight:900;font-size:17px;color:var(--wine)}.footer{font-size:12px;color:#7b8190;text-align:center;padding:18px}
-.math-matrix{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;background:#f8f6f9;padding:12px;border-radius:12px;border:1px solid #e6dfe6}
-.math-col-title{font-size:12px;font-weight:800;color:var(--wine);margin-bottom:6px;display:block}
-.combo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
-.combo-chip{border:2px solid #e3e5ea;border-radius:10px;padding:10px;text-align:center;font-weight:800;cursor:pointer;background:#fff;transition:.15s}
-.combo-chip:hover{border-color:#cba8b8;background:#fff9fb}
-.combo-chip.selected{background:#f9edf2;border-color:var(--wine);color:var(--wine)}
-.modal-backdrop{position:fixed;inset:0;background:rgba(20,22,30,.55);z-index:200;display:grid;place-items:center;padding:18px;overflow-y:auto}
-.modal-card{background:#fff;border-radius:20px;max-width:780px;width:100%;padding:26px;box-shadow:0 24px 60px rgba(0,0,0,.22);max-height:92vh;overflow-y:auto}
-#examScreen{position:fixed;inset:0;z-index:100;background:#f2f3f6;overflow-y:auto;padding:28px 20px 55px}#examScreen:fullscreen{background:#f2f3f6}#examScreen:-webkit-full-screen{background:#f2f3f6}.exam-wrap{max-width:900px;margin:auto}.exam-header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.timer-box{background:#fff;border:1px solid var(--line);padding:14px 17px;border-radius:14px;min-width:120px;text-align:center}.timer-box small{display:block;font-size:11px;color:var(--muted);margin-bottom:7px}.timer-box strong{font-size:25px;font-variant-numeric:tabular-nums}.timer-box.urgent{color:var(--bad);border-color:#ffbdc7;background:#fff7f8}.progress{height:8px;background:#dfe2e8;border-radius:100px;overflow:hidden;margin:23px 0}.progress div{height:100%;background:var(--wine);transition:width .2s}.question-main{padding:32px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}.question-main h2{font-size:clamp(20px,3vw,28px);line-height:1.4;margin:15px 0 22px}.answer{display:flex;align-items:center;gap:14px;border:2px solid #e3e5ea;border-radius:13px;padding:16px;margin:10px 0;cursor:pointer;font-size:15px;line-height:1.5}.answer:hover{border-color:#cba8b8;background:#fff9fb}.answer.selected{background:#f9edf2;border-color:var(--wine)}.answer input{accent-color:var(--wine);width:18px;height:18px;flex-shrink:0}.exam-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:25px;flex-wrap:wrap}.big-result{font-weight:900;font-size:60px;color:var(--wine);margin:8px 0}.mono{font-variant-numeric:tabular-nums} .fullspan{grid-column:1/-1}
-
-/* ESTILOS EDITOR GRÁFICO DE ECUACIONES FLOTANTE */
-math-field {
-  width: 100%;
-  font-size: 24px;
-  padding: 14px 16px;
-  border: 2px solid #cfa9ba;
-  border-radius: 12px;
-  background: #fff;
-  color: var(--ink);
-  min-height: 75px;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,.04);
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Examen de 2 Trimestre de Estudios Sociales | 9no JBP</title><style>
+:root{
+  --vino:#6f1734;
+  --vino2:#8c2949;
+  --gris:#5f6368;
+  --fondo:#eef0f3;
+  --blanco:#fff;
+  --verde:#198754;
+  --rojo:#c62828;
+  --amarillo:#f9a825;
 }
-math-field:focus-within {
-  border-color: var(--wine);
-  box-shadow: 0 0 0 4px rgba(101, 27, 55, 0.12);
-  outline: none;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#f6f7f8,#e6e9ed);
+  color:#202124;
 }
-.math-palette-tabs { display: flex; gap: 6px; margin: 12px 0 8px; flex-wrap: wrap; }
-.math-palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; background: #f8f6f9; padding: 10px; border-radius: 12px; border: 1px solid #e6dfe6; }
-.math-key { background: #fff; border: 1px solid #d8d0d6; border-radius: 8px; padding: 8px 4px; font-size: 14px; font-weight: 700; color: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transition: .12s; }
-.math-key:hover { background: var(--wineSoft); border-color: var(--wine); color: var(--wine); transform: translateY(-1px); }
-.math-key small { font-size: 9px; font-weight: 600; color: var(--muted); }
-.live-math-preview { font-size: 13px; background: #f9f7fa; border: 1px dashed #d8c3ce; border-radius: 8px; padding: 7px 11px; margin-top: 5px; color: var(--ink); min-height: 32px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
-.pwd-badge { font-family: monospace; background: #f4f5f8; border: 1px solid #d6d9e1; padding: 4px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; color: var(--wine); }
-
-/* =========================================================
-   ESTILOS DIDÁCTICOS PARA NIÑOS: SOPA DE LETRAS Y ETIQUETAS
-   ========================================================= */
-.ws-container { display: flex; flex-direction: column; align-items: center; gap: 16px; background: #fdf9fb; border: 2px solid #ecd6e0; border-radius: 18px; padding: 18px; margin-top: 12px; user-select: none; }
-.ws-grid { display: grid; gap: 4px; background: #fff; padding: 10px; border-radius: 14px; border: 2px solid #d7c0cb; box-shadow: 0 6px 20px rgba(0,0,0,.06); touch-action: none; }
-.ws-cell { width: clamp(28px, 6.2vw, 40px); height: clamp(28px, 6.2vw, 40px); display: grid; place-items: center; font-weight: 900; font-size: clamp(14px, 3vw, 19px); border-radius: 9px; background: #f5f6f9; color: var(--ink); cursor: pointer; transition: transform .1s, background .15s; border: 1px solid #e3e6ed; }
-.ws-cell:hover { background: #faedf2; border-color: var(--wine2); }
-.ws-cell.selecting { background: #ffe082 !important; color: #5c3c00 !important; transform: scale(1.1); border-color: #ffb300; z-index: 2; }
-.ws-cell.found { background: #c8f3dc; color: #0f5c37; border-color: #7ad1a4; }
-.ws-words-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-.ws-word-pill { padding: 7px 14px; border-radius: 999px; background: #fff; border: 2px solid #d6d9e1; font-weight: 800; font-size: 14px; letter-spacing: .5px; color: var(--ink); transition: .2s; }
-.ws-word-pill.found { background: #166a47; color: #fff; border-color: #166a47; text-decoration: line-through; transform: scale(.96); }
-
-/* ETIQUETAS EN IMAGEN INTERACTIVA (NOMBRAR PARTES DE UN GRÁFICO) */
-.label-stage-wrap { position: relative; display: inline-block; max-width: 100%; border-radius: 14px; overflow: hidden; border: 2px solid #d7c0cb; background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
-.label-stage-wrap img { display: block; max-width: 100%; max-height: 380px; width: auto; height: auto; user-select: none; -webkit-user-drag: none; }
-.label-pin-editor { position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; background: var(--wine); color: #fff; border: 3px solid #fff; font-weight: 900; font-size: 13px; display: grid; place-items: center; box-shadow: 0 3px 10px rgba(0,0,0,.35); pointer-events: none; }
-.label-pin-student { position: absolute; transform: translate(-50%, -50%); min-width: 34px; height: 34px; padding: 0 10px; border-radius: 999px; background: #ff6f00; color: #fff; border: 3px solid #fff; font-weight: 900; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 4px 12px rgba(0,0,0,.35); cursor: pointer; transition: .15s; white-space: nowrap; }
-.label-pin-student:hover { transform: translate(-50%, -50%) scale(1.12); }
-.label-pin-student.assigned { background: #166a47; }
-.label-pin-student.target-active { animation: pulsePin 1s infinite; background: var(--wine); }
-@keyframes pulsePin { 0%,100% { box-shadow: 0 0 0 0 rgba(101,27,55,.6); } 50% { box-shadow: 0 0 0 8px rgba(101,27,55,0); } }
-.word-bank-kids { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; background: #fdf9fb; padding: 14px; border-radius: 14px; border: 2px dashed #d7c0cb; margin-top: 12px; }
-.kid-chip { padding: 10px 16px; border-radius: 12px; background: #fff; border: 2px solid #cfa9ba; font-weight: 800; font-size: 14px; color: var(--wine); cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,.05); transition: .15s; }
-.kid-chip:hover { transform: translateY(-2px); background: var(--wineSoft); }
-.kid-chip.selected { background: var(--wine); color: #fff; border-color: var(--wine); transform: scale(1.05); }
-.kid-chip.used { opacity: .45; text-decoration: line-through; }
-
-/* ESTILOS PARA LA IMPRESIÓN DEL EXAMEN INSTITUCIONAL */
-.print-sheet{background:#fff;color:#000;padding:25px;max-width:800px;margin:auto;font-family:Arial,sans-serif}
-.exam-banner{border:2px solid #651b37;border-radius:8px;overflow:hidden;margin-bottom:20px}
-.exam-banner-top{background:#651b37;height:12px}
-.exam-banner-body{display:grid;grid-template-columns:110px 1fr 140px;background:#fff}
-.exam-logo-cell{display:grid;place-items:center;padding:10px;border-right:1px solid #651b37}
-.exam-logo-cell img{max-width:70px;height:auto}
-.exam-titles-cell{text-align:center;padding:10px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #651b37}
-.exam-titles-cell h3{margin:0;font-size:13px;font-weight:bold;color:#222;letter-spacing:.3px}
-.exam-titles-cell h2{margin:2px 0;font-size:14px;font-weight:900;color:#651b37}
-.exam-titles-cell h4{margin:2px 0;font-size:12px;font-weight:bold;color:#333;text-transform:uppercase}
-.exam-titles-cell .subject-line{border-bottom:1px solid #333;margin-top:4px;font-weight:bold;font-size:13px;padding-bottom:2px;color:#000}
-.exam-grade-cell{background:#faedf2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px}
-.exam-grade-cell span{font-size:11px;font-weight:bold;color:#651b37;margin-bottom:4px}
-.exam-grade-box{width:80px;height:45px;background:#fff;border:2px solid #651b37;border-radius:6px;display:grid;place-items:center;font-size:18px;font-weight:900;color:#651b37}
-.exam-banner-bottom{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #651b37;font-size:12px;padding:8px 12px;background:#fff;gap:10px}
-.exam-banner-bottom div{line-height:1.6}
-
-@media print {
-  body * {visibility:hidden}
-  #printExamModal, #printExamModal * {visibility:visible}
-  #printExamModal {position:absolute;inset:0;background:#fff;padding:0;z-index:99999}
-  .modal-backdrop{background:transparent !important;padding:0 !important}
+header{
+  background:linear-gradient(135deg,var(--vino),#4a0e22);
+  color:white;
+  padding:18px 24px;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+  text-align:center;
+}
+header h1{margin:0;font-size:25px}
+header p{margin:5px 0 0;opacity:.92}
+.container{max-width:1050px;margin:24px auto;padding:0 16px}
+.card{
+  background:white;border-radius:16px;padding:22px;margin-bottom:20px;
+  box-shadow:0 8px 28px rgba(0,0,0,.09);
+}
+.hidden{display:none!important}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+label{font-weight:700;font-size:14px}
+input,select,textarea{
+  width:100%;padding:11px 12px;border:1px solid #cbd0d6;border-radius:9px;
+  font-size:15px;margin-top:6px;background:white;
+}
+textarea{min-height:90px;resize:vertical}
+button{
+  border:0;border-radius:9px;padding:11px 17px;font-weight:700;cursor:pointer;font-size:14px
+}
+button:disabled{opacity:.45;cursor:not-allowed}
+.btn-primary{background:var(--vino);color:white}
+.btn-secondary{background:#666;color:white}
+.btn-success{background:var(--verde);color:white}
+.btn-danger{background:var(--rojo);color:white}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.reglamento{
+  border:2px solid #e0c16b;background:#fff9e6;border-radius:14px;padding:18px;margin-top:18px
+}
+.reglamento h3{margin-top:0;color:#775500}
+.reglamento ul{line-height:1.7;margin-bottom:15px}
+.acepta{
+  display:flex;align-items:flex-start;gap:10px;background:white;padding:12px;border-radius:10px;
+  border:1px solid #e6d59a
+}
+.acepta input{width:18px;height:18px;margin:1px 0 0}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.timer{
+  min-width:120px;text-align:center;background:#fff1f5;color:var(--vino);
+  border:2px solid #edcad5;border-radius:14px;padding:10px 16px;font-size:28px;font-weight:800
+}
+.badge{background:#eceff1;padding:8px 12px;border-radius:999px;font-weight:700}
+.progress{height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin:14px 0 22px}
+.progress div{height:100%;background:var(--vino);width:0;transition:width .2s}
+.student-strip{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;background:#f5f6f8;
+  padding:12px;border-radius:10px;margin-bottom:18px
+}
+.student-strip strong{display:block;color:var(--vino);font-size:12px;margin-bottom:3px}
+.question{font-size:21px;font-weight:800;line-height:1.45;margin-bottom:16px;white-space:pre-line}
+.option{
+  display:block;border:2px solid #e0e3e7;border-radius:13px;padding:14px;
+  margin:10px 0;cursor:pointer;font-weight:500;transition:.18s;background:white
+}
+.option:hover{border-color:#b36a80;background:#fff8fa}
+.option input{width:auto;margin-right:10px}
+.procedimiento{margin-top:16px}
+.notice{
+  background:#eef6ff;border-left:5px solid #4078c0;padding:13px 14px;border-radius:8px;margin:14px 0
+}
+.warning{
+  background:#fff0f0;border-left:5px solid var(--rojo);padding:14px;border-radius:8px;margin:14px 0
+}
+.result-big{font-size:46px;font-weight:800;color:var(--vino);margin:10px 0}
+.violation{
+  border:3px solid var(--rojo);background:#fff2f2;color:#7f1111;border-radius:14px;padding:18px;
+  font-size:18px;font-weight:700
+}
+table{width:100%;border-collapse:collapse;margin-top:14px}
+th,td{border-bottom:1px solid #ddd;padding:10px;text-align:left;font-size:14px}
+th{background:#f1f3f4}
+.admin-q{border:1px solid #ddd;border-radius:12px;padding:15px;margin:12px 0;background:#fafafa}
+.admin-q .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.small{font-size:12px;color:#666}
+@media(max-width:760px){
+  .grid,.student-strip,.admin-q .grid3{grid-template-columns:1fr}
+  header h1{font-size:21px}
+}
+@media print{
+  header,.no-print{display:none!important}
+  body{background:white}
+  .card{box-shadow:none}
 }
 
-@media(max-width:760px){.hero{grid-template-columns:1fr;padding:24px}.hero-art{display:none}.grid2,.grid3,.tiles,.form-grid,.options-editor,.math-matrix{grid-template-columns:1fr}.combo-grid{grid-template-columns:repeat(2,1fr)}.wrap{padding:20px 12px 50px}.card{padding:18px}.question-main{padding:20px}.brand strong{font-size:12px}.pill.hide-sm{display:none}.tabs{width:100%}.tab{flex:1;font-size:12px;padding:11px 8px}.exam-header{align-items:stretch}.timer-box{flex:1}.report-table{min-width:650px}}
-</style>
-<!-- Firebase SDKs Compat -->
+header .subtitle{font-weight:700;letter-spacing:.03em}.section-sub{color:#667085;font-size:14px}.points{display:inline-block;background:#f6e6ec;color:#6f1734;padding:6px 11px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:10px}.footer{text-align:center;padding:8px 12px 28px;color:#666}.option:has(input:checked){background:#fbedf2;border-color:#6f1734}.admin-q textarea{min-height:72px}.status-ok{color:#146c43}.status-bad{color:#a61b1b}.toolbar-note{font-size:13px;color:#555}.teacher-access{margin-top:12px;background:transparent;color:#666;border:1px solid #ccc}.hide-key{display:none}@media print{.footer{display:none}}</style>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<!-- KaTeX para renderizar fórmulas matemáticas elegantes -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-<!-- MathLive para Editor Gráfico WYSIWYG de Ecuaciones sin códigos -->
-<script defer src="https://unpkg.com/mathlive"></script>
-</head>
-<body>
-<header id="topBar">
-  <div class="brand">
-    <div class="brandmark">JBP</div>
-    <div>
-      <strong>UNIDAD EDUCATIVA JACINTO BURGOS PINARGOTE</strong>
-      <small>Plataforma de evaluaciones en línea · Ing. Daniel Avellán</small>
-    </div>
-  </div>
-  <div class="header-right">
-    <span class="pill" id="cloudStatusPill">Conectando a la nube...</span>
-    <span class="pill hide-sm">Calificación sobre 10 puntos</span>
-  </div>
-</header>
-
-<main class="wrap" id="mainApp">
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Sistema de evaluaciones • JBP</div>
-      <h1>Exámenes sincronizados 100% en la nube en tiempo real.</h1>
-      <p>Administrador y profesor: **Ing. Daniel Avellán**. Plataforma con soporte para pegar imágenes (Ctrl+V), editor gráfico de ecuaciones y actividades didácticas interactivas para escuela.</p>
-    </div>
-    <div class="hero-art">
-      <div class="circle">10/10</div>
-      <p>Nube Global · Ecuaciones Visuales & Juegos Didácticos</p>
-    </div>
-  </section>
-
-  <nav class="tabs" aria-label="Tipo de acceso">
-    <button class="tab active" id="studentTab" type="button">Soy estudiante</button>
-    <button class="tab" id="teacherTab" type="button">Soy docente / administrador</button>
-  </nav>
-
-  <!-- VISTA ESTUDIANTE -->
-  <section id="studentView">
-    <div class="grid2">
-      <div class="card">
-        <h2 class="section-title">Ingresar a un examen</h2>
-        <p class="hint">Escribe tu número de cédula para sincronizar tus datos desde la nube y ver las evaluaciones disponibles.</p>
-        <div class="stack topgap">
-          <label class="field"><span>Nombres y apellidos completos</span><input id="studentName" autocomplete="name" placeholder="Ej. María Fernanda López Zambrano" maxlength="110"></label>
-          <label class="field"><span>Número de cédula (10 dígitos)</span><input id="studentCedula" inputmode="numeric" maxlength="10" placeholder="0000000000"></label>
-          <div id="rosterIdentity" class="notice">Introduce tu cédula para identificar automáticamente tu nombre y curso.</div>
-          
-          <div id="manualStudentPanel" class="hidden tile">
-            <b>Registro de alumno en la nube</b>
-            <p class="hint">Si no constas en el listado institucional, regístrate aquí para guardarte en la base de datos global.</p>
-            <label class="field"><span>Nivel o curso</span><select id="manualStudentLevel"></select></label>
-            <label class="field topgap"><span>Paralelo</span><select id="manualStudentParallel"></select></label>
-            <button class="btn light small topgap" type="button" id="registerStudentBtn">Registrar alumno en la nube y mostrar materias</button>
-          </div>
-          
-          <div id="studentCourse" class="hint"></div>
-          <label class="field"><span>Examen disponible en la nube</span><select id="studentExam"><option value="">Seleccione un examen...</option></select></label>
-          <div id="selectedExamInfo" class="hint"></div>
-          
-          <div class="row">
-            <button class="btn" id="startExamBtn" style="flex:1">Comenzar examen en pantalla completa →</button>
-            <button class="btn outline" id="openMyGradesModalBtn" type="button">📊 Mis calificaciones</button>
-          </div>
-          <div id="studentMessage" aria-live="polite"></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2 class="section-title">Reglas de evaluación</h2>
-        <div class="stack topgap">
-          <div class="notice red"><b>Política de infracciones:</b> durante el examen, minimizar la ventana, cambiar de pestaña, perder el foco de la página o salir de pantalla completa provocará la anulación inmediata y una calificación de <b>0/10</b>.</div>
-          <div class="tile"><b>⏱ Publicación de calificaciones</b><p>Al terminar la prueba, tu nota se guarda en la nube. Podrás consultarla haciendo clic en <b>"Mis calificaciones"</b> una vez que el docente las haya publicado oficialmente.</p></div>
-          <div class="tile"><b>🧩 Actividades Interactivas y Ecuaciones</b><p>Los exámenes incluyen sopas de letras interactivas, gráficos para etiquetar partes y renderizado matemático profesional.</p></div>
-          <div class="tile"><b>☁️ Sincronización Global</b><p>Cada intento y examen se almacena directamente en la base de datos en la nube de Firebase.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VISTA DOCENTE / ADMINISTRADOR -->
-  <section id="teacherView" class="hidden">
-    <div class="card" id="teacherAuth">
-      <h2 class="section-title" id="authTitle">Acceso de docentes y administradores</h2>
-      <p class="hint" id="authSubtitle">Cada docente ingresa con su cuenta sincronizada en la nube para administrar exámenes desde cualquier computadora.</p>
-      <div class="tabs" style="margin:15px 0">
-        <button type="button" class="tab active" id="loginModeBtn">Iniciar sesión</button>
-        <button type="button" class="tab" id="registerModeBtn">Crear cuenta docente</button>
-        <button type="button" class="tab" id="changePwdModeBtn">🔑 Cambiar contraseña</button>
-      </div>
-      
-      <!-- FORMULARIO LOGIN / REGISTRO -->
-      <div id="standardAuthForm" class="stack" style="max-width:480px">
-        <label class="field"><span>Nombre completo del docente</span><input id="teacherNameLogin" autocomplete="username" maxlength="100" placeholder="Ej. Ing. Daniel Avellán"></label>
-        <label class="field"><span>Contraseña personal (mínimo 8 caracteres)</span><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Mi contraseña personal"></label>
-        <label class="field hidden" id="confirmPasswordField"><span>Confirmar contraseña</span><input id="confirmTeacherPassword" type="password" autocomplete="new-password" placeholder="Repetir contraseña"></label>
-        <button class="btn" id="adminLoginBtn">Iniciar sesión</button>
-      </div>
-
-      <!-- FORMULARIO CAMBIAR CONTRASEÑA ANTES DE ENTRAR -->
-      <div id="externalChangePwdForm" class="stack hidden" style="max-width:480px">
-        <label class="field"><span>Nombre completo del docente</span><input id="chgPwdName" maxlength="100" placeholder="Ej. Ing. Daniel Avellán"></label>
-        <label class="field"><span>Contraseña actual</span><input id="chgPwdCurrent" type="password" placeholder="Tu contraseña actual"></label>
-        <label class="field"><span>Nueva contraseña (mínimo 8 caracteres)</span><input id="chgPwdNew" type="password" placeholder="Nueva contraseña"></label>
-        <label class="field"><span>Confirmar nueva contraseña</span><input id="chgPwdConfirm" type="password" placeholder="Repetir nueva contraseña"></label>
-        <button class="btn" id="executeExternalChangePwdBtn">Actualizar contraseña en la nube</button>
-      </div>
-
-      <div id="authMessage" class="topgap" aria-live="polite"></div>
-      <p class="hint">Tus credenciales y exámenes se almacenan en la nube para que puedas ingresar desde cualquier lugar.</p>
-    </div>
-
-    <div id="teacherPanel" class="hidden">
-      <div class="row between">
-        <div>
-          <h2 class="section-title">Panel de docentes y evaluaciones</h2>
-          <p id="loggedTeacherLabel" style="margin:5px 0;color:var(--wine);font-weight:800"></p>
-          <p class="hint">Sincronización en tiempo real con Firebase Cloud.</p>
-        </div>
-        <div class="row">
-          <button class="btn light small" id="openChangeMyPwdModalBtn">🔑 Mi contraseña</button>
-          <button class="btn light small" id="aiSettingsBtn">⚙️ API IA</button>
-          <button class="btn outline small" id="exportBackupBtn">Respaldo JSON</button>
-          <button class="btn neutral small" id="logoutBtn">Cerrar sesión</button>
-        </div>
-      </div>
-
-      <div class="grid3 topgap" id="stats"></div>
-
-      <div class="tabs">
-        <button class="tab active" id="manageTab">Exámenes</button>
-        <button class="tab" id="resultsTab">Resultados y Calificación</button>
-        <button class="tab" id="rosterTab">Estudiantes</button>
-        <button class="tab" id="teachersAdminTab">🛡️ Docentes y Contraseñas</button>
-      </div>
-
-      <!-- PESTAÑA GESTIÓN DE EXÁMENES -->
-      <section id="manageView">
-        <div class="grid2">
-          <div class="card">
-            <div class="row between">
-              <h3 id="editorTitle" style="margin:0">Crear examen</h3>
-              <button class="btn neutral small hidden" id="newExamBtn">Nuevo examen</button>
-            </div>
-            <p class="hint">El plazo de disponibilidad empieza en la fecha/hora programada y dura las horas indicadas.</p>
-            <form id="examForm" class="stack topgap">
-              <div class="form-grid">
-                <label class="field fullspan"><span>Título del examen</span><input id="examTitle" placeholder="Ej. Evaluación del segundo trimestre" required maxlength="120"></label>
-                <label class="field"><span>Nombre del profesor</span><input id="examTeacher" placeholder="Nombre del docente" required maxlength="100" readonly></label>
-                <label class="field"><span>Materia</span><input id="examSubject" placeholder="Ej. Matemáticas / Ciencias Naturales" required maxlength="100"></label>
-                <label class="field"><span>Nivel / Curso al que pertenece el examen</span><select id="examLevel" required></select></label>
-                <label class="field"><span>Paralelo</span><select id="examParallel" required></select></label>
-                <label class="field"><span>Fecha de inicio</span><input id="examDate" type="date" required></label>
-                <label class="field"><span>Hora de inicio</span><input id="examTime" type="time" required></label>
-                <label class="field"><span>Horas habilitado</span><input id="examHours" type="number" min="0.25" max="720" step="0.25" value="2" required></label>
-                <label class="field"><span>Segundos por pregunta</span><input id="examSeconds" type="number" min="5" max="3600" step="1" value="60" required></label>
-              </div>
-              <div class="divider" style="margin:5px 0"></div>
-              <div class="row between">
-                <h3 style="margin:0">Banco de preguntas</h3>
-                <button class="btn light small" id="addQuestionBtn" type="button">+ Añadir pregunta</button>
-              </div>
-              <p class="hint" style="margin:0">Elige entre preguntas tradicionales, <b>Sopa de letras</b> o <b>Nombrar partes de un gráfico</b> para niños de escuela.</p>
-              <div id="questionEditor"></div>
-              <button type="submit" class="btn" id="saveExamBtn">Guardar examen en la nube</button>
-              <div id="editorMessage" aria-live="polite"></div>
-            </form>
-          </div>
-
-          <div class="card">
-            <h3 style="margin:0 0 6px">Exámenes en la nube</h3>
-            <p class="hint">Disponibles inmediatamente para tus estudiantes.</p>
-            <div id="examList" class="stack topgap"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PESTAÑA RESULTADOS -->
-      <section id="resultsView" class="hidden">
-        <div class="card">
-          <div class="row between">
-            <div>
-              <h3 style="margin:0">Reporte de calificaciones, revisión y publicación</h3>
-              <p class="hint">Califica preguntas abiertas, publica las notas y gestiona intentos en la nube.</p>
-            </div>
-            <div class="row">
-              <button class="btn light small" id="publishAllBtn">📢 Publicar notas de este examen</button>
-              <button class="btn outline small" id="exportCsvBtn">Exportar CSV</button>
-            </div>
-          </div>
-          <div class="row topgap">
-            <label class="field" style="min-width:220px">
-              <span>Filtrar por examen</span>
-              <select id="resultsFilter"><option value="all">Todos</option></select>
-            </label>
-            <div id="examPublicationBadge" class="tag" style="align-self:flex-end;margin-bottom:6px">Estado de publicación: —</div>
-          </div>
-          <div class="tablewrap topgap" id="resultsTable"></div>
-        </div>
-      </section>
-
-      <!-- PESTAÑA ESTUDIANTES -->
-      <section id="rosterView" class="hidden">
-        <div class="card">
-          <h3 style="margin-top:0">Directorio de estudiantes en la nube</h3>
-          <p class="hint">La nómina institucional está sincronizada. Los estudiantes nuevos o editados se guardan directamente en Firebase.</p>
-          <div class="row topgap">
-            <label class="field" style="flex:1;min-width:200px">
-              <span>Buscar estudiante por cédula o nombres</span>
-              <input id="rosterSearch" placeholder="Buscar en el registro...">
-            </label>
-            <button class="btn outline small" id="rosterExportBtn">Exportar listado CSV</button>
-          </div>
-          <div class="tablewrap topgap" id="rosterTable"></div>
-          <div class="divider"></div>
-          <h3>Ingresar o actualizar estudiante en la nube</h3>
-          <div class="form-grid">
-            <label class="field"><span>Cédula (10 dígitos)</span><input id="rosterCedula" maxlength="10" inputmode="numeric"></label>
-            <label class="field"><span>Nombre y apellidos</span><input id="rosterName" maxlength="110"></label>
-            <label class="field"><span>Nivel / Curso</span><select id="rosterLevel"></select></label>
-            <label class="field"><span>Paralelo</span><select id="rosterParallel"></select></label>
-          </div>
-          <button id="rosterSaveBtn" class="btn topgap">Guardar estudiante en la nube</button>
-          <div id="rosterMessage" class="topgap"></div>
-        </div>
-      </section>
-
-      <!-- PESTAÑA ADMINISTRADOR: DOCENTES Y CONTRASEÑAS -->
-      <section id="teachersAdminView" class="hidden">
-        <div class="card">
-          <div class="row between">
-            <div>
-              <h3 style="margin:0">Administración de Docentes y Contraseñas</h3>
-              <p class="hint">Visualiza las contraseñas registradas, asígnales una clave nueva si un docente la olvidó o elimina cuentas.</p>
-            </div>
-            <button class="btn light small" id="refreshTeachersBtn">🔄 Actualizar lista</button>
-          </div>
-
-          <div id="adminVerifyBox" class="notice topgap">
-            <b>Acceso de Administrador (Ing. Daniel Avellán):</b> Ingresa la clave maestra de administración para desbloquear y ver las contraseñas de todos los docentes.
-            <div class="row topgap">
-              <input type="password" id="masterAdminKeyInput" placeholder="Clave maestra de administrador" style="padding:9px 12px;border:1px solid #d6d9e1;border-radius:9px;max-width:260px">
-              <button type="button" class="btn small" id="unlockAdminBtn">Desbloquear contraseñas</button>
-            </div>
-          </div>
-
-          <div id="teachersAdminContent" class="hidden topgap">
-            <div class="row between" style="margin-bottom:12px">
-              <span class="tag good">🔓 Modo Administrador Desbloqueado</span>
-              <button type="button" class="btn neutral xs" id="lockAdminBtn">🔒 Bloquear vista</button>
-            </div>
-            <div class="tablewrap" id="teachersAdminTable"></div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
-
-  <div class="footer">Unidad Educativa Particular “Jacinto Burgos Pinargote” · Administrador: Ing. Daniel Avellán</div>
-</main>
-
-<!-- MODAL FLOTANTE: EDITOR GRÁFICO DE ECUACIONES (ESTILO WORD / WYSIWYG) -->
-<div id="visualMathModal" class="modal-backdrop hidden" style="z-index:350">
-  <div class="modal-card" style="max-width:680px">
-    <div class="row between">
-      <div>
-        <span class="tag good">Editor Gráfico Visual</span>
-        <h3 style="margin:6px 0 2px">Constructor Visual de Ecuaciones</h3>
-        <p class="hint" style="margin:0">Haz clic en los botones gráficos para armar tu ecuación sin escribir códigos.</p>
-      </div>
-      <button type="button" class="btn neutral small" id="closeVisualMathModal">Cerrar ✕</button>
-    </div>
-
-    <div class="topgap">
-      <math-field id="visualMathField" virtual-keyboard-mode="manual"></math-field>
-    </div>
-
-    <div class="math-palette-tabs">
-      <span style="font-size:12px;font-weight:800;color:var(--wine)">Estructuras y símbolos rápidos:</span>
-    </div>
-    <div class="math-palette-grid">
-      <button type="button" class="math-key" data-latex="\frac{#0}{#?}"><span>𝑎 / 𝑏</span><small>Fracción</small></button>
-      <button type="button" class="math-key" data-latex="\sqrt{#0}"><span>√𝑥</span><small>Raíz cuad.</small></button>
-      <button type="button" class="math-key" data-latex="\sqrt[#?]{#0}"><span>ⁿ√𝑥</span><small>Raíz n</small></button>
-      <button type="button" class="math-key" data-latex="#0^{#?}"><span>𝑥ⁿ</span><small>Exponente</small></button>
-      <button type="button" class="math-key" data-latex="#0_{#?}"><span>𝑥ₙ</span><small>Subíndice</small></button>
-      <button type="button" class="math-key" data-latex="\left(#0\right)"><span>( 𝑥 )</span><small>Paréntesis</small></button>
-      <button type="button" class="math-key" data-latex="\left|#0\right|"><span>| 𝑥 |</span><small>Val. Abs.</small></button>
-      <button type="button" class="math-key" data-latex="\pm"><span>±</span><small>Más/Menos</small></button>
-      <button type="button" class="math-key" data-latex="\times"><span>×</span><small>Por</small></button>
-      <button type="button" class="math-key" data-latex="\div"><span>÷</span><small>Dividir</small></button>
-      <button type="button" class="math-key" data-latex="\neq"><span>≠</span><small>Distinto</small></button>
-      <button type="button" class="math-key" data-latex="\leq"><span>≤</span><small>Menor ig.</small></button>
-      <button type="button" class="math-key" data-latex="\geq"><span>≥</span><small>Mayor ig.</small></button>
-      <button type="button" class="math-key" data-latex="\approx"><span>≈</span><small>Aprox.</small></button>
-      <button type="button" class="math-key" data-latex="\pi"><span>π</span><small>Pi</small></button>
-      <button type="button" class="math-key" data-latex="\theta"><span>θ</span><small>Theta</small></button>
-      <button type="button" class="math-key" data-latex="\alpha"><span>α</span><small>Alfa</small></button>
-      <button type="button" class="math-key" data-latex="\beta"><span>β</span><small>Beta</small></button>
-      <button type="button" class="math-key" data-latex="\Delta"><span>Δ</span><small>Delta</small></button>
-      <button type="button" class="math-key" data-latex="\infty"><span>∞</span><small>Infinito</small></button>
-      <button type="button" class="math-key" data-latex="\sum_{i=1}^{n}"><span>∑</span><small>Sumatoria</small></button>
-      <button type="button" class="math-key" data-latex="\int_{a}^{b}"><span>∫</span><small>Integral</small></button>
-      <button type="button" class="math-key" data-latex="\lim_{x\to \infty}"><span>lim</span><small>Límite</small></button>
-      <button type="button" class="math-key" data-latex="\vec{#0}"><span>𝑣⃗</span><small>Vector</small></button>
-      <button type="button" class="math-key" data-latex="\sin\left(#0\right)"><span>sin</span><small>Seno</small></button>
-      <button type="button" class="math-key" data-latex="\cos\left(#0\right)"><span>cos</span><small>Coseno</small></button>
-      <button type="button" class="math-key" data-latex="\tan\left(#0\right)"><span>tan</span><small>Tangente</small></button>
-      <button type="button" class="math-key" data-latex="\log_{#?}\left(#0\right)"><span>log</span><small>Logaritmo</small></button>
-      <button type="button" class="math-key" data-latex="\begin{pmatrix}#0 & #? \\ #? & #?\end{pmatrix}"><span>[ ⋮ ]</span><small>Matriz 2x2</small></button>
-      <button type="button" class="math-key" data-latex="^\circ"><span>°</span><small>Grados</small></button>
-    </div>
-
-    <div class="row between topgap">
-      <div class="row">
-        <button type="button" class="btn neutral small" id="clearVisualMathBtn">Limpiar lienzo</button>
-        <button type="button" class="btn light small" id="toggleMathKeyboardBtn">⌨️ Teclado completo</button>
-      </div>
-      <button type="button" class="btn" id="insertVisualMathBtn">✓ Insertar ecuación en el campo</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL CAMBIAR MI CONTRASEÑA (DENTRO DEL PANEL) -->
-<div id="changeMyPwdModal" class="modal-backdrop hidden">
-  <div class="modal-card" style="max-width:460px">
-    <div class="row between">
-      <h3 style="margin:0">🔑 Cambiar mi contraseña</h3>
-      <button type="button" class="btn neutral small" id="closeChangeMyPwdModal">✕</button>
-    </div>
-    <p class="hint topgap">Actualiza tu clave personal de acceso docente en la nube.</p>
-    <div class="stack topgap">
-      <label class="field"><span>Contraseña actual</span><input id="modalCurrentPwd" type="password" placeholder="Contraseña actual"></label>
-      <label class="field"><span>Nueva contraseña (mínimo 8 caracteres)</span><input id="modalNewPwd" type="password" placeholder="Nueva contraseña"></label>
-      <label class="field"><span>Confirmar nueva contraseña</span><input id="modalConfirmNewPwd" type="password" placeholder="Repetir nueva contraseña"></label>
-      <button type="button" class="btn" id="saveModalNewPwdBtn">Guardar nueva contraseña</button>
-      <div id="modalChangePwdMsg"></div>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL "MIS CALIFICACIONES" PARA ESTUDIANTES -->
-<div id="myGradesModal" class="modal-backdrop hidden">
-  <div class="modal-card" style="max-width:720px">
-    <div class="row between">
-      <div>
-        <span class="tag good">Consulta Estudiantil</span>
-        <h3 style="margin:6px 0 2px">Mis Calificaciones Publicadas</h3>
-        <p class="hint" id="myGradesStudentMeta" style="margin:0">Ingresa tu cédula para consultar tus notas desde la nube.</p>
-      </div>
-      <button type="button" class="btn neutral small" id="closeMyGradesModal">Cerrar ✕</button>
-    </div>
-    <div class="stack topgap">
-      <label class="field" style="max-width:320px">
-        <span>Número de cédula (10 dígitos)</span>
-        <input id="myGradesCedulaInput" inputmode="numeric" maxlength="10" placeholder="0000000000">
-      </label>
-      <div id="myGradesContentArea" class="stack topgap">
-        <div class="empty">Introduce tu cédula para ver tus calificaciones oficiales en la nube.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL DE REVISIÓN Y CALIFICACIÓN (IA / MANUAL) -->
-<div id="reviewModal" class="modal-backdrop hidden">
-  <div class="modal-card">
-    <div class="row between">
-      <div>
-        <span class="tag">Detalle de Evaluación</span>
-        <h3 id="reviewStudentTitle" style="margin:6px 0 2px"></h3>
-        <p id="reviewExamSubtitle" class="hint" style="margin:0"></p>
-      </div>
-      <button type="button" class="btn neutral small" id="closeReviewModal">Cerrar ✕</button>
-    </div>
-    <div class="divider"></div>
-    <div id="reviewQuestionsBody" class="stack"></div>
-    <div class="divider"></div>
-    <div class="row between">
-      <div>
-        <small class="hint">Calificación Final Recalculada:</small>
-        <div style="font-size:24px;font-weight:900;color:var(--wine)" id="reviewFinalScore">0.00 / 10</div>
-      </div>
-      <div class="row">
-        <button type="button" class="btn outline" id="printExamSheetBtn">🖨️ Generar examen impreso con membrete oficial</button>
-        <button type="button" class="btn light" id="regradeAllAiBtn">✨ Calificar abiertas con IA</button>
-        <button type="button" class="btn" id="saveManualGradesBtn">Guardar calificación en la nube</button>
-      </div>
-    </div>
-    <div id="reviewModalMsg" class="topgap"></div>
-  </div>
-</div>
-
-<!-- MODAL VISTA PREVIA EXAMEN INSTITUCIONAL IMPRESO -->
-<div id="printExamModal" class="modal-backdrop hidden">
-  <div class="modal-card" style="max-width:850px">
-    <div class="row between" style="margin-bottom:15px">
-      <span class="tag good">Vista de Impresión Oficial</span>
-      <div class="row">
-        <button type="button" class="btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
-        <button type="button" class="btn neutral small" id="closePrintModal">Cerrar ✕</button>
-      </div>
-    </div>
-    <div id="printSheetContainer"></div>
-  </div>
-</div>
-
-<!-- MODAL CONFIGURACIÓN API IA -->
-<div id="aiModal" class="modal-backdrop hidden">
-  <div class="modal-card" style="max-width:520px">
-    <div class="row between">
-      <h3 style="margin:0">Configuración de Inteligencia Artificial</h3>
-      <button type="button" class="btn neutral small" id="closeAiModal">✕</button>
-    </div>
-    <p class="hint topgap">Opcional: Ingresa una API Key de <b>Google Gemini</b> para evaluar respuestas abiertas con análisis semántico profundo. Si lo dejas vacío, el sistema utilizará el motor inteligente integrado.</p>
-    <label class="field topgap">
-      <span>Google Gemini API Key</span>
-      <input id="geminiApiKeyInput" type="password" placeholder="AIzaSy...">
-    </label>
-    <div class="row topgap">
-      <button type="button" class="btn" id="saveAiKeyBtn">Guardar configuración</button>
-      <button type="button" class="btn neutral" id="clearAiKeyBtn">Usar motor integrado</button>
-    </div>
-    <div id="aiKeyMsg" class="topgap"></div>
-  </div>
-</div>
-
-<!-- PANTALLA EXAMEN EN CURSO -->
-<section id="examScreen" class="hidden" aria-label="Examen en curso">
-  <div class="exam-wrap">
-    <div class="exam-header">
-      <div>
-        <div class="eyebrow" style="color:var(--wine)">Evaluación en curso</div>
-        <h2 id="liveTitle" style="margin:6px 0"></h2>
-        <p class="hint" id="liveStudent" style="margin:0"></p>
-      </div>
-      <div class="row">
-        <div class="timer-box" id="questionTimerBox"><small>TIEMPO DE PREGUNTA</small><strong id="questionTime">00:00</strong></div>
-        <div class="timer-box" id="windowTimerBox"><small>VENTANA DISPONIBLE</small><strong id="windowTime">00:00</strong></div>
-      </div>
-    </div>
-    <div class="progress"><div id="examProgress" style="width:0"></div></div>
-    <div id="examQuestionArea" class="question-main"></div>
-    <div id="examStatus" class="hint topgap"></div>
-  </div>
-</section>
-
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script></head><body>
+<header><h1>UNIDAD EDUCATIVA PARTICULAR “JACINTO BURGOS PINARGOTE”</h1><p class="subtitle">EXAMEN DE 2 TRIMESTRE DE ESTUDIOS SOCIALES</p><p>9no de Educación General Básica · Ing. Janeth Intriago</p></header>
+<main class="container"><div id="firebaseEstado" class="notice" role="status">Conectando con Firebase...</div>
+<section id="inicio" class="card"><h2 style="color:#6f1734;margin-top:0">Datos del estudiante</h2><p class="section-sub">Complete los datos para rendir la evaluación.</p><div class="grid">
+<label>Apellidos y nombres completos<input id="nombre" autocomplete="name" placeholder="Apellidos y nombres"></label>
+<label>Número de cédula<input id="cedula" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="10 dígitos" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)"></label>
+<label>Materia<select id="materia"><option value="Estudios Sociales">Estudios Sociales</option></select></label>
+<label>Curso<select id="curso"><option value="">Seleccione el paralelo...</option><option value="Noveno EGB A">Noveno EGB A</option><option value="Noveno EGB B">Noveno EGB B</option><option value="Noveno EGB C">Noveno EGB C</option><option value="Noveno EGB">Noveno EGB (sin paralelo)</option></select></label>
+<label>Fecha<input id="fecha" type="date"></label><label>Docente responsable<input disabled value="Ing. Janeth Intriago"></label></div>
+<div class="reglamento"><h3>Reglamento del examen</h3><ul>
+<li>Este examen contiene 15 preguntas de selección múltiple y se califica sobre 10 puntos.</li><li>Debe seleccionar una sola opción (A, B, C o D) por pregunta; no se solicitan procedimientos.</li>
+<li>Cada pregunta dispone de <strong>15 segundos</strong>. Al agotarse el tiempo, el examen avanza automáticamente a la siguiente pregunta.</li><li>No cambie de pestaña ni abandone la pantalla completa: el sistema puede finalizar la evaluación por infracción.</li><li>Se permite un solo intento por cédula para este examen.</li><li>Responda de manera individual y honesta.</li></ul>
+<label class="acepta"><input type="checkbox" id="acepto" onchange="actualizarBotonInicio()"><span><strong>ACEPTO LAS CONDICIONES Y EL REGLAMENTO DEL EXAMEN.</strong></span></label></div>
+<div class="actions"><button id="btnIniciar" class="btn-primary" disabled onclick="prepararInicio()">Iniciar examen</button></div>
+<p class="small">Al comenzar se solicitará pantalla completa. Se recomienda usar una computadora.</p>
+<button class="teacher-access no-print" onclick="accesoDocente()" type="button">Acceso docente</button></section>
+<section id="examen" class="card hidden"><div class="topbar"><span class="badge" id="contador">Pregunta 1 de 15</span><div class="timer" id="timer">01:00</div></div><div class="progress"><div id="barra"></div></div><div class="student-strip" id="datosBarra"></div><span class="points" id="valorPregunta"></span><div class="question" id="preguntaTexto"></div><div id="opciones"></div><div class="actions"><button id="btnSiguiente" class="btn-primary" onclick="siguiente()">Guardar respuesta y continuar</button></div></section>
+<section id="resultado" class="card hidden"><h2 style="color:#6f1734">Examen finalizado</h2><div id="estadoFinal"></div><div class="result-big" id="nota"></div><div id="resumen"></div><div class="actions no-print"><button class="btn-secondary" onclick="window.print()">Imprimir comprobante</button></div></section>
+<section id="docente" class="card hidden"><div class="topbar"><div><h2 style="color:#6f1734">Panel de la docente</h2><p>Responsable: <strong>Ing. Janeth Intriago</strong></p></div><button class="btn-secondary" onclick="cerrarDocente()">Cerrar configuración</button></div><div class="actions"><button class="btn-primary" onclick="verSeccion('config')">Configurar preguntas</button><button class="btn-success" onclick="verSeccion('resultados')">Consultar calificaciones</button></div>
+<div id="config"><div class="notice"><strong>Examen de Estudios Sociales de 9no EGB.</strong> Las preguntas tienen únicamente cuatro opciones; seleccione la letra correcta y el tiempo asignado. La puntuación total es de 10 puntos. <strong>Tiempo fijo de 15 segundos por pregunta en todos los computadores.</strong> Los cambios de enunciados y opciones realizados en este panel se guardan únicamente en este navegador.</div><div id="editor"></div><div class="actions"><button class="btn-success" onclick="guardarConfig()">Guardar configuración local</button><button class="btn-secondary" onclick="restaurarConfig()">Restaurar preguntas del Word</button></div></div>
+<div id="resultados" class="hidden"><div class="topbar"><h3 id="tituloResultados">Resultados de Estudios Sociales</h3><div class="actions"><button class="btn-secondary" onclick="exportarCSV()">Exportar CSV</button><button class="btn-danger" onclick="borrarResultados()">Borrar resultados de este examen</button></div></div><div style="overflow:auto"><table><thead><tr><th>Estudiante</th><th>Cédula</th><th>Materia</th><th>Curso</th><th>Fecha</th><th>Nota / 10</th><th>Aciertos</th><th>Estado</th><th>Docente</th><th>Finalizado</th></tr></thead><tbody id="tablaResultados"></tbody></table></div></div></section></main>
+<footer class="footer">Unidad Educativa Particular “Jacinto Burgos Pinargote” · Docente: Ing. Janeth Intriago</footer>
 <script>
-'use strict';
-
-// ==========================================
-// 1. CONFIGURACIÓN DE FIREBASE CLOUD
-// ==========================================
+const CLAVE_DOCENTE = "JBP 2026"; // Compatibilidad con el acceso local del archivo original; NO es autenticación segura.
+const STORAGE_PREGUNTAS="jbp_sociales_9no_t2_preguntas_v1";
+const STORAGE_RESULTADOS="jbp_sociales_9no_t2_resultados_v1";
+const COLECCION="resultados_sociales_9no_t2";
 const firebaseConfig = {
-  apiKey: "AIzaSyCEwSJ8h92QuoOgJIdiMaL0mVru-zWPlwI",
-  authDomain: "examenesjbp.firebaseapp.com",
-  projectId: "examenesjbp",
-  storageBucket: "examenesjbp.firebasestorage.app",
-  messagingSenderId: "222532691861",
-  appId: "1:222532691861:web:bdaeab040e797765c5789c",
-  measurementId: "G-PEWVM52HW9"
+  apiKey: "AIzaSyA3IAQjjTagk02SrSErowf8hnCkDvyP1lA",
+  authDomain: "examen-jbp-2026.firebaseapp.com",
+  projectId: "examen-jbp-2026",
+  storageBucket: "examen-jbp-2026.firebasestorage.app",
+  messagingSenderId: "451434970006",
+  appId: "1:451434970006:web:954be11b701acf15eebbb7"
 };
-
-let db = null;
-let auth = null;
-let cloudReady = false;
-
-// ==========================================
-// 2. DATOS INSTITUCIONALES PRECARGADOS
-// ==========================================
-const INITIAL_ROSTER=[{"cedula":"1353005109","name":"CHINGA PARRAGA DEYFRE ALFRED","level":"Tercero de Básica","parallel":"GENERAL"},{"cedula":"1353136086","name":"PALACIOS ALMEIDA ALENA MICHELLE","level":"Tercero de Básica","parallel":"GENERAL"},{"cedula":"1352968208","name":"RIVADENEIRA CALDERON KYLIAN ABRAHAM","level":"Tercero de Básica","parallel":"GENERAL"},{"cedula":"1353200460","name":"TIGUA SANTILLAN ERWIN GORGY","level":"Tercero de Básica","parallel":"GENERAL"},{"cedula":"1851361194","name":"CRUZ ROMERO MIA FERNANDA","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352632341","name":"ENRIQUEZ BAQUE ELIS MICHELLE","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352655599","name":"GUTIERREZ SAAVEDRA SOPHIA VICTORIA","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352656258","name":"MEZA RAMIREZ ANGIE GISSEL","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352537938","name":"QUIROZ SANCHEZ STEPHANY ARLETTE","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352650517","name":"SOLORZANO CEVALLOS ABBY ZHAMIRA","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352470460","name":"YEPEZ COBEÑA ALICE SHANEEK","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352447732","name":"ZAMBRANO SANCHEZ REINNER DASHIELL","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352505752","name":"ZAMBRANO VELEZ MARIANGEL IVANOVA","level":"Quinto de Básica","parallel":"GENERAL"},{"cedula":"1352193807","name":"ANCHUNDIA MARCILLO MATHIAS ADRIAN","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352365686","name":"ARTEAGA MENENDEZ PATRICK ELIAN","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352396525","name":"BRIONES COBEÑA ISIS ANALIA","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352280380","name":"CEDEÑO BAREN MARIA ASUNCION","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352224362","name":"CEDEÑO SOLORZANO AINHOA LUCIANA","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352064164","name":"DELGADO CHILAN ANGELINA GUADALUPE","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352355331","name":"MACIAS CEVALLOS AKEMY OHANA","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352000606","name":"MUÑOZ MENDOZA MATHIAS JULIAN","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352331993","name":"PALMA PIN RAUL JAVIER","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352392391","name":"TOALA BAREN NOHELIA MONSERRATE","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1352422990","name":"ZAMBRANO MENDOZA JUAN ANDRES","level":"Sexto de Básica","parallel":"GENERAL"},{"cedula":"1351962129","name":"CEDEÑO CHINGA JANETH MAGDALENA","level":"Séptimo de Básica","parallel":"GENERAL"},{"cedula":"1851122174","name":"CRUZ ROMERO MARTINA RAFAELA","level":"Séptimo de Básica","parallel":"GENERAL"},{"cedula":"0037655242","name":"VERGARA DAVILA SEBASTHIAN ALEJANRO","level":"Séptimo de Básica","parallel":"GENERAL"},{"cedula":"1351840630","name":"BRAVO ORDOÑEZ MIA ANGELINA","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351462229","name":"CARRILLO RIVADENEIRA SANDRA IVONNE","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1317333738","name":"CEDEÑO PERALTA KENLY FERNEY","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351082928","name":"CEVALLOS LAZ MATEO GABRIEL","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351255672","name":"CHAVEZ PICO SARA GUADALUPE","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351129158","name":"GARCIA ALVARADO DINARA AYLEEN","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1350666259","name":"LAZ VERA NARCISA CAMILA","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1317363255","name":"MACIAS VINUEZA MARIA CELESTE","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351799992","name":"MEJIA MACIAS SAID ORLANDO","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351768518","name":"PINARGOTE SORNOZA BRIANNA SARAHY","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351545213","name":"ROMERO PALMA JEREMY ANDREI","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351044654","name":"ROSADO PICO JEREMY MATHEUS","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351462161","name":"RUIZ VELEZ GREGORIO GERALD","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"0085176334","name":"TABATA CAMPOS SAMIRA ANDREINA","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351785660","name":"VERGARA PINCAY LINDA AYELEN","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1351050958","name":"ZAMBRANO RODRIGUEZ GREGSON GABRIEL","level":"Octavo de Básica","parallel":"GENERAL"},{"cedula":"1350511257","name":"ALAVA VERA VIELKA VALESKA","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1317286548","name":"BALLESTEROS VELEZ JOSSELYN NICOLLE","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1317384418","name":"CEDEÑO BAREN ISAAC ALEJANDRO","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1350325609","name":"DELGADO CHILAN GUSTAVO LEANDRO","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1317142790","name":"GARCIA QUIROZ ANGIE MISHELLE","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1317153805","name":"INTRIAGO MENDOZA FRANKLIN MATHIAS","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1753315348","name":"MENA MOREIRA DOMENICA CATTLEYA","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1351880198","name":"MERO CORNEJO NIKEYSHA DALILA","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1317388864","name":"RAMIREZ RODRIGUEZ SAMANTHA ISABEL","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1317307450","name":"RIVAS MUÑOZ ANGEL SNEYDER","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1350913479","name":"RODRIGUEZ SANTOS DANNA MARINA","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1350906192","name":"RUIZ LOOR ALLISON PATRICIA","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1350840300","name":"SALTOS DELGADO ISAIAS URIEL","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1351009699","name":"TUAREZ PALMA DERECK ALEXANDER","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1350463525","name":"TUBAY DOMINGUEZ JESUS MARCELO","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1317311304","name":"VINCES SANCHEZ IAN JAHIR","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"0450130554","name":"YAZAN VELASQUEZ ANDREE SEBASTIAN","level":"Noveno de Básica","parallel":"GENERAL"},{"cedula":"1350293419","name":"BRAVO SAAVEDRA MATEWS ZAID","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1128906844","name":"CARDONA OCAMPO CRISTOPHER","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317790168","name":"CARRILLO RIVADENEIRA JESUS ALEXANDER","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317141123","name":"CEDEÑO MANTUANO JOSE JAVIER","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1350256499","name":"CEDEÑO SANCHEZ GEMA SHARICK","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1316654829","name":"CERON INTRIAGO MICHAEL ANDRES","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1752800761","name":"CHACAN TAMAYO DANIEL ALEJANDRO","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1351610090","name":"CRESPO PROAÑO GORKY EMANUEL","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1316988789","name":"ENRIQUEZ BAQUE JOSEPH ANTHONY","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1350110332","name":"GARCIA CEDEÑO DEIBY ANDRES","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"2101229892","name":"GUAMAN NAVARRETE JEAN CARLOS","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1350251805","name":"JUNCO PIN STEFANIE ALEJANDRA","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1350277628","name":"LOOR SANCHEZ JURGEN RAFAEL","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1351750995","name":"LOPEZ PALMA STALIN JAVIER","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317760435","name":"MACIAS PALACIOS PIERINA MILENA","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1351175383","name":"PALMA PERALTA DOMENICA SAILY","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317363867","name":"PARRAGA BAREN SOFIA STEFANIA","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1350659171","name":"PAZMIÑO LOOR VICTOR JOAO","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1316949377","name":"PERALTA DELGADO DAYLIN EDUARDA","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317102117","name":"RIVADENEIRA CALDERON AARON EDUARDO","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1350305833","name":"RODRIGUEZ MARCILLO ALEJANDRO ISRAEL","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1350269211","name":"RUIZ LOOR ASHLEY GUADALUPE","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317255972","name":"SCHNABEL ROLDAN NICKOLAS ALFRED","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1350678916","name":"VALDIVIEZO CEDEÑO SARA DANIELA","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317829362","name":"VELASQUEZ PALMA MATHEO SIMON","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317761938","name":"ZAMBRANO SANCHEZ DASHA MAYLIN","level":"Décimo de Básica","parallel":"GENERAL"},{"cedula":"1317895801","name":"ALCIVAR CAMPOVERDE SANTIAGO SEBASTIAN","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1351332489","name":"BRAVO ORDOÑEZ VINICIO LUCIANO","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1351332513","name":"BRAVO ORDOÑEZ VINICIO VALENTINO","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1316356995","name":"CEVALLOS MACIAS JESUS DANIEL","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1317549556","name":"COBEÑA MARCILLO EMILY GUADALUPE","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1351821820","name":"DURAN MACIAS SONIA GEOVANNA","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1317826947","name":"GINES BARCIA GUADALUPE AHILY","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1316585007","name":"GONZALEZ QUIJIJE YURAMY SHAYLEE","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1351438104","name":"GUILLEN MUÑOZ AMY YARITZA","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1350040661","name":"LOOR ZAMORA ALEJANDRO NICOLAS","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1316351962","name":"MERA MERA YARID DANIEL","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1350020747","name":"MOLINEROS NAVIA ADRIANA ANAHI","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1350064257","name":"NAVARRETE VELEZ CRISTHEL VALENTINA","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1316630829","name":"PARRALES RAMIREZ DREIK ANTHONY","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1351221757","name":"PERALTA SOLORZANO SHEYLA ANDREA","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"0085646546","name":"TABATA CAMPOS ZIHARA SUSEJ","level":"Primero de Bachillerato","parallel":"A"},{"cedula":"1350108369","name":"CHAVEZ PICO GABRIEL MOISES","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1316962511","name":"CUADROS PALMA LUNA ALEXA","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1316656501","name":"DELGADO CHAVEZ ISABELA KRISTEL","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1350063606","name":"DUEÑAS VILLAPRADO RONALD NEYMAR","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1317862421","name":"GARCIA REZABALA MIA FIORELLA","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1350298186","name":"INTRIAGO MACIAS AMY SAMARA","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1350802706","name":"MACIAS PALACIOS JORGE PATRICIO","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1316931094","name":"MARCILLO VILLAPRADO SEBASTIAN ALEJANDRO","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1316979390","name":"PALACIOS MOREIRA BRANIA ANGELIQUE","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1351568439","name":"PARRAGA ALCIVAR DANNA VALENTINA","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1316576337","name":"RAMIREZ RODRIGUEZ SOFIA FERNANDA","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1317864088","name":"VERA ZAMBRANO ERIK JOSUE","level":"Primero de Bachillerato","parallel":"B"},{"cedula":"1315888949","name":"ARRUNATEGUI SORNOZA MATHEO LEONEL","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1350377519","name":"BARRENO CEDEÑO ADRIANA VALENTINA","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1350299275","name":"BONILLA BRIONES ALESSANDRO LIONEL","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1350592646","name":"BRIONES QUIROZ JASBLEIDY ARIANA","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1315958247","name":"CEDEÑO SANCHEZ MARCUS ANDREIK","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1351353733","name":"FRANCO RAMIREZ JARED MOISES","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1315889079","name":"LOOR SORNOZA LENIN JOSUE","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1351307739","name":"MACIAS TUAREZ ANGEL DANIEL","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1350195283","name":"MENDOZA MOREIRA LILIANA ELIZABETH","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1350650659","name":"MOREIRA POSLIGUA MEILY KRISBEL","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1317802583","name":"PALACIOS MOREIRA BRIANA CAROLINA","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1351183965","name":"PICO CHAVEZ JAMEL JONAS","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1350455877","name":"QUIROZ MIRANDA WALTER ARIEL","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1315823995","name":"ZAMBRANO FERNANDEZ JIMMY JOSUE","level":"Segundo de Bachillerato","parallel":"A"},{"cedula":"1350118004","name":"ALCIVAR ZAMBRANO ORIANA MARIA","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1350258727","name":"ARTEAGA ALMEIDA CAROLAYN DAYANARA","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1316055480","name":"CEDEÑO CHINGA IRENE MAGDALENA","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1350222327","name":"CEDEÑO SAAVEDRA DREYERS XAVIER","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1351269046","name":"CRUZATTE CEVALLOS ANTONIO JOHAN","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"0042459666","name":"DE LIMA HERRERA JOHNIEL ALEJANDRO","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1350120885","name":"FIGUEROA CARRILLO MYCKEL MIGUEL","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1317807954","name":"MENDOZA SUAREZ GABRIEL ELIAS","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1351133572","name":"REYES RESABALA ANGEL HUMBERTO","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1316177284","name":"SANTOS VERA JORGE ISRAEL","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1350249635","name":"SOLORZANO SOLORZANO BRIANA ISABELLE","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1350304216","name":"VELEZ CASANOVA ROMINA ZARAHI","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"2250212830","name":"VERDEZOTO GUERRERO MIGUEL ANGEL","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1351005291","name":"ZEA RODRIGUEZ DEIBY MATTHEW","level":"Segundo de Bachillerato","parallel":"B"},{"cedula":"1315916443","name":"ALCIVAR FALCONI JINMINY AMIR","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1317609335","name":"ARTEAGA SOLEDISPA JACQUELINE ESTHER","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1351301237","name":"BERMUDEZ CEDEÑO MILEY AILEN","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1316177458","name":"BRAVO PINCAY KENDRY ALEXANDER","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1315508166","name":"CEDEÑO CASANOVA EDISON SEBASTIAN","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1250887617","name":"CHOEZ ALCIVAR MAYKEL JOHAN","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1316501020","name":"DIAZ BENAVIDES CARLOS SNAIDER","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1316541349","name":"GUAMAN CHICA ISSIS DAYANARA","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1350355556","name":"GUERRERO BURGOS DANIELA ALEJANDRA","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1315888832","name":"IBAÑEZ PINARGOTE NOHELIA PAULETTE","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1350077705","name":"MEDRANDA CEVALLOS HENRY ANTONIO","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1351097850","name":"MENDOZA PINCAY MICKEL STIG","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1350848907","name":"MERA MARCILLO ANDREA STEFANY","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1350517445","name":"MOREIRA PALMA FABRICIO ALEJANDRO","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1317766333","name":"MOREIRA SOLORZANO DILAN GABRIEL","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1316225851","name":"NAVARRETE MACIAS NOHELIA VALENTINA","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1351621675","name":"PARRAGA BAREN JESUS ALEXANDER","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1315888154","name":"PINARGOTE DEMERA BORIS IVAN","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1350669014","name":"RIVAS MUÑOZ MARIANGEL","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1351239171","name":"RIVAS PIN JOSTYN FABIAN","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1316117124","name":"RODRIGUEZ RODRIGUEZ CAMILA ANDREINA","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1351374085","name":"SANCHEZ MENDOZA MARIA DOMENICA","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1316003514","name":"TUBAY DOMINGUEZ JULEXY ELIANA","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1314932706","name":"VELEZ CASANOVA EMILY ZAHIR","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1351715824","name":"VERA DELGADO FABIANA JAZMIN","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1351649767","name":"VERA VIVAR ANGEL JOSUE","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1351084080","name":"VERA ZAMBRANO ANGEL FILIBERTO","level":"Tercero de Bachillerato","parallel":"GENERAL"},{"cedula":"1316177441","name":"ZAMBRANO BRAVO EDDY NOE","level":"Tercero de Bachillerato","parallel":"GENERAL"}];
-
-const LEVELS=["Primero de Básica","Segundo de Básica","Tercero de Básica","Cuarto de Básica","Quinto de Básica","Sexto de Básica","Séptimo de Básica","Octavo de Básica","Noveno de Básica","Décimo de Básica","Primero de Bachillerato","Segundo de Bachillerato","Tercero de Bachillerato"];
-const parallelOptions=['GENERAL','A','B','C','D','E','F'];
-const MATH_COMBOS = ['A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','C4','D1','D2','D3','D4'];
-
-const MASTER_ADMIN_KEY = 'admin2026';
-
-const COL_EXAMS = 'jbp_exams';
-const COL_ATTEMPTS = 'jbp_attempts';
-const COL_TEACHERS = 'jbp_teachers';
-const COL_STUDENTS = 'jbp_custom_students';
-
+let db=null,auth=null,firebaseListo=false;
+const preguntasOriginales = [
+  {
+    "texto": "¿Cuál fue uno de los principales aportes de las culturas americanas antes de la llegada de los europeos?",
+    "opciones": [
+      "La construcción de fábricas industriales.",
+      "El desarrollo de conocimientos agrícolas, matemáticos y arquitectónicos.",
+      "La creación de automóviles.",
+      "La fabricación de aviones."
+    ],
+    "correcta": 1,
+    "puntos": 0.5,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Qué diferencia existía entre las sociedades americanas y europeas antes de la conquista?",
+    "opciones": [
+      "Todas tenían las mismas costumbres y organización.",
+      "En América existían grandes civilizaciones con sus propias formas de gobierno y cultura.",
+      "Europa no tenía ciudades.",
+      "América no conocía la agricultura."
+    ],
+    "correcta": 1,
+    "puntos": 0.5,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Cuál fue uno de los principales motivos de las exploraciones marítimas europeas?",
+    "opciones": [
+      "Buscar nuevas rutas comerciales y riquezas.",
+      "Evitar el comercio con otros pueblos.",
+      "Conocer únicamente los animales de América.",
+      "Abandonar las actividades comerciales."
+    ],
+    "correcta": 0,
+    "puntos": 0.5,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Qué avances facilitaron las exploraciones marítimas europeas?",
+    "opciones": [
+      "La televisión y la radio.",
+      "El automóvil y el tren.",
+      "La brújula, el astrolabio y las carabelas.",
+      "Los teléfonos y las computadoras."
+    ],
+    "correcta": 2,
+    "puntos": 0.5,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Qué significa interculturalidad?",
+    "opciones": [
+      "Rechazar las culturas diferentes.",
+      "Imponer una sola forma de pensar.",
+      "Promover el respeto, el diálogo y la convivencia entre diferentes culturas.",
+      "Evitar relacionarse con otras personas."
+    ],
+    "correcta": 2,
+    "puntos": 0.5,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Cuál de las siguientes situaciones representa la interculturalidad en nuestra vida cotidiana?",
+    "opciones": [
+      "Burlarse de las costumbres de otras comunidades.",
+      "Respetar las tradiciones, lenguas y creencias de otras culturas.",
+      "Discriminar a las personas por su origen.",
+      "Considerar que una cultura es superior a otra."
+    ],
+    "correcta": 1,
+    "puntos": 0.6,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Qué se entiende por exploración de América?",
+    "opciones": [
+      "El proceso mediante el cual los europeos recorrieron y conocieron territorios americanos.",
+      "La independencia de todos los países americanos.",
+      "La construcción de las primeras fábricas.",
+      "La creación de nuevas constituciones."
+    ],
+    "correcta": 0,
+    "puntos": 0.6,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Qué ocurrió durante la conquista de América?",
+    "opciones": [
+      "Los pueblos americanos conquistaron Europa.",
+      "Los europeos establecieron su dominio sobre diversos territorios y pueblos americanos.",
+      "Desaparecieron todas las diferencias culturales.",
+      "América dejó de tener habitantes."
+    ],
+    "correcta": 1,
+    "puntos": 0.6,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Cuál fue una consecuencia de la conquista para los pueblos indígenas?",
+    "opciones": [
+      "Mantuvieron intactas todas sus formas de organización.",
+      "Aumentó su independencia política.",
+      "Sufrieron pérdida de territorios, enfermedades y cambios en sus formas de vida.",
+      "Se convirtieron en gobernantes de Europa."
+    ],
+    "correcta": 2,
+    "puntos": 0.6,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Qué fue la colonización de América?",
+    "opciones": [
+      "El proceso de organización y control de los territorios americanos por parte de las potencias europeas.",
+      "La unión de todos los países americanos.",
+      "La eliminación del comercio europeo.",
+      "El proceso de independencia de América."
+    ],
+    "correcta": 0,
+    "puntos": 0.6,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Cuál fue una de las principales actividades económicas durante la colonización?",
+    "opciones": [
+      "La fabricación de computadoras.",
+      "La minería y la agricultura.",
+      "La producción de tecnología digital.",
+      "La exploración espacial."
+    ],
+    "correcta": 1,
+    "puntos": 0.9,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Qué relación existe entre exploración, conquista y colonización?",
+    "opciones": [
+      "Son acontecimientos sin ninguna relación histórica.",
+      "Fueron procesos relacionados con la llegada, el dominio y la organización europea de territorios americanos.",
+      "Ocurrieron únicamente en Europa.",
+      "Fueron procesos que sucedieron después de la independencia."
+    ],
+    "correcta": 1,
+    "puntos": 0.9,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿En qué país se desarrolló la Revolución Mexicana?",
+    "opciones": [
+      "Ecuador.",
+      "Colombia.",
+      "México.",
+      "Perú."
+    ],
+    "correcta": 2,
+    "puntos": 0.9,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿En qué año comenzó la Revolución Mexicana?",
+    "opciones": [
+      "1492.",
+      "1810.",
+      "1910.",
+      "1945."
+    ],
+    "correcta": 2,
+    "puntos": 0.9,
+    "tiempo": 15
+  },
+  {
+    "texto": "¿Cuál fue uno de los principales objetivos de la Revolución Mexicana?",
+    "opciones": [
+      "Defender la desigualdad social.",
+      "Conseguir cambios políticos y sociales, incluyendo una mayor justicia en la distribución de tierras.",
+      "Establecer el dominio europeo en México.",
+      "Eliminar los derechos de los campesinos."
+    ],
+    "correcta": 1,
+    "puntos": 0.9,
+    "tiempo": 15
+  }
+];
+function clonar(x){return JSON.parse(JSON.stringify(x))}
+function obtenerPreguntas(){try{const v=JSON.parse(localStorage.getItem(STORAGE_PREGUNTAS)||"null");if(Array.isArray(v)&&v.length===15&&v.every(q=>Array.isArray(q.opciones)&&q.opciones.length===4))return v;}catch(e){}return clonar(preguntasOriginales)}
+let preguntas=obtenerPreguntas(), alumno={}, respuestas=[], indice=0,segundos=0,intervalo=null,examenActivo=false,finalizando=false,modoDocente=false,proteccionActiva=false,blurTimer=null,resultadosOnlineCache=[];
 const $=id=>document.getElementById(id);
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
-let exams = [];
-let attempts = [];
-let teachers = [];
-let customStudents = [];
-let students = INITIAL_ROSTER.slice();
-
-let currentTeacher = null;
-let adminUnlocked = false;
-let authMode = 'login';
-let editingId = null;
-let editingQuestions = [];
-let live = null;
-let interval = null;
-let finalizing = false;
-let reviewingAttemptId = null;
-
-// Variables para el Editor Gráfico Flotante de Ecuaciones
-let activeMathTargetInput = null;
-let activeMathCursorStart = 0;
-let activeMathCursorEnd = 0;
-
-function setCloudStatus(ok, msg) {
-  const pill = $('cloudStatusPill');
-  if (pill) {
-    pill.textContent = msg;
-    pill.className = 'pill ' + (ok ? 'online' : 'offline');
-  }
-}
-
-function mergeRoster() {
-  const map = new Map();
-  INITIAL_ROSTER.forEach(s => map.set(s.cedula, { ...s, manual: false }));
-  customStudents.forEach(s => map.set(s.cedula, { ...s, manual: true }));
-  students = Array.from(map.values());
-}
-
-async function initCloud() {
-  try {
-    firebase.initializeApp(firebaseConfig);
-    auth = firebase.auth();
-    db = firebase.firestore();
-    
-    try {
-      await auth.signInAnonymously();
-    } catch (authErr) {
-      console.warn('Auth anónimo:', authErr);
-    }
-
-    await db.collection(COL_EXAMS).limit(1).get();
-    cloudReady = true;
-    setCloudStatus(true, '✓ Nube Conectada');
-
-    db.collection(COL_EXAMS).onSnapshot(snap => {
-      exams = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      renderStudent();
-      if (currentTeacher) {
-        renderStats();
-        renderExamList();
-        renderResults();
-      }
-    });
-
-    db.collection(COL_ATTEMPTS).onSnapshot(snap => {
-      attempts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      if (currentTeacher) {
-        renderStats();
-        renderResults();
-      }
-    });
-
-    db.collection(COL_TEACHERS).onSnapshot(snap => {
-      teachers = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      if (currentTeacher && adminUnlocked) {
-        renderTeachersAdminTable();
-      }
-    });
-
-    db.collection(COL_STUDENTS).onSnapshot(snap => {
-      customStudents = snap.docs.map(d => ({ cedula: d.id, ...d.data() }));
-      mergeRoster();
-      resolveStudent();
-      if (currentTeacher) renderRoster();
-    });
-
-  } catch (e) {
-    console.error('Error Firebase:', e);
-    setCloudStatus(false, '⚠ Sin conexión a la nube');
-  }
-}
-
-function fillLevels(id){const el=$(id); if(el) el.innerHTML='<option value="">Seleccione el nivel...</option>'+LEVELS.map(l=>`<option value="${esc(l)}">${esc(l)}</option>`).join('');}
-function fillParallels(id){const el=$(id); if(el) el.innerHTML=parallelOptions.map(x=>`<option value="${x}">${x==='GENERAL'?'General / sin paralelo':x}</option>`).join('');}
-
-for(const id of ['examLevel','manualStudentLevel','rosterLevel'])fillLevels(id);
-for(const id of ['examParallel','manualStudentParallel','rosterParallel'])fillParallels(id);
-
-const myExams=()=>currentTeacher?exams.filter(e=>e.ownerId===currentTeacher.id):[];
-const myExamIds=()=>new Set(myExams().map(e=>e.id));
-const myAttempts=()=>attempts.filter(a=>myExamIds().has(a.examId));
-const uid=()=>String(Date.now())+'-'+Math.random().toString(36).slice(2,9);
-const normName=s=>String(s||'').trim().replace(/\s+/g,' ').toLocaleLowerCase('es');
-
-async function hashText(v){
-  if(globalThis.crypto?.subtle){
-    const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(v));
-    return Array.from(new Uint8Array(bytes)).map(x => x.toString(16).padStart(2,'0')).join('');
-  }
-  return 'local-' + Array.from(v).map(c => c.charCodeAt(0).toString(16)).join('-');
-}
-
-const localDateValue=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-const localTimeValue=(d=new Date())=>`${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-const startAt=e=>new Date(`${e.date}T${e.time}:00`).getTime();
-const endAt=e=>startAt(e)+e.hours*3600000;
-const formatDate=ms=>new Date(ms).toLocaleString('es-EC',{dateStyle:'medium',timeStyle:'short'});
-const status=e=>Date.now()<startAt(e)?'Próximamente':Date.now()>=endAt(e)?'Finalizado':'Disponible';
-const formatClock=s=>{s=Math.max(0,Math.ceil(s));const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),ss=s%60;return h>0?`${h}:${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`:`${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`};
-const showMessage=(id,msg,type='red')=>{const el=$(id); if(el) el.innerHTML=`<div class="notice ${type}">${esc(msg)}</div>`;};
-
-function renderMathSafe(el) {
-  if (!el) return;
-  try {
-    if (typeof renderMathInElement === 'function') {
-      renderMathInElement(el, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false}
-        ],
-        throwOnError: false
-      });
-    }
-  } catch (e) {}
-}
-
-function getGeminiApiKey() { return localStorage.getItem('jbp_gemini_api_key') || ''; }
-
-function normalizeTokens(text) {
-  const stopWords = new Set(['el','la','los','las','un','una','unos','unas','de','del','al','a','en','con','por','para','su','sus','que','se','es','son','como','mas','pero','si','no','lo','le','les','y','o','u']);
-  return String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(w => w.length > 2 && !stopWords.has(w));
-}
-
-function localSemanticScore(studentAnswer, expectedRubric) {
-  const ans = String(studentAnswer || '').trim();
-  if (!ans) return { score: 0, feedback: 'Sin respuesta.' };
-  const rubric = String(expectedRubric || '').trim();
-  if (!rubric) return ans.length >= 12 ? { score: 1, feedback: 'Respuesta válida.' } : { score: 0.5, feedback: 'Muy breve.' };
-  const refTokens = normalizeTokens(rubric);
-  const stuTokens = new Set(normalizeTokens(ans));
-  if (!refTokens.length) return { score: 1, feedback: 'Evaluado.' };
-  let matches = 0;
-  refTokens.forEach(t => { if (stuTokens.has(t)) matches++; });
-  const ratio = matches / refTokens.length;
-  if (ratio >= 0.65) return { score: 1, feedback: `IA Integrada: Coincidencia alta (${Math.round(ratio * 100)}%).` };
-  if (ratio >= 0.35) return { score: 0.5, feedback: `IA Integrada: Coincidencia parcial (${Math.round(ratio * 100)}%).` };
-  return { score: 0, feedback: `IA Integrada: No cubre los conceptos clave (${Math.round(ratio * 100)}%).` };
-}
-
-async function evaluateOpenAnswerWithAI(questionText, rubric, studentAnswer) {
-  const ans = String(studentAnswer || '').trim();
-  if (!ans) return { score: 0, feedback: 'En blanco.' };
-  const apiKey = getGeminiApiKey();
-  if (!apiKey) return localSemanticScore(ans, rubric);
-  try {
-    const prompt = `Evalúa la respuesta de un estudiante sobre 1 punto (0, 0.25, 0.5, 0.75 o 1).\nPregunta: "${questionText}"\nRúbrica: "${rubric || 'Coherencia académica'}"\nRespuesta: "${ans}"\nJSON sin markdown: {"score": numero, "feedback": "explicacion breve"}`;
-    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.1 } })
-    });
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    const data = await resp.json();
-    const parsed = JSON.parse((data.candidates?.[0]?.content?.parts?.[0]?.text || '').replace(/```json|```/g, '').trim());
-    return { score: Math.max(0, Math.min(1, Number(parsed.score) || 0)), feedback: 'Gemini IA: ' + (parsed.feedback || 'Evaluado.') };
-  } catch (err) {
-    return localSemanticScore(ans, rubric);
-  }
-}
-
-function resolveStudent(){
-  const cedulaInput = $('studentCedula');
-  if(!cedulaInput) return;
-  const cedula = cedulaInput.value.trim();
-  const s = students.find(s => s.cedula === cedula);
-  if(s){
-    $('studentName').value = s.name;
-    $('studentName').readOnly = true;
-    $('rosterIdentity').innerHTML = `<b>Estudiante identificado:</b> ${esc(s.name)}<p style="margin:5px 0">${esc(s.level)} · Paralelo ${esc(s.parallel)}</p>`;
-    $('manualStudentPanel').classList.add('hidden');
-    $('studentCourse').textContent = 'Materias habilitadas exclusivamente para tu curso.';
-  } else {
-    $('studentName').readOnly = false;
-    $('rosterIdentity').textContent = cedula.length === 10 ? 'La cédula no figura en la nómina. Completa tu nombre y regístrate.' : 'Introduce tu cédula (10 dígitos).';
-    $('manualStudentPanel').classList.toggle('hidden', cedula.length !== 10);
-    $('studentCourse').textContent = '';
-  }
-  renderStudent();
-  return s;
-}
-
-if($('studentCedula')) {
-  $('studentCedula').addEventListener('input', resolveStudent);
-}
-
-if($('registerStudentBtn')) {
-  $('registerStudentBtn').onclick = async () => {
-    if (!cloudReady || !db) { alert('No hay conexión con la nube.'); return; }
-    const cedula = $('studentCedula').value.trim(), name = $('studentName').value.trim().replace(/\s+/g,' ');
-    const level = $('manualStudentLevel').value, parallel = $('manualStudentParallel').value;
-    if(!/^\d{10}$/.test(cedula) || name.split(' ').length < 2 || !level || !parallel){
-      showMessage('studentMessage', 'Completa todos los campos para registrar al alumno.');
-      return;
-    }
-    try {
-      await db.collection(COL_STUDENTS).doc(cedula).set({ cedula, name, level, parallel, manual: true, updatedAt: Date.now() });
-      $('studentMessage').innerHTML = '';
-      resolveStudent();
-    } catch (e) {
-      showMessage('studentMessage', 'Error: ' + e.message);
-    }
-  };
-}
-
-function renderRoster(){
-  if(!currentTeacher) return;
-  const q = ($('rosterSearch').value || '').trim().toLocaleLowerCase('es');
-  const matched = students.filter(s => !q || s.cedula.includes(q) || s.name.toLocaleLowerCase('es').includes(q));
-  $('rosterTable').innerHTML = `<p class="hint">${matched.length} de ${students.length} estudiantes</p><table class="report-table"><thead><tr><th>Cédula</th><th>Estudiante</th><th>Curso</th><th>Paralelo</th><th>Origen</th></tr></thead><tbody>${matched.slice(0,250).map(s=>`<tr><td>${esc(s.cedula)}</td><td>${esc(s.name)}</td><td>${esc(s.level)}</td><td>${esc(s.parallel)}</td><td>${s.manual?'Nube':'Institucional'}</td></tr>`).join('')}</tbody></table>`;
-}
-if($('rosterSearch')) {
-  $('rosterSearch').oninput = renderRoster;
-}
-
-if($('rosterSaveBtn')) {
-  $('rosterSaveBtn').onclick = async () => {
-    if(!currentTeacher || !cloudReady || !db) return;
-    const cedula = $('rosterCedula').value.trim(), name = $('rosterName').value.trim().replace(/\s+/g,' ');
-    const level = $('rosterLevel').value, parallel = $('rosterParallel').value;
-    if(!/^\d{10}$/.test(cedula) || name.split(' ').length < 2 || !level || !parallel){
-      showMessage('rosterMessage', 'Completa los datos del estudiante.');
-      return;
-    }
-    try {
-      await db.collection(COL_STUDENTS).doc(cedula).set({ cedula, name, level, parallel, manual: true, updatedAt: Date.now() });
-      showMessage('rosterMessage', 'Estudiante guardado en la nube.', 'good');
-      $('rosterCedula').value = ''; $('rosterName').value = '';
-    } catch (e) {
-      showMessage('rosterMessage', 'Error: ' + e.message);
-    }
-  };
-}
-
-if($('rosterExportBtn')) {
-  $('rosterExportBtn').onclick = () => {
-    if(!currentTeacher) return;
-    const rows = [['Cédula','Nombres','Curso','Paralelo','Origen'], ...students.map(s=>[s.cedula, s.name, s.level, s.parallel, s.manual?'Nube':'Institucional'])];
-    exportFile('nomina_JBP.csv', '\uFEFF' + rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(';')).join('\n'), 'text/csv;charset=utf-8');
-  };
-}
-
-function switchRole(role){
-  const isStudent = (role === 'student');
-  if($('studentView')) $('studentView').classList.toggle('hidden', !isStudent);
-  if($('teacherView')) $('teacherView').classList.toggle('hidden', isStudent);
-  if($('studentTab')) $('studentTab').classList.toggle('active', isStudent);
-  if($('teacherTab')) $('teacherTab').classList.toggle('active', !isStudent);
-  
-  if(!isStudent) {
-    renderTeacher();
-  } else {
-    renderStudent();
-  }
-}
-
-if($('studentTab')) {
-  $('studentTab').addEventListener('click', (e) => { e.preventDefault(); switchRole('student'); });
-}
-if($('teacherTab')) {
-  $('teacherTab').addEventListener('click', (e) => { e.preventDefault(); switchRole('teacher'); });
-}
-
-function renderStudent(){
-  const select = $('studentExam');
-  if(!select) return;
-  const old = select.value, cedula = $('studentCedula').value.trim(), pupil = students.find(s => s.cedula === cedula);
-  const allowed = pupil ? exams.filter(e => e.level === pupil.level && e.parallel === pupil.parallel) : [];
-  select.innerHTML = '<option value="">' + (pupil ? 'Seleccione una materia / examen...' : 'Primero ingresa tu cédula...') + '</option>' + allowed.map(e=>`<option value="${esc(e.id)}">${esc(e.subject)} — ${esc(e.title)} (${status(e)})</option>`).join('');
-  if(allowed.some(e=>e.id===old)) select.value = old;
-  renderSelection();
-}
-
-function renderSelection(){
-  const select = $('studentExam');
-  const info = $('selectedExamInfo');
-  if(!select || !info) return;
-  const e = exams.find(ex => ex.id === select.value);
-  info.innerHTML = e ? `<div class="tile"><b>${esc(e.subject)} · ${esc(e.teacher)}</b><p>Curso: ${esc(e.level)} · ${esc(e.parallel)}<br>Inicio: ${esc(formatDate(startAt(e)))}<br>Fin: ${esc(formatDate(endAt(e)))}<br>${e.questions.length} preguntas · ${e.seconds} s/preg · <b>${status(e)}</b></p></div>` : '';
-}
-if($('studentExam')) {
-  $('studentExam').onchange = renderSelection;
-}
-
-if($('openMyGradesModalBtn')) {
-  $('openMyGradesModalBtn').onclick = () => {
-    const cedula = $('studentCedula').value.trim();
-    if($('myGradesCedulaInput')) $('myGradesCedulaInput').value = cedula;
-    renderStudentGrades(cedula);
-    if($('myGradesModal')) $('myGradesModal').classList.remove('hidden');
-  };
-}
-if($('closeMyGradesModal')) {
-  $('closeMyGradesModal').onclick = () => $('myGradesModal').classList.add('hidden');
-}
-if($('myGradesCedulaInput')) {
-  $('myGradesCedulaInput').oninput = e => renderStudentGrades(e.target.value.trim());
-}
-
-function renderStudentGrades(cedula) {
-  const container = $('myGradesContentArea');
-  if(!container) return;
-  if (!/^\d{10}$/.test(cedula)) {
-    container.innerHTML = '<div class="hint">Introduce un número de cédula válido de 10 dígitos para consultar tus notas.</div>';
-    return;
-  }
-  const pupilAttempts = attempts.filter(a => a.cedula === cedula);
-  if (!pupilAttempts.length) {
-    container.innerHTML = '<div class="empty">No se registran evaluaciones rendidas con esta cédula.</div>';
-    return;
-  }
-
-  const bySubject = {};
-  pupilAttempts.forEach(att => {
-    const exam = exams.find(e => e.id === att.examId);
-    const subject = att.subject || (exam ? exam.subject : 'Sin materia');
-    if (!bySubject[subject]) bySubject[subject] = [];
-    bySubject[subject].push({ ...att, exam });
-  });
-
-  let html = '';
-  for (const [subject, list] of Object.entries(bySubject)) {
-    html += `
-      <div class="tile">
-        <h3 style="color:var(--wine);margin-bottom:8px">📚 ${esc(subject)}</h3>
-        <div class="stack" style="gap:10px">
-          ${list.map(att => {
-            const isPublished = att.published === true;
-            const examTitle = att.examTitle || (att.exam ? att.exam.title : 'Evaluación');
-            const teacherName = att.teacher || (att.exam ? att.exam.teacher : 'Docente');
-            return `
-              <div style="border:1px solid var(--line);border-radius:10px;padding:12px;background:#fcfcfd">
-                <div class="row between">
-                  <b>${esc(examTitle)}</b>
-                  <span class="tag ${isPublished?'good':'warn'}">${isPublished?'Calificación Publicada':'Pendiente de publicación'}</span>
-                </div>
-                <p class="hint" style="margin:4px 0">Docente: ${esc(teacherName)} · Rendido: ${esc(formatDate(att.startedAt))}</p>
-                ${isPublished ? `
-                  <div class="row between topgap" style="align-items:center">
-                    <span style="font-size:18px;font-weight:900;color:var(--wine)">Nota: ${Number(att.score||0).toFixed(2)} / 10</span>
-                    <span class="tag ${att.status==='infraccion'?'bad':'good'}">${att.status==='infraccion'?'Anulado (Infracción)':att.status==='pendiente_revision'?'Revisado parcialmente':'Finalizado'}</span>
-                  </div>
-                  ${att.reason?`<p class="hint" style="margin-top:6px"><b>Observación:</b> ${esc(att.reason)}</p>`:''}
-                ` : `
-                  <p class="hint" style="color:var(--gold);margin-top:4px">🔒 Tu examen ha sido recibido, pero el docente aún no publica las calificaciones oficiales.</p>
-                `}
-              </div>
-            `;
-          }).join('')}
-        </div>
-      </div>
-    `;
-  }
-  container.innerHTML = html;
-}
-
-// ==========================================
-// 3. AUTENTICACIÓN, CAMBIO DE CONTRASEÑA Y ADMIN
-// ==========================================
-function authReady(){
-  if($('loginModeBtn')) $('loginModeBtn').classList.toggle('active', authMode === 'login');
-  if($('registerModeBtn')) $('registerModeBtn').classList.toggle('active', authMode === 'register');
-  if($('changePwdModeBtn')) $('changePwdModeBtn').classList.toggle('active', authMode === 'changePwd');
-
-  const isChangeMode = (authMode === 'changePwd');
-  if($('standardAuthForm')) $('standardAuthForm').classList.toggle('hidden', isChangeMode);
-  if($('externalChangePwdForm')) $('externalChangePwdForm').classList.toggle('hidden', !isChangeMode);
-
-  if($('confirmPasswordField')) $('confirmPasswordField').classList.toggle('hidden', authMode !== 'register');
-  if($('authTitle')) {
-    $('authTitle').textContent = authMode === 'register' ? 'Crear cuenta docente en la nube' : isChangeMode ? 'Cambiar contraseña de docente' : 'Acceso de docentes y administradores';
-  }
-  if($('authSubtitle')) {
-    $('authSubtitle').textContent = authMode === 'register' ? 'Registra tu nombre y contraseña en la nube.' : isChangeMode ? 'Ingresa tu nombre, contraseña actual y tu nueva contraseña.' : 'Ingresa con tu cuenta registrada.';
-  }
-  if($('adminLoginBtn')) $('adminLoginBtn').textContent = authMode === 'register' ? 'Crear mi cuenta en la nube' : 'Iniciar sesión';
-}
-
-function setAuthMode(mode){ authMode = mode; if($('authMessage')) $('authMessage').innerHTML = ''; authReady(); }
-if($('loginModeBtn')) $('loginModeBtn').onclick = () => setAuthMode('login');
-if($('registerModeBtn')) $('registerModeBtn').onclick = () => setAuthMode('register');
-if($('changePwdModeBtn')) $('changePwdModeBtn').onclick = () => setAuthMode('changePwd');
-
-function renderTeacher(){
-  authReady();
-  if($('teacherAuth')) $('teacherAuth').classList.toggle('hidden', !!currentTeacher);
-  if($('teacherPanel')) $('teacherPanel').classList.toggle('hidden', !currentTeacher);
-  if(currentTeacher){
-    if($('loggedTeacherLabel')) $('loggedTeacherLabel').textContent = 'Docente / Admin: ' + currentTeacher.name;
-    if($('examTeacher')) $('examTeacher').value = currentTeacher.name;
-    renderStats();
-    renderExamList();
-    renderResults();
-    if(adminUnlocked) renderTeachersAdminTable();
-  }
-}
-
-if($('adminLoginBtn')) {
-  $('adminLoginBtn').onclick = async () => {
-    if(!cloudReady || !db) { showMessage('authMessage', 'Esperando conexión con la nube...'); return; }
-    const name = $('teacherNameLogin').value.trim().replace(/\s+/g,' '), password = $('adminPassword').value;
-    if(name.split(' ').length < 2){ showMessage('authMessage', 'Escribe tus nombres y apellidos completos.'); return; }
-    try {
-      if(authMode === 'register'){
-        if(password.length < 8){ showMessage('authMessage', 'La contraseña debe tener mínimo 8 caracteres.'); return; }
-        if(password !== $('confirmTeacherPassword').value){ showMessage('authMessage', 'Las contraseñas no coinciden.'); return; }
-        if(teachers.some(t => normName(t.name) === normName(name))){ showMessage('authMessage', 'El docente ya existe.'); return; }
-        const id = uid(), salt = uid(), passwordHash = await hashText(salt + '|' + password);
-        const teacher = { id, name, salt, passwordHash, plainPassword: password, createdAt: Date.now() };
-        await db.collection(COL_TEACHERS).doc(id).set(teacher);
-        currentTeacher = teacher;
-      } else {
-        let teacher = teachers.find(t => normName(t.name) === normName(name));
-        if(!teacher){
-          const snap = await db.collection(COL_TEACHERS).get();
-          teachers = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-          teacher = teachers.find(t => normName(t.name) === normName(name));
-        }
-        if(!teacher || await hashText(teacher.salt + '|' + password) !== teacher.passwordHash){
-          showMessage('authMessage', 'Nombre o contraseña incorrectos.');
-          return;
-        }
-        if(!teacher.plainPassword) {
-          await db.collection(COL_TEACHERS).doc(teacher.id).update({ plainPassword: password }).catch(()=>{});
-          teacher.plainPassword = password;
-        }
-        currentTeacher = teacher;
-      }
-      if($('adminPassword')) $('adminPassword').value = ''; 
-      if($('confirmTeacherPassword')) $('confirmTeacherPassword').value = ''; 
-      if($('authMessage')) $('authMessage').innerHTML = '';
-      resetEditor(); 
-      renderTeacher();
-    } catch(e){ 
-      showMessage('authMessage', 'Error: ' + e.message); 
-    }
-  };
-}
-
-if($('executeExternalChangePwdBtn')) {
-  $('executeExternalChangePwdBtn').onclick = async () => {
-    if(!cloudReady || !db) { showMessage('authMessage', 'Esperando conexión con la nube...'); return; }
-    const name = $('chgPwdName').value.trim().replace(/\s+/g,' ');
-    const currentPwd = $('chgPwdCurrent').value;
-    const newPwd = $('chgPwdNew').value;
-    const confirmPwd = $('chgPwdConfirm').value;
-
-    if(name.split(' ').length < 2) { showMessage('authMessage', 'Escribe tus nombres y apellidos completos.'); return; }
-    if(newPwd.length < 8) { showMessage('authMessage', 'La nueva contraseña debe tener mínimo 8 caracteres.'); return; }
-    if(newPwd !== confirmPwd) { showMessage('authMessage', 'Las contraseñas nuevas no coinciden.'); return; }
-
-    try {
-      let teacher = teachers.find(t => normName(t.name) === normName(name));
-      if(!teacher) {
-        const snap = await db.collection(COL_TEACHERS).get();
-        teachers = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        teacher = teachers.find(t => normName(t.name) === normName(name));
-      }
-      if(!teacher || await hashText(teacher.salt + '|' + currentPwd) !== teacher.passwordHash) {
-        showMessage('authMessage', 'El nombre del docente o la contraseña actual son incorrectos.');
-        return;
-      }
-      const newSalt = uid();
-      const newHash = await hashText(newSalt + '|' + newPwd);
-      await db.collection(COL_TEACHERS).doc(teacher.id).update({
-        salt: newSalt,
-        passwordHash: newHash,
-        plainPassword: newPwd,
-        updatedAt: Date.now()
-      });
-      $('chgPwdCurrent').value = ''; $('chgPwdNew').value = ''; $('chgPwdConfirm').value = '';
-      showMessage('authMessage', '¡Contraseña actualizada correctamente! Ya puedes iniciar sesión con tu nueva clave.', 'good');
-    } catch (e) {
-      showMessage('authMessage', 'Error al actualizar: ' + e.message);
-    }
-  };
-}
-
-if($('openChangeMyPwdModalBtn')) {
-  $('openChangeMyPwdModalBtn').onclick = () => {
-    $('modalCurrentPwd').value = '';
-    $('modalNewPwd').value = '';
-    $('modalConfirmNewPwd').value = '';
-    $('modalChangePwdMsg').innerHTML = '';
-    $('changeMyPwdModal').classList.remove('hidden');
-  };
-}
-if($('closeChangeMyPwdModal')) {
-  $('closeChangeMyPwdModal').onclick = () => $('changeMyPwdModal').classList.add('hidden');
-}
-if($('saveModalNewPwdBtn')) {
-  $('saveModalNewPwdBtn').onclick = async () => {
-    if(!currentTeacher || !cloudReady || !db) return;
-    const cur = $('modalCurrentPwd').value;
-    const nw = $('modalNewPwd').value;
-    const cnf = $('modalConfirmNewPwd').value;
-
-    if(nw.length < 8) { showMessage('modalChangePwdMsg', 'Mínimo 8 caracteres.'); return; }
-    if(nw !== cnf) { showMessage('modalChangePwdMsg', 'Las nuevas contraseñas no coinciden.'); return; }
-
-    try {
-      const checkHash = await hashText(currentTeacher.salt + '|' + cur);
-      if(checkHash !== currentTeacher.passwordHash) {
-        showMessage('modalChangePwdMsg', 'La contraseña actual es incorrecta.');
-        return;
-      }
-      const newSalt = uid();
-      const newHash = await hashText(newSalt + '|' + nw);
-      await db.collection(COL_TEACHERS).doc(currentTeacher.id).update({
-        salt: newSalt,
-        passwordHash: newHash,
-        plainPassword: nw,
-        updatedAt: Date.now()
-      });
-      currentTeacher.salt = newSalt;
-      currentTeacher.passwordHash = newHash;
-      currentTeacher.plainPassword = nw;
-      showMessage('modalChangePwdMsg', '✓ Tu contraseña ha sido actualizada en la nube.', 'good');
-      $('modalCurrentPwd').value = ''; $('modalNewPwd').value = ''; $('modalConfirmNewPwd').value = '';
-    } catch (e) {
-      showMessage('modalChangePwdMsg', 'Error: ' + e.message);
-    }
-  };
-}
-
-if($('unlockAdminBtn')) {
-  $('unlockAdminBtn').onclick = () => {
-    const val = $('masterAdminKeyInput').value.trim();
-    if(val === MASTER_ADMIN_KEY || (currentTeacher && val === currentTeacher.plainPassword)) {
-      adminUnlocked = true;
-      $('masterAdminKeyInput').value = '';
-      $('adminVerifyBox').classList.add('hidden');
-      $('teachersAdminContent').classList.remove('hidden');
-      renderTeachersAdminTable();
-    } else {
-      alert('Clave maestra de administrador incorrecta.');
-    }
-  };
-}
-if($('lockAdminBtn')) {
-  $('lockAdminBtn').onclick = () => {
-    adminUnlocked = false;
-    $('adminVerifyBox').classList.remove('hidden');
-    $('teachersAdminContent').classList.add('hidden');
-  };
-}
-if($('refreshTeachersBtn')) {
-  $('refreshTeachersBtn').onclick = async () => {
-    if(!cloudReady || !db) return;
-    const snap = await db.collection(COL_TEACHERS).get();
-    teachers = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    if(adminUnlocked) renderTeachersAdminTable();
-  };
-}
-
-function renderTeachersAdminTable() {
-  const container = $('teachersAdminTable');
-  if(!container) return;
-  if(!teachers.length) {
-    container.innerHTML = '<div class="empty">No hay docentes registrados en la nube.</div>';
-    return;
-  }
-  const sorted = [...teachers].sort((a,b) => a.name.localeCompare(b.name));
-  container.innerHTML = `
-    <table class="report-table">
-      <thead>
-        <tr>
-          <th>Docente</th>
-          <th>Contraseña Registrada</th>
-          <th>Exámenes Creados</th>
-          <th>Acciones de Soporte</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${sorted.map(t => {
-          const countExams = exams.filter(e => e.ownerId === t.id).length;
-          const pwdDisplay = t.plainPassword
-            ? `<span class="pwd-badge">${esc(t.plainPassword)}</span>`
-            : `<span class="tag warn">Cifrada (Asigna nueva clave si la olvidó)</span>`;
-          return `
-            <tr>
-              <td><b>${esc(t.name)}</b></td>
-              <td>${pwdDisplay}</td>
-              <td>${countExams} examen(es)</td>
-              <td>
-                <div class="row">
-                  <button type="button" class="btn light xs" onclick="adminResetTeacherPwd('${esc(t.id)}', '${esc(t.name)}')">✏️ Asignar nueva clave</button>
-                  <button type="button" class="btn danger xs" onclick="adminDeleteTeacher('${esc(t.id)}', '${esc(t.name)}')">🗑️ Borrar cuenta / clave</button>
-                </div>
-              </td>
-            </tr>
-          `;
-        }).join('')}
-      </tbody>
-    </table>
-  `;
-}
-
-window.adminResetTeacherPwd = async (teacherId, teacherName) => {
-  if(!cloudReady || !db) return;
-  const newPwd = prompt(`Escribe la nueva contraseña para ${teacherName} (mínimo 8 caracteres):`);
-  if(newPwd === null) return;
-  if(newPwd.trim().length < 8) {
-    alert('La contraseña debe tener al menos 8 caracteres.');
-    return;
-  }
-  try {
-    const cleanPwd = newPwd.trim();
-    const newSalt = uid();
-    const newHash = await hashText(newSalt + '|' + cleanPwd);
-    await db.collection(COL_TEACHERS).doc(teacherId).update({
-      salt: newSalt,
-      passwordHash: newHash,
-      plainPassword: cleanPwd,
-      updatedAt: Date.now()
-    });
-    if(currentTeacher && currentTeacher.id === teacherId) {
-      currentTeacher.salt = newSalt;
-      currentTeacher.passwordHash = newHash;
-      currentTeacher.plainPassword = cleanPwd;
-    }
-    alert(`✓ Contraseña actualizada para ${teacherName}.\nNueva clave: ${cleanPwd}`);
-  } catch (e) {
-    alert('Error al actualizar contraseña: ' + e.message);
-  }
-};
-
-window.adminDeleteTeacher = async (teacherId, teacherName) => {
-  if(!cloudReady || !db) return;
-  if(!confirm(`¿Estás seguro de borrar la cuenta y contraseña de "${teacherName}"?\n\nSi el docente olvidó su clave y la borras, podrá volver a registrarse desde "Crear cuenta docente" con su mismo nombre.`)) return;
-  try {
-    await db.collection(COL_TEACHERS).doc(teacherId).delete();
-    alert(`✓ Cuenta de ${teacherName} eliminada.`);
-  } catch (e) {
-    alert('Error al eliminar: ' + e.message);
-  }
-};
-
-if($('logoutBtn')) $('logoutBtn').onclick = () => { currentTeacher = null; adminUnlocked = false; resetEditor(); renderTeacher(); };
-if($('manageTab')) $('manageTab').onclick = () => setTeacherTab('manage');
-if($('resultsTab')) $('resultsTab').onclick = () => setTeacherTab('results');
-if($('rosterTab')) $('rosterTab').onclick = () => setTeacherTab('roster');
-if($('teachersAdminTab')) $('teachersAdminTab').onclick = () => setTeacherTab('teachersAdmin');
-
-function setTeacherTab(type){
-  if($('manageView')) $('manageView').classList.toggle('hidden', type !== 'manage');
-  if($('resultsView')) $('resultsView').classList.toggle('hidden', type !== 'results');
-  if($('rosterView')) $('rosterView').classList.toggle('hidden', type !== 'roster');
-  if($('teachersAdminView')) $('teachersAdminView').classList.toggle('hidden', type !== 'teachersAdmin');
-
-  if($('manageTab')) $('manageTab').classList.toggle('active', type === 'manage');
-  if($('resultsTab')) $('resultsTab').classList.toggle('active', type === 'results');
-  if($('rosterTab')) $('rosterTab').classList.toggle('active', type === 'roster');
-  if($('teachersAdminTab')) $('teachersAdminTab').classList.toggle('active', type === 'teachersAdmin');
-
-  if(type === 'roster') renderRoster();
-  if(type === 'teachersAdmin' && adminUnlocked) renderTeachersAdminTable();
-}
-
-function renderStats(){
-  const statsEl = $('stats');
-  if(!statsEl) return;
-  const mine = myAttempts();
-  const avg = mine.length ? mine.reduce((s,a)=>s+Number(a.score||0),0)/mine.length : 0;
-  statsEl.innerHTML = [['Exámenes', myExams().length],['Intentos', mine.length],['Promedio', avg.toFixed(2)+'/10']].map(([a,b])=>`<div class="stat"><small>${a}</small><b>${b}</b></div>`).join('');
-}
-
-if($('aiSettingsBtn')) {
-  $('aiSettingsBtn').onclick = () => {
-    if($('geminiApiKeyInput')) $('geminiApiKeyInput').value = getGeminiApiKey();
-    if($('aiKeyMsg')) $('aiKeyMsg').innerHTML = '';
-    if($('aiModal')) $('aiModal').classList.remove('hidden');
-  };
-}
-if($('closeAiModal')) $('closeAiModal').onclick = () => $('aiModal').classList.add('hidden');
-if($('saveAiKeyBtn')) {
-  $('saveAiKeyBtn').onclick = () => {
-    const val = $('geminiApiKeyInput').value.trim();
-    if(val){ localStorage.setItem('jbp_gemini_api_key', val); showMessage('aiKeyMsg','Guardado.','good'); }
-    else { localStorage.removeItem('jbp_gemini_api_key'); showMessage('aiKeyMsg','Usando motor integrado.','good'); }
-  };
-}
-if($('clearAiKeyBtn')) {
-  $('clearAiKeyBtn').onclick = () => { localStorage.removeItem('jbp_gemini_api_key'); if($('geminiApiKeyInput')) $('geminiApiKeyInput').value=''; showMessage('aiKeyMsg','Restablecido.','good'); };
-}
-
-// ==========================================
-// 4. EDITOR GRÁFICO FLOTANTE DE ECUACIONES
-// ==========================================
-window.openVisualMathEditor = (targetEl) => {
-  if (!targetEl) return;
-  activeMathTargetInput = targetEl;
-  activeMathCursorStart = targetEl.selectionStart || targetEl.value.length;
-  activeMathCursorEnd = targetEl.selectionEnd || targetEl.value.length;
-
-  const mf = $('visualMathField');
-  if (mf) {
-    mf.value = '';
-    setTimeout(() => {
-      mf.focus();
-      try { mf.executeCommand('showVirtualKeyboard'); } catch (e) {}
-    }, 80);
-  }
-  $('visualMathModal').classList.remove('hidden');
-};
-
-if($('closeVisualMathModal')) {
-  $('closeVisualMathModal').onclick = () => {
-    try { $('visualMathField')?.executeCommand('hideVirtualKeyboard'); } catch (e) {}
-    $('visualMathModal').classList.add('hidden');
-    activeMathTargetInput = null;
-  };
-}
-
-if($('clearVisualMathBtn')) {
-  $('clearVisualMathBtn').onclick = () => {
-    const mf = $('visualMathField');
-    if (mf) { mf.value = ''; mf.focus(); }
-  };
-}
-
-if($('toggleMathKeyboardBtn')) {
-  $('toggleMathKeyboardBtn').onclick = () => {
-    const mf = $('visualMathField');
-    if (mf) {
-      mf.focus();
-      try { mf.executeCommand('toggleVirtualKeyboard'); } catch (e) {}
-    }
-  };
-}
-
-document.querySelectorAll('.math-key').forEach(btn => {
-  btn.onclick = () => {
-    const mf = $('visualMathField');
-    if (!mf) return;
-    const latex = btn.getAttribute('data-latex');
-    mf.focus();
-    try {
-      mf.insert(latex, { selectionMode: 'placeholder' });
-    } catch (e) {
-      mf.value += latex;
-    }
-  };
-});
-
-if($('insertVisualMathBtn')) {
-  $('insertVisualMathBtn').onclick = () => {
-    const mf = $('visualMathField');
-    if (!mf || !activeMathTargetInput) return;
-    const latexVal = mf.value.trim();
-    if (!latexVal) {
-      $('visualMathModal').classList.add('hidden');
-      return;
-    }
-    const wrapped = `$${latexVal}$`;
-    const val = activeMathTargetInput.value;
-    activeMathTargetInput.value = val.substring(0, activeMathCursorStart) + wrapped + val.substring(activeMathCursorEnd);
-    activeMathTargetInput.dispatchEvent(new Event('input', { bubbles: true }));
-    activeMathTargetInput.focus();
-    const newPos = activeMathCursorStart + wrapped.length;
-    activeMathTargetInput.selectionStart = activeMathTargetInput.selectionEnd = newPos;
-
-    try { mf.executeCommand('hideVirtualKeyboard'); } catch (e) {}
-    $('visualMathModal').classList.add('hidden');
-    activeMathTargetInput = null;
-  };
-}
-
-function updateLiveMathPreview(inputEl) {
-  if (!inputEl) return;
-  const wrapper = inputEl.closest('.math-field-wrapper');
-  if (!wrapper) return;
-  const prev = wrapper.querySelector('.live-math-preview');
-  if (!prev) return;
-  const txt = inputEl.value.trim();
-  if (!txt || !txt.includes('$')) {
-    prev.classList.add('hidden');
-    return;
-  }
-  prev.classList.remove('hidden');
-  prev.innerHTML = `<span style="font-size:10px;font-weight:800;color:var(--wine);margin-right:4px">Vista previa:</span> <span>${esc(txt)}</span>`;
-  renderMathSafe(prev);
-}
-
-// ==========================================
-// 5. MOTOR DE SOPA DE LETRAS INTERACTIVA
-// ==========================================
-function parseWordsList(raw) {
-  return String(raw || '')
-    .split(/[\n,;]+/)
-    .map(w => w.trim().toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-ZÑ]/g, ''))
-    .filter(w => w.length >= 2 && w.length <= 14);
-}
-
-function buildWordSearchGrid(wordsInput, size = 10) {
-  const words = [...new Set(parseWordsList(wordsInput))];
-  const gridSize = Math.max(8, Math.min(14, Number(size) || 10));
-  const grid = Array.from({ length: gridSize }, () => Array(gridSize).fill(''));
-  const placed = [];
-
-  // Direcciones amigables para niños de escuela (horizontal, vertical y diagonal hacia abajo)
-  const dirs = [
-    [0, 1],   // derecha
-    [1, 0],   // abajo
-    [1, 1],   // diagonal abajo-derecha
-    [0, -1],  // izquierda
-    [-1, 0]   // arriba
-  ];
-
-  const sortedWords = [...words].sort((a, b) => b.length - a.length);
-  for (const w of sortedWords) {
-    if (w.length > gridSize) continue;
-    let ok = false;
-    for (let attempt = 0; attempt < 150 && !ok; attempt++) {
-      const [dr, dc] = dirs[Math.floor(Math.random() * dirs.length)];
-      const r0 = Math.floor(Math.random() * gridSize);
-      const c0 = Math.floor(Math.random() * gridSize);
-      const rEnd = r0 + dr * (w.length - 1);
-      const cEnd = c0 + dc * (w.length - 1);
-      if (rEnd < 0 || rEnd >= gridSize || cEnd < 0 || cEnd >= gridSize) continue;
-
-      let fits = true;
-      for (let k = 0; k < w.length; k++) {
-        const cell = grid[r0 + dr * k][c0 + dc * k];
-        if (cell !== '' && cell !== w[k]) { fits = false; break; }
-      }
-      if (fits) {
-        const coords = [];
-        for (let k = 0; k < w.length; k++) {
-          const rr = r0 + dr * k, cc = c0 + dc * k;
-          grid[rr][cc] = w[k];
-          coords.push(`${rr},${cc}`);
-        }
-        placed.push({ word: w, coords });
-        ok = true;
-      }
-    }
-  }
-
-  const alphabet = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
-  for (let r = 0; r < gridSize; r++) {
-    for (let c = 0; c < gridSize; c++) {
-      if (grid[r][c] === '') {
-        grid[r][c] = alphabet[Math.floor(Math.random() * alphabet.length)];
-      }
-    }
-  }
-  return { gridSize, grid, placed };
-}
-
-// ==========================================
-// 6. BANCO DE PREGUNTAS (INCLUYE SOPA DE LETRAS Y PARTES DE GRÁFICO)
-// ==========================================
-function defaultQuestionObj(type='multiple'){
-  return {
-    type,
-    text: '',
-    imageUrl: '',
-    options: ['','','',''],
-    correct: 0,
-    rubric: '',
-    gradingMode: 'ai',
-    procedures: ['','','',''],
-    correctCombo: 'A1',
-    requireWrittenProc: false,
-    wordsRaw: '',
-    gridSize: 10,
-    imageLabels: []
-  };
-}
-
-function resetEditor(){
-  editingId=null; editingQuestions=[]; if($('examForm')) $('examForm').reset();
-  if($('examTeacher') && currentTeacher) $('examTeacher').value = currentTeacher.name;
-  if($('examDate')) $('examDate').value = localDateValue(); 
-  if($('examTime')) $('examTime').value = localTimeValue();
-  if($('examLevel')) $('examLevel').value = ''; 
-  if($('examParallel')) $('examParallel').value = 'GENERAL'; 
-  if($('examHours')) $('examHours').value = 2; 
-  if($('examSeconds')) $('examSeconds').value = 60;
-  if($('editorTitle')) $('editorTitle').textContent = 'Crear examen'; 
-  if($('saveExamBtn')) $('saveExamBtn').textContent = 'Guardar examen en la nube';
-  if($('newExamBtn')) $('newExamBtn').classList.add('hidden'); 
-  if($('editorMessage')) $('editorMessage').innerHTML = '';
-  addQuestion();
-}
-
-function addQuestion(q=defaultQuestionObj('multiple')){
-  editingQuestions.push({
-    type: q.type||'multiple',
-    text: q.text||'',
-    imageUrl: q.imageUrl||'',
-    options: Array.isArray(q.options)?[...q.options]:['','','',''],
-    correct: Number(q.correct??0),
-    rubric: q.rubric||'',
-    gradingMode: q.gradingMode||'ai',
-    procedures: Array.isArray(q.procedures)?[...q.procedures]:['','','',''],
-    correctCombo: q.correctCombo||'A1',
-    requireWrittenProc: Boolean(q.requireWrittenProc),
-    wordsRaw: q.wordsRaw || (Array.isArray(q.words) ? q.words.join(', ') : ''),
-    gridSize: Number(q.gridSize || 10),
-    imageLabels: Array.isArray(q.imageLabels) ? JSON.parse(JSON.stringify(q.imageLabels)) : []
-  });
-  renderQuestionEditor();
-}
-
-function syncQuestions(){
-  const boxes=[...document.querySelectorAll('#questionEditor [data-q]')];
-  editingQuestions=boxes.map((box, idx)=>{
-    const prev = editingQuestions[idx] || defaultQuestionObj('multiple');
-    const type=box.querySelector('[data-type]').value;
-    const text=box.querySelector('[data-text]').value;
-    const imgPrev = box.querySelector('[data-image-preview]');
-    const imgInp = box.querySelector('[data-image-input]');
-    const imageUrl = (imgPrev && imgPrev.getAttribute('src')) || (imgInp ? imgInp.value.trim() : '');
-
-    if(type==='open'){
-      return {type:'open', text, imageUrl, rubric:box.querySelector('[data-rubric]').value, gradingMode:box.querySelector('[data-grading-mode]').value};
-    } else if(type==='math_combo'){
-      return {type:'math_combo', text, imageUrl, options:[...box.querySelectorAll('[data-opt]')].map(x=>x.value), procedures:[...box.querySelectorAll('[data-proc]')].map(x=>x.value), correctCombo:box.querySelector('[data-combo]').value, requireWrittenProc:box.querySelector('[data-req-proc]').checked};
-    } else if(type==='wordsearch'){
-      const wordsRaw = box.querySelector('[data-ws-words]')?.value || '';
-      const gridSize = Number(box.querySelector('[data-ws-size]')?.value || 10);
-      return {type:'wordsearch', text, imageUrl, wordsRaw, gridSize};
-    } else if(type==='image_labels'){
-      const labelInputs = [...box.querySelectorAll('[data-pin-label]')];
-      const updatedLabels = (prev.imageLabels || []).map((pin, pIdx) => ({
-        x: pin.x,
-        y: pin.y,
-        label: labelInputs[pIdx] ? labelInputs[pIdx].value : pin.label
-      }));
-      return {type:'image_labels', text, imageUrl, imageLabels: updatedLabels};
-    } else {
-      return {type:'multiple', text, imageUrl, options:[...box.querySelectorAll('[data-opt]')].map(x=>x.value), correct:Number(box.querySelector('[data-correct]').value)};
-    }
-  });
-}
-
-function renderOptionWithMathBtn(label, attrName, idx, val) {
-  return `
-    <div class="field math-field-wrapper">
-      <div class="row between">
-        <span style="font-size:12px;font-weight:800;color:#555d6b">${label}</span>
-        <button type="button" class="btn light xs" onclick="openVisualMathEditor(this.closest('.math-field-wrapper').querySelector('input'))">∑ Ecuación</button>
-      </div>
-      <input ${attrName}="${idx}" value="${esc(val)}" required oninput="updateLiveMathPreview(this)">
-      <div class="live-math-preview ${val && val.includes('$') ? '' : 'hidden'}"></div>
-    </div>
-  `;
-}
-
-window.removeEditorPin = (qIdx, pinIdx) => {
-  syncQuestions();
-  if (editingQuestions[qIdx] && Array.isArray(editingQuestions[qIdx].imageLabels)) {
-    editingQuestions[qIdx].imageLabels.splice(pinIdx, 1);
-    renderQuestionEditor();
-  }
-};
-
-window.handleEditorImagePinClick = (event, qIdx) => {
-  const imgEl = event.currentTarget;
-  const rect = imgEl.getBoundingClientRect();
-  if (!rect.width || !rect.height) return;
-  const x = Math.round(((event.clientX - rect.left) / rect.width) * 1000) / 10;
-  const y = Math.round(((event.clientY - rect.top) / rect.height) * 1000) / 10;
-
-  syncQuestions();
-  const q = editingQuestions[qIdx];
-  if (!q) return;
-  if (!Array.isArray(q.imageLabels)) q.imageLabels = [];
-  if (q.imageLabels.length >= 12) {
-    alert('Máximo 12 etiquetas por gráfico.');
-    return;
-  }
-  q.imageLabels.push({ x, y, label: '' });
-  renderQuestionEditor();
-};
-
-function renderQuestionEditor(){
-  const editorEl = $('questionEditor');
-  if(!editorEl) return;
-  editorEl.innerHTML=editingQuestions.map((q,i)=>{
-    const qType=q.type||'multiple';
-    let bodyHtml='';
-    let showDefaultImageBox = true;
-
-    if(qType==='open'){
-      bodyHtml=`<div class="stack topgap"><label class="field"><span>Rúbrica / Palabras clave</span><textarea data-rubric placeholder="Conceptos esperados...">${esc(q.rubric||'')}</textarea></label><div class="question-editor-actions"><span class="hint">Calificación:</span><select class="select-small" data-grading-mode><option value="ai" ${q.gradingMode!=='manual'?'selected':''}>Automática con IA</option><option value="manual" ${q.gradingMode==='manual'?'selected':''}>Revisión manual docente</option></select></div></div>`;
-    } else if(qType==='math_combo'){
-      bodyHtml=`<div class="math-matrix"><div><span class="math-col-title">Opciones (A-D)</span><div class="stack" style="gap:8px">${(q.options||['','','','']).map((o,j)=>renderOptionWithMathBtn(`Opción ${'ABCD'[j]}`, 'data-opt', j, o)).join('')}</div></div><div><span class="math-col-title">Procedimientos (1-4)</span><div class="stack" style="gap:8px">${(q.procedures||['','','','']).map((p,j)=>renderOptionWithMathBtn(`Procedimiento ${j+1}`, 'data-proc', j, p)).join('')}</div></div></div><div class="question-editor-actions"><label class="row" style="font-size:12px;cursor:pointer"><input type="checkbox" data-req-proc ${q.requireWrittenProc?'checked':''}><span>Pedir texto de procedimiento</span></label><div class="row"><span class="hint">Combinación correcta:</span><select class="select-small" data-combo>${MATH_COMBOS.map(c=>`<option value="${c}" ${q.correctCombo===c?'selected':''}>${c}</option>`).join('')}</select></div></div>`;
-    } else if(qType==='wordsearch'){
-      showDefaultImageBox = false;
-      const parsedCount = parseWordsList(q.wordsRaw || '').length;
-      bodyHtml = `
-        <div class="topgap" style="background:#f4fbf7;border:1px solid #bce3ce;padding:14px;border-radius:12px">
-          <div class="row between" style="margin-bottom:8px">
-            <span style="font-size:13px;font-weight:800;color:var(--good)">🔤 Configuración de Sopa de Letras Didáctica</span>
-            <span class="tag good">${parsedCount} palabra(s) lista(s)</span>
-          </div>
-          <label class="field">
-            <span>Palabras escondidas (separadas por comas o enter, sin tildes ni espacios)</span>
-            <textarea data-ws-words rows="2" placeholder="Ej. SOL, LUNA, TIERRA, ESTRELLA, PLANETA" required>${esc(q.wordsRaw || '')}</textarea>
-          </label>
-          <div class="row between topgap">
-            <label class="field" style="max-width:240px">
-              <span>Tamaño de cuadrícula</span>
-              <select data-ws-size>
-                <option value="8" ${Number(q.gridSize)===8?'selected':''}>8 × 8 (Fácil · 1° a 3° Básica)</option>
-                <option value="10" ${Number(q.gridSize||10)===10?'selected':''}>10 × 10 (Normal · 4° a 7° Básica)</option>
-                <option value="12" ${Number(q.gridSize)===12?'selected':''}>12 × 12 (Desafío · Superior)</option>
-              </select>
-            </label>
-            <p class="hint" style="margin:0;max-width:340px">El sistema generará automáticamente la sopa de letras mezclada para cada niño y calificará cada palabra encontrada.</p>
-          </div>
-        </div>
-      `;
-    } else if(qType==='image_labels'){
-      showDefaultImageBox = false;
-      const pins = Array.isArray(q.imageLabels) ? q.imageLabels : [];
-      bodyHtml = `
-        <div class="topgap" style="background:#fff9f2;border:1px solid #f0d7b4;padding:14px;border-radius:12px">
-          <span style="font-size:13px;font-weight:800;color:var(--gold);display:block;margin-bottom:6px">🏷️ Etiquetar Partes de un Gráfico (Didáctico para Escuela)</span>
-          <p class="hint" style="margin:0 0 10px">1. Pega una imagen con <b>Ctrl + V</b> o ingresa su enlace.<br>2. <b>Haz clic sobre las partes de la imagen</b> donde quieres colocar los números (1, 2, 3...) y escribe abajo el nombre de cada parte.</p>
-          <div class="row">
-            <input type="text" data-image-input placeholder="Pega URL de la imagen o presiona Ctrl+V aquí..." value="${esc(q.imageUrl||'')}" style="flex:1">
-          </div>
-          <div class="topgap" style="text-align:center">
-            ${q.imageUrl ? `
-              <div class="label-stage-wrap">
-                <img data-image-preview src="${esc(q.imageUrl)}" onclick="handleEditorImagePinClick(event, ${i})" style="cursor:crosshair" title="Haz clic para agregar un punto numerado">
-                ${pins.map((p, pIdx) => `<div class="label-pin-editor" style="left:${p.x}%;top:${p.y}%">${pIdx+1}</div>`).join('')}
-              </div>
-              <div class="hint" style="margin-top:4px">👆 Haz clic sobre cualquier parte del dibujo para añadir otro marcador numerado.</div>
-            ` : `
-              <img data-image-preview src="" style="display:none">
-              <div class="empty" style="padding:20px">Pega o carga una imagen arriba para marcar sus partes.</div>
-            `}
-          </div>
-          ${pins.length ? `
-            <div class="stack topgap" style="gap:8px">
-              <span style="font-size:12px;font-weight:800;color:var(--wine)">Nombres correctos de cada punto marcado:</span>
-              ${pins.map((p, pIdx) => `
-                <div class="row">
-                  <span class="tag" style="background:var(--wine);color:#fff;min-width:28px;justify-content:center">${pIdx+1}</span>
-                  <input type="text" data-pin-label="${pIdx}" value="${esc(p.label||'')}" placeholder="Nombre de la parte #${pIdx+1} (ej. Raíz, Tallo, Hoja...)" required style="flex:1;padding:8px 11px;border:1px solid #d6d9e1;border-radius:8px">
-                  <button type="button" class="btn danger xs" onclick="removeEditorPin(${i}, ${pIdx})">✕</button>
-                </div>
-              `).join('')}
-            </div>
-          ` : ''}
-        </div>
-      `;
-    } else {
-      bodyHtml=`<div class="options-editor topgap">${(q.options||['','','','']).map((o,j)=>renderOptionWithMathBtn(`Opción ${'ABCD'[j]}`, 'data-opt', j, o)).join('')}</div><div class="question-editor-actions"><span class="hint">Opción correcta</span><select class="select-small" data-correct>${[0,1,2,3].map(j=>`<option value="${j}" ${q.correct===j?'selected':''}>Correcta: ${'ABCD'[j]}</option>`).join('')}</select></div>`;
-    }
-
-    return `
-      <article class="question-box" data-q="${i}">
-        <div class="row between" style="margin-bottom:12px">
-          <div class="row">
-            <h4>Pregunta ${i+1}</h4>
-            <select class="select-small" data-type>
-              <option value="multiple" ${qType==='multiple'?'selected':''}>Opción Múltiple</option>
-              <option value="wordsearch" ${qType==='wordsearch'?'selected':''}>🔤 Sopa de Letras (Didáctica)</option>
-              <option value="image_labels" ${qType==='image_labels'?'selected':''}>🏷️ Partes de un Gráfico (Didáctica)</option>
-              <option value="open" ${qType==='open'?'selected':''}>Abierta</option>
-              <option value="math_combo" ${qType==='math_combo'?'selected':''}>Matemática (ej. A2)</option>
-            </select>
-          </div>
-          <button type="button" class="btn danger small" data-remove="${i}" ${editingQuestions.length===1?'disabled':''}>Eliminar</button>
-        </div>
-
-        <div class="field math-field-wrapper">
-          <div class="row between">
-            <span style="font-size:12px;font-weight:800;color:#555d6b">Enunciado / Consigna para el estudiante</span>
-            <button type="button" class="btn light small" onclick="openVisualMathEditor(this.closest('.math-field-wrapper').querySelector('textarea'))">∑ Insertar Ecuación (Editor Gráfico)</button>
-          </div>
-          <textarea data-text required placeholder="${qType==='wordsearch'?'Ej. Encuentra en la sopa de letras los siguientes planetas del Sistema Solar:':qType==='image_labels'?'Ej. Selecciona el nombre correcto para cada parte de la planta señalada en el dibujo:':'Escribe tu enunciado aquí o inserta una ecuación visual...'}" oninput="updateLiveMathPreview(this)">${esc(q.text)}</textarea>
-          <div class="live-math-preview ${q.text && q.text.includes('$') ? '' : 'hidden'}"></div>
-        </div>
-
-        ${showDefaultImageBox ? `
-          <div class="topgap" style="background:#fffcfd;border:1px dashed #d9c2cb;padding:12px;border-radius:10px">
-            <span style="font-size:12px;font-weight:800;color:var(--wine);display:block;margin-bottom:6px">🖼️ Imagen adjunta (Haz clic y presiona <b>Ctrl + V</b> para pegar una imagen del portapapeles)</span>
-            <div class="row">
-              <input type="text" data-image-input placeholder="Pega aquí la URL o presiona Ctrl+V en el enunciado/cuadro..." value="${esc(q.imageUrl||'')}" style="flex:1">
-            </div>
-            <div class="topgap" style="text-align:center">
-              <img data-image-preview src="${esc(q.imageUrl||'')}" style="max-height:140px;max-width:100%;border-radius:8px;${q.imageUrl?'':'display:none'}">
-            </div>
-          </div>
-        ` : ''}
-
-        ${bodyHtml}
-      </article>
-    `;
-  }).join('');
-
-  document.querySelectorAll('#questionEditor textarea[data-text], #questionEditor input[data-opt], #questionEditor input[data-proc]').forEach(el => updateLiveMathPreview(el));
-
-  document.querySelectorAll('[data-type]').forEach(sel=>{
-    sel.onchange=()=>{
-      const box=sel.closest('[data-q]'), idx=Number(box.dataset.q), currentText=box.querySelector('[data-text]').value;
-      const imgEl = box.querySelector('[data-image-preview]');
-      const currentImg = imgEl ? imgEl.getAttribute('src') : '';
-      const fresh=defaultQuestionObj(sel.value);
-      fresh.text=currentText;
-      fresh.imageUrl=(currentImg && (currentImg.startsWith('data:')||currentImg.startsWith('http')))?currentImg:'';
-      editingQuestions[idx]=fresh;
-      renderQuestionEditor();
-    };
-  });
-
-  document.querySelectorAll('[data-q]').forEach(box=>{
-    const idx = Number(box.dataset.q);
-    const txtArea = box.querySelector('[data-text]');
-    const imgInput = box.querySelector('[data-image-input]');
-    const imgPrev = box.querySelector('[data-image-preview]');
-
-    const handlePaste = e => {
-      const items = e.clipboardData?.items;
-      if (!items) return;
-      for (const item of items) {
-        if (item.type.indexOf('image') === 0) {
-          e.preventDefault();
-          const blob = item.getAsFile();
-          const reader = new FileReader();
-          reader.onload = event => {
-            if (editingQuestions[idx].type === 'image_labels') {
-              syncQuestions();
-              editingQuestions[idx].imageUrl = event.target.result;
-              renderQuestionEditor();
-            } else if (imgPrev && imgInput) {
-              imgPrev.src = event.target.result;
-              imgPrev.style.display = 'block';
-              imgInput.value = event.target.result;
-            }
-          };
-          reader.readAsDataURL(blob);
-          break;
-        }
-      }
-    };
-
-    if(txtArea) txtArea.addEventListener('paste', handlePaste);
-    if(imgInput) {
-      imgInput.addEventListener('paste', handlePaste);
-      imgInput.oninput = () => {
-        if (editingQuestions[idx].type === 'image_labels') {
-          syncQuestions();
-          editingQuestions[idx].imageUrl = imgInput.value.trim();
-          renderQuestionEditor();
-        } else if (imgPrev) {
-          imgPrev.src = imgInput.value;
-          imgPrev.style.display = imgInput.value ? 'block' : 'none';
-        }
-      };
-    }
-  });
-
-  document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{ syncQuestions(); editingQuestions.splice(Number(b.dataset.remove),1); renderQuestionEditor(); });
-}
-
-if($('addQuestionBtn')) $('addQuestionBtn').onclick = () => { syncQuestions(); addQuestion(); };
-if($('newExamBtn')) $('newExamBtn').onclick = resetEditor;
-
-if($('examForm')) {
-  $('examForm').onsubmit = async event => {
-    event.preventDefault(); syncQuestions();
-    if(!currentTeacher || !cloudReady || !db) { showMessage('editorMessage', 'Esperando conexión con la nube...'); return; }
-    const title = $('examTitle').value.trim(), subject = $('examSubject').value.trim(), level = $('examLevel').value, parallel = $('examParallel').value;
-    const date = $('examDate').value, time = $('examTime').value, hours = Number($('examHours').value), seconds = Number($('examSeconds').value);
-
-    let validQuestions = editingQuestions.length > 0;
-    let specificErr = 'Completa todos los campos obligatorios.';
-    for(let k=0; k<editingQuestions.length; k++){
-      const q = editingQuestions[k];
-      if(!q.text.trim()) { validQuestions = false; break; }
-      if(q.type === 'multiple' && q.options.some(o => !o.trim())) { validQuestions = false; break; }
-      if(q.type === 'math_combo' && (q.options.some(o => !o.trim()) || q.procedures.some(p => !p.trim()))) { validQuestions = false; break; }
-      if(q.type === 'wordsearch') {
-        const wList = parseWordsList(q.wordsRaw);
-        if(wList.length < 2) { validQuestions = false; specificErr = `Pregunta ${k+1} (Sopa de letras): escribe al menos 2 palabras válidas.`; break; }
-      }
-      if(q.type === 'image_labels') {
-        if(!q.imageUrl.trim()) { validQuestions = false; specificErr = `Pregunta ${k+1} (Partes de un gráfico): debes pegar o enlazar una imagen.`; break; }
-        if(!q.imageLabels || q.imageLabels.length < 2) { validQuestions = false; specificErr = `Pregunta ${k+1} (Partes de un gráfico): haz clic sobre la imagen para marcar al menos 2 partes.`; break; }
-        if(q.imageLabels.some(p => !p.label.trim())) { validQuestions = false; specificErr = `Pregunta ${k+1}: escribe el nombre de todas las partes numeradas.`; break; }
-      }
-    }
-    if(!title || !subject || !level || !parallel || !date || !time || !validQuestions){
-      showMessage('editorMessage', specificErr); return;
-    }
-
-    const examId = editingId || uid();
-    const cleanQuestions = editingQuestions.map(q => {
-      const baseQ = { text: q.text.trim(), imageUrl: (q.imageUrl||'').trim() };
-      if(q.type === 'open') return {type:'open', ...baseQ, rubric:q.rubric.trim(), gradingMode:q.gradingMode};
-      if(q.type === 'math_combo') return {type:'math_combo', ...baseQ, options:q.options.map(o=>o.trim()), procedures:q.procedures.map(p=>p.trim()), correctCombo:q.correctCombo, requireWrittenProc:q.requireWrittenProc};
-      if(q.type === 'wordsearch') return {type:'wordsearch', ...baseQ, words:parseWordsList(q.wordsRaw), wordsRaw:q.wordsRaw.trim(), gridSize:Number(q.gridSize||10)};
-      if(q.type === 'image_labels') return {type:'image_labels', ...baseQ, imageLabels:q.imageLabels.map(p=>({x:p.x, y:p.y, label:p.label.trim()}))};
-      return {type:'multiple', ...baseQ, options:q.options.map(o=>o.trim()), correct:q.correct};
-    });
-
-    const item = { id: examId, ownerId: currentTeacher.id, title, teacher: currentTeacher.name, subject, level, parallel, date, time, hours, seconds, questions: cleanQuestions, createdAt: Date.now(), updatedAt: Date.now() };
-
-    const btn = $('saveExamBtn'); btn.disabled = true; btn.textContent = 'Guardando en la nube...';
-    try {
-      await db.collection(COL_EXAMS).doc(examId).set(item);
-      resetEditor(); showMessage('editorMessage', 'Examen guardado en la nube con éxito.', 'good');
-    } catch(e){ 
-      showMessage('editorMessage', 'Error: ' + e.message); 
-    } finally { 
-      btn.disabled = false; btn.textContent = 'Guardar examen en la nube'; 
-    }
-  };
-}
-
-function renderExamList(){
-  const listEl = $('examList');
-  if(!listEl) return;
-  const mine = myExams();
-  listEl.innerHTML = mine.length ? mine.map(e=>`<div class="tile"><div class="row between"><h3>${esc(e.subject)}</h3><span class="tag ${status(e)==='Disponible'?'good':'warn'}">${status(e)}</span></div><b style="font-size:13px">${esc(e.title)}</b><p>Curso: ${esc(e.level)} · ${esc(e.parallel)}<br>${esc(formatDate(startAt(e)))}<br>${e.questions.length} preguntas · ${e.seconds} s/preg</p><div class="row"><button class="btn light small" data-edit="${esc(e.id)}">Editar</button><button class="btn danger small" data-delete="${esc(e.id)}">Eliminar</button></div></div>`).join('') : '<div class="empty">No hay exámenes en la nube.</div>';
-
-  document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>editExam(b.dataset.edit));
-  document.querySelectorAll('[data-delete]').forEach(b=>b.onclick=async()=>{
-    const e = myExams().find(x=>x.id===b.dataset.delete);
-    if(e && confirm(`¿Eliminar examen "${e.title}" de la nube?`)){
-      await db.collection(COL_EXAMS).doc(e.id).delete();
-      if(editingId===e.id) resetEditor();
-    }
-  });
-}
-
-function editExam(id){
-  const e = myExams().find(x=>x.id===id); if(!e) return;
-  editingId = id; $('examTitle').value = e.title; $('examSubject').value = e.subject; $('examLevel').value = e.level||''; $('examParallel').value = e.parallel||'GENERAL'; $('examDate').value = e.date; $('examTime').value = e.time; $('examHours').value = e.hours; $('examSeconds').value = e.seconds;
-  editingQuestions = JSON.parse(JSON.stringify(e.questions)).map(q => ({
-    ...q,
-    wordsRaw: q.wordsRaw || (Array.isArray(q.words) ? q.words.join(', ') : '')
-  }));
-  renderQuestionEditor();
-  if($('editorTitle')) $('editorTitle').textContent = 'Editar examen'; 
-  if($('saveExamBtn')) $('saveExamBtn').textContent = 'Actualizar examen en la nube'; 
-  if($('newExamBtn')) $('newExamBtn').classList.remove('hidden');
-  window.scrollTo({top:520,behavior:'smooth'});
-}
-
-function renderResults(){
-  const sel = $('resultsFilter');
-  if(!sel) return;
-  const old = sel.value;
-  const mineExams = myExams();
-  sel.innerHTML = '<option value="all">Todos mis exámenes</option>' + mineExams.map(e=>`<option value="${esc(e.id)}">${esc(e.subject)} — ${esc(e.title)}</option>`).join('');
-  if(old === 'all' || mineExams.some(e=>e.id===old)) sel.value = old;
-
-  const selectedExamId = sel.value;
-  const targetExam = mineExams.find(e => e.id === selectedExamId);
-  const badge = $('examPublicationBadge');
-  if(badge) {
-    if (!targetExam) {
-      badge.textContent = 'Estado: Selecciona un examen para publicar notas masivamente';
-      badge.className = 'tag';
-    } else {
-      const pubCount = myAttempts().filter(a => a.examId === targetExam.id && a.published === true).length;
-      const totCount = myAttempts().filter(a => a.examId === targetExam.id).length;
-      badge.textContent = totCount ? `${pubCount} de ${totCount} notas publicadas` : 'Sin intentos registrados';
-      badge.className = 'tag ' + (pubCount === totCount && totCount > 0 ? 'good' : 'warn');
-    }
-  }
-
-  const rows = myAttempts().filter(a => selectedExamId === 'all' || a.examId === selectedExamId);
-  const tableEl = $('resultsTable');
-  if(!tableEl) return;
-  tableEl.innerHTML = rows.length ? `<table class="report-table"><thead><tr><th>Estudiante</th><th>Cédula</th><th>Materia / Examen</th><th>Publicación</th><th>Nota</th><th>Acciones</th></tr></thead><tbody>${rows.map(a=>`<tr><td><b>${esc(a.studentName)}</b></td><td>${esc(a.cedula)}</td><td>${esc(a.subject)}<br><small class="hint">${esc(a.examTitle)}</small></td><td><button type="button" class="btn ${a.published?'light':'neutral'} xs" onclick="togglePublishAttempt('${esc(a.id)}', ${!a.published})">${a.published?'📢 Publicada':'🔒 Oculta (Publicar)'}</button></td><td class="score">${Number(a.score||0).toFixed(2)}/10</td><td><div class="row"><button type="button" class="btn light xs" onclick="openReviewModal('${esc(a.id)}')">Revisar / Imprimir</button><button type="button" class="btn danger xs" onclick="deleteAttempt('${esc(a.id)}')">Borrar</button></div></td></tr>`).join('')}</tbody></table>` : '<div class="empty">No hay resultados en la nube aún.</div>';
-}
-if($('resultsFilter')) $('resultsFilter').onchange = renderResults;
-
-window.togglePublishAttempt = async (attemptId, publishState) => {
-  if (!cloudReady || !db) return;
-  try {
-    await db.collection(COL_ATTEMPTS).doc(attemptId).update({ published: publishState });
-  } catch (e) {
-    alert('Error: ' + e.message);
-  }
-};
-
-if($('publishAllBtn')) {
-  $('publishAllBtn').onclick = async () => {
-    if (!cloudReady || !db) return;
-    const selectedExamId = $('resultsFilter').value;
-    if (selectedExamId === 'all') {
-      alert('Por favor, selecciona un examen específico en el filtro "Filtrar por examen" antes de publicar todas sus notas.');
-      return;
-    }
-    const targetAttempts = myAttempts().filter(a => a.examId === selectedExamId);
-    if (!targetAttempts.length) {
-      alert('Este examen aún no tiene intentos para publicar.');
-      return;
-    }
-    if (!confirm(`¿Deseas PUBLICAR las calificaciones de los ${targetAttempts.length} estudiante(s) de este examen para que puedan consultarlas?`)) return;
-    try {
-      const batch = db.batch();
-      targetAttempts.forEach(att => {
-        batch.update(db.collection(COL_ATTEMPTS).doc(att.id), { published: true });
-      });
-      await batch.commit();
-      alert('✓ Calificaciones publicadas exitosamente en la nube.');
-    } catch (e) {
-      alert('Error al publicar: ' + e.message);
-    }
-  };
-}
-
-window.deleteAttempt = async (attemptId) => {
-  if(!cloudReady || !db) return;
-  if(confirm('¿Eliminar este intento de la nube para habilitar al estudiante nuevamente?')){
-    await db.collection(COL_ATTEMPTS).doc(attemptId).delete();
-  }
-};
-
-window.openReviewModal = (attemptId) => {
-  reviewingAttemptId = attemptId;
-  const att = attempts.find(a => a.id === attemptId); if(!att) return;
-  const exam = exams.find(e => e.id === att.examId) || { questions: [] };
-  $('reviewStudentTitle').textContent = `${att.studentName} (${att.cedula})`;
-  $('reviewExamSubtitle').textContent = `${att.subject} · ${att.examTitle}`;
-  $('reviewFinalScore').textContent = `${Number(att.score||0).toFixed(2)} / 10`;
-
-  $('reviewQuestionsBody').innerHTML = (exam.questions||[]).map((q, idx)=>{
-    const detail = (att.details||[])[idx] || {};
-    const qType = q.type||'multiple';
-    const earned = Number(detail.pointsEarned ?? 0);
-    let ansHtml = '';
-    if(qType === 'open'){
-      ansHtml = `<div style="background:#f8f9fb;padding:10px;border-radius:8px;margin-top:6px"><small class="hint">Respuesta:</small><div style="white-space:pre-wrap;margin-top:4px">${esc(detail.studentAnswerText||'Sin respuesta')}</div></div>${detail.aiFeedback?`<div class="notice good" style="margin-top:8px;padding:8px 12px">${esc(detail.aiFeedback)}</div>`:''}`;
-    } else if(qType === 'math_combo'){
-      ansHtml = `<div style="margin-top:6px"><span class="tag ${earned===1?'good':'bad'}">Marcó: ${esc(detail.selectedCombo||'Ninguna')} (Correcta: ${esc(q.correctCombo)})</span>${detail.writtenProcedure?`<div style="background:#f8f9fb;padding:8px;border-radius:8px;margin-top:6px;font-size:13px"><b>Procedimiento:</b> ${esc(detail.writtenProcedure)}</div>`:''}</div>`;
-    } else if(qType === 'wordsearch'){
-      const found = Array.isArray(detail.foundWords) ? detail.foundWords : [];
-      const totalW = Array.isArray(q.words) ? q.words : [];
-      ansHtml = `<div style="margin-top:6px"><span class="tag ${earned===1?'good':earned>0?'warn':'bad'}">Encontró ${found.length} de ${totalW.length} palabras</span><div class="hint" style="margin-top:4px"><b>Encontradas:</b> ${esc(found.join(', ') || 'Ninguna')}</div></div>`;
-    } else if(qType === 'image_labels'){
-      const pins = Array.isArray(q.imageLabels) ? q.imageLabels : [];
-      const stuMap = detail.studentLabels || {};
-      ansHtml = `<div style="margin-top:6px;font-size:13px">${pins.map((p, pIdx) => {
-        const stuVal = stuMap[pIdx] || 'Sin marcar';
-        const ok = stuVal === p.label;
-        return `<div><b>#${pIdx+1}:</b> Marcó <i>${esc(stuVal)}</i> ${ok ? '✅' : `❌ (Correcto: ${esc(p.label)})`}</div>`;
-      }).join('')}</div>`;
-    } else {
-      ansHtml = `<div style="margin-top:6px"><span class="tag ${earned===1?'good':'bad'}">Seleccionó: ${detail.selectedOption!=null?'ABCD'[detail.selectedOption]:'Ninguna'} (Correcta: ${'ABCD'[q.correct]})</span></div>`;
-    }
-    return `<div class="tile" data-rev-idx="${idx}"><div class="row between"><b>Pregunta ${idx+1}</b><div class="row"><span class="hint">Puntaje:</span><input type="number" step="0.25" min="0" max="1" value="${earned}" data-rev-pts style="width:75px;padding:6px;border:1px solid #ccc;border-radius:6px"></div></div><p style="margin:6px 0;color:var(--ink)">${esc(q.text)}</p>${ansHtml}</div>`;
-  }).join('');
-
-  renderMathSafe($('reviewQuestionsBody'));
-
-  document.querySelectorAll('[data-rev-pts]').forEach(inp => inp.oninput = () => {
-    const inputs = [...document.querySelectorAll('[data-rev-pts]')];
-    const total = inputs.reduce((s, el)=>s+Math.max(0,Math.min(1,Number(el.value)||0)),0);
-    const finalScore = inputs.length ? (total/inputs.length)*10 : 0;
-    $('reviewFinalScore').textContent = `${finalScore.toFixed(2)} / 10`;
-  });
-  $('reviewModal').classList.remove('hidden');
-};
-if($('closeReviewModal')) $('closeReviewModal').onclick = () => $('reviewModal').classList.add('hidden');
-
-if($('printExamSheetBtn')) {
-  $('printExamSheetBtn').onclick = () => {
-    const att = attempts.find(a => a.id === reviewingAttemptId); if(!att) return;
-    const exam = exams.find(e => e.id === att.examId) || { questions: [], subject: att.subject, title: att.examTitle, level: att.level, parallel: att.parallel, teacher: att.teacher };
-    const dateStr = new Date(att.startedAt || Date.now()).toLocaleDateString('es-EC');
-
-    const questionsHtml = (exam.questions||[]).map((q, idx)=>{
-      const detail = (att.details||[])[idx] || {};
-      const qType = q.type || 'multiple';
-      const pts = Number(detail.pointsEarned ?? 0).toFixed(2);
-      const imgHtml = q.imageUrl ? `<div style="margin:8px 0"><img src="${esc(q.imageUrl)}" style="max-height:140px;max-width:100%;border:1px solid #ccc;border-radius:6px"></div>` : '';
-
-      let bodyPrint = '';
-      if (qType === 'open') {
-        bodyPrint = `
-          <div style="border:1px solid #bbb;border-radius:6px;padding:8px;background:#f9f9f9;margin-top:6px;font-size:12px">
-            <b>Respuesta del estudiante:</b><br>
-            <span style="white-space:pre-wrap">${esc(detail.studentAnswerText || 'Sin respuesta')}</span>
-          </div>
-          ${detail.aiFeedback ? `<div style="font-size:11px;color:#166a47;margin-top:4px"><i>Observación: ${esc(detail.aiFeedback)}</i></div>` : ''}
-        `;
-      } else if (qType === 'math_combo') {
-        bodyPrint = `
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px;margin-top:6px">
-            <div><b>Opciones:</b><br>${(q.options||[]).map((o,j)=>`${'ABCD'[j]}) ${esc(o)}`).join('<br>')}</div>
-            <div><b>Procedimientos:</b><br>${(q.procedures||[]).map((p,j)=>`${j+1}) ${esc(p)}`).join('<br>')}</div>
-          </div>
-          <div style="font-size:12px;margin-top:6px"><b>Combinación marcada:</b> ${esc(detail.selectedCombo || 'Ninguna')} (Correcta: ${esc(q.correctCombo)})</div>
-        `;
-      } else if (qType === 'wordsearch') {
-        const found = Array.isArray(detail.foundWords) ? detail.foundWords : [];
-        bodyPrint = `<div style="font-size:12px;margin-top:6px"><b>Sopa de letras:</b> Encontró ${found.length} de ${(q.words||[]).length} palabras (${esc(found.join(', ') || 'Ninguna')}).</div>`;
-      } else if (qType === 'image_labels') {
-        const pins = Array.isArray(q.imageLabels) ? q.imageLabels : [];
-        const stuMap = detail.studentLabels || {};
-        bodyPrint = `<div style="font-size:12px;margin-top:6px">${pins.map((p, pIdx)=>`#${pIdx+1}: Marcó <b>${esc(stuMap[pIdx]||'—')}</b> (Correcto: ${esc(p.label)})`).join(' | ')}</div>`;
-      } else {
-        bodyPrint = `
-          <div style="font-size:12px;margin-top:6px;display:grid;grid-template-columns:1fr 1fr;gap:4px">
-            ${(q.options||[]).map((o,j)=>{
-              const isSelected = detail.selectedOption === j;
-              const isCorrect = q.correct === j;
-              return `<div style="padding:3px 6px;border-radius:4px;${isSelected?'background:#faedf2;border:1px solid #651b37;font-weight:bold':''}">${'ABCD'[j]}) ${esc(o)} ${isSelected?'(Marcada)':''} ${isCorrect?'✓':''}</div>`;
-            }).join('')}
-          </div>
-        `;
-      }
-
-      return `
-        <div style="border-bottom:1px solid #e0e0e0;padding-bottom:12px;margin-bottom:12px;page-break-inside:avoid">
-          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:bold;color:#651b37">
-            <span>${idx+1}. ${esc(q.text)}</span>
-            <span>[${pts} / 1.00 pt]</span>
-          </div>
-          ${imgHtml}
-          ${bodyPrint}
-        </div>
-      `;
-    }).join('');
-
-    $('printSheetContainer').innerHTML = `
-      <div class="print-sheet">
-        <div class="exam-banner">
-          <div class="exam-banner-top"></div>
-          <div class="exam-banner-body">
-            <div class="exam-logo-cell">
-              <div style="width:65px;height:65px;border-radius:16px;background:#651b37;color:#fff;display:grid;place-items:center;font-weight:900;font-size:22px;letter-spacing:-1px">JBP</div>
-            </div>
-            <div class="exam-titles-cell">
-              <h3>UNIDAD EDUCATIVA PARTICULAR</h3>
-              <h2>“JACINTO BURGOS PINARGOTE”</h2>
-              <h4>${esc(exam.title)}</h4>
-              <div class="subject-line">${esc(exam.subject)}</div>
-            </div>
-            <div class="exam-grade-cell">
-              <span>CALIFICACIÓN</span>
-              <div class="exam-grade-box">${Number(att.score||0).toFixed(2)}</div>
-            </div>
-          </div>
-          <div class="exam-banner-bottom">
-            <div>
-              <b>ESTUDIANTE:</b> ${esc(att.studentName)}<br>
-              <b>CÉDULA:</b> ${esc(att.cedula)}<br>
-              <b>CURSO:</b> ${esc(att.level || exam.level || '')} · <b>PARALELO:</b> ${esc(att.parallel || exam.parallel || '')}
-            </div>
-            <div>
-              <b>DOCENTE:</b> ${esc(exam.teacher || att.teacher || '')}<br>
-              <b>FECHA:</b> ${esc(dateStr)}<br>
-              <b>ESTADO:</b> ${att.status==='infraccion'?'ANULADO POR INFRACCIÓN':'EVALUADO EN LÍNEA'}
-            </div>
-          </div>
-        </div>
-        <div>
-          ${questionsHtml}
-        </div>
-        <div style="margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:40px;text-align:center;font-size:12px">
-          <div style="border-top:1px solid #333;padding-top:6px"><b>${esc(exam.teacher || att.teacher || 'DOCENTE')}</b><br>FIRMA DEL DOCENTE</div>
-          <div style="border-top:1px solid #333;padding-top:6px"><b>${esc(att.studentName)}</b><br>FIRMA DEL ESTUDIANTE</div>
-        </div>
-      </div>
-    `;
-    renderMathSafe($('printSheetContainer'));
-    $('printExamModal').classList.remove('hidden');
-  };
-}
-if($('closePrintModal')) $('closePrintModal').onclick = () => $('printExamModal').classList.add('hidden');
-
-if($('regradeAllAiBtn')) {
-  $('regradeAllAiBtn').onclick = async () => {
-    const att = attempts.find(a => a.id === reviewingAttemptId); if(!att) return;
-    const exam = exams.find(e => e.id === att.examId) || { questions: [] };
-    const btn = $('regradeAllAiBtn'); btn.disabled = true; btn.textContent = 'Analizando...';
-    for(let i=0; i<exam.questions.length; i++){
-      const q = exam.questions[i];
-      if((q.type||'multiple')==='open'){
-        const detail = (att.details||[])[i] || {};
-        const res = await evaluateOpenAnswerWithAI(q.text, q.rubric, detail.studentAnswerText||'');
-        att.details[i] = { ...detail, pointsEarned: res.score, aiFeedback: res.feedback };
-      }
-    }
-    const total = att.details.reduce((s, d)=>s+Number(d.pointsEarned||0),0);
-    att.score = exam.questions.length ? Number(((total/exam.questions.length)*10).toFixed(2)) : 0;
-    btn.disabled = false; btn.textContent = '✨ Calificar abiertas con IA';
-    openReviewModal(att.id);
-    showMessage('reviewModalMsg', 'Evaluación con IA completada.', 'good');
-  };
-}
-
-if($('saveManualGradesBtn')) {
-  $('saveManualGradesBtn').onclick = async () => {
-    const att = attempts.find(a => a.id === reviewingAttemptId); if(!att || !cloudReady || !db) return;
-    const inputs = [...document.querySelectorAll('[data-rev-pts]')];
-    inputs.forEach((inp, idx) => {
-      if(!att.details[idx]) att.details[idx] = {};
-      att.details[idx].pointsEarned = Math.max(0, Math.min(1, Number(inp.value)||0));
-    });
-    const total = att.details.reduce((s, d)=>s+Number(d.pointsEarned||0),0);
-    const newScore = inputs.length ? Number(((total/inputs.length)*10).toFixed(2)) : 0;
-    try {
-      await db.collection(COL_ATTEMPTS).doc(att.id).update({ score: newScore, details: att.details, status: 'finalizado' });
-      showMessage('reviewModalMsg', 'Calificación guardada en la nube.', 'good');
-    } catch(e){ showMessage('reviewModalMsg', 'Error: ' + e.message); }
-  };
-}
-
-function exportFile(name, data, type){
-  const blob=new Blob([data],{type}), a=document.createElement('a');
-  a.href=URL.createObjectURL(blob); a.download=name; a.click(); URL.revokeObjectURL(a.href);
-}
-if($('exportCsvBtn')) {
-  $('exportCsvBtn').onclick = () => {
-    if(!currentTeacher) return;
-    const rows=[['Estudiante','Cédula','Curso','Paralelo','Materia','Examen','Publicada','Nota','Estado'], ...myAttempts().map(a=>[a.studentName, a.cedula, a.level||'', a.parallel||'', a.subject, a.examTitle, a.published?'Sí':'No', String(a.score).replace('.',','), a.status])];
-    exportFile('reporte_JBP.csv', '\uFEFF'+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(';')).join('\n'), 'text/csv;charset=utf-8');
-  };
-}
-if($('exportBackupBtn')) {
-  $('exportBackupBtn').onclick = () => {
-    if(!currentTeacher) return;
-    exportFile('respaldo_nube_JBP.json', JSON.stringify({exportedAt:new Date().toISOString(), teacher:currentTeacher.name, exams:myExams(), attempts:myAttempts()}, null, 2), 'application/json');
-  };
-}
-
-// ==========================================
-// 7. FLUJO DE EXAMEN DEL ESTUDIANTE + DIDÁCTICA
-// ==========================================
-if($('startExamBtn')) {
-  $('startExamBtn').onclick = async () => {
-    if(!cloudReady || !db) { showMessage('studentMessage', 'Esperando conexión con la nube...'); return; }
-    const name = $('studentName').value.trim().replace(/\s+/g,' '), cedula = $('studentCedula').value.trim(), exam = exams.find(e => e.id === $('studentExam').value);
-    const pupil = students.find(s => s.cedula === cedula);
-    if(!pupil){ showMessage('studentMessage', 'Ingresa una cédula válida o regístrate en la nube.'); return; }
-    if(!exam){ showMessage('studentMessage', 'Selecciona un examen.'); return; }
-    if(status(exam) !== 'Disponible'){ showMessage('studentMessage', 'El examen no está disponible en este horario.'); return; }
-
-    try {
-      const existingSnap = await db.collection(COL_ATTEMPTS).where('examId', '==', exam.id).where('cedula', '==', cedula).get();
-      if(!existingSnap.empty){
-        showMessage('studentMessage', 'Ya registras un intento en la nube para esta evaluación.');
-        return;
-      }
-    } catch(e){}
-
-    // Pre-construir estructuras interactivas para cada pregunta del estudiante
-    const preparedQuestions = exam.questions.map(q => {
-      if (q.type === 'wordsearch') {
-        const wsData = buildWordSearchGrid(q.wordsRaw || (q.words||[]).join(','), q.gridSize || 10);
-        return { ...q, _ws: wsData };
-      }
-      if (q.type === 'image_labels') {
-        const labelsList = (q.imageLabels || []).map(p => p.label);
-        const shuffled = [...labelsList].sort(() => Math.random() - 0.5);
-        return { ...q, _shuffledLabels: shuffled };
-      }
-      return q;
-    });
-
-    const attemptId = uid();
-    live = {
-      attemptId, exam: { ...exam, questions: preparedQuestions }, studentName: pupil.name, cedula, level: pupil.level, parallel: pupil.parallel,
-      index: 0, answers: preparedQuestions.map(q=>{
-        if(q.type==='open') return {text:''};
-        if(q.type==='math_combo') return {combo:null, writtenProcedure:''};
-        if(q.type==='wordsearch') return {foundWords:[], foundCoords:[]};
-        if(q.type==='image_labels') return {labelsMap:{}, selectedChip:null};
-        return {option:null};
-      }),
-      questionDeadline: Date.now() + exam.seconds * 1000, startedAt: Date.now(), strict: false, status: 'en_progreso'
-    };
-
-    try {
-      await db.collection(COL_ATTEMPTS).doc(attemptId).set({
-        id: attemptId, examId: exam.id, examTitle: exam.title, subject: exam.subject, teacher: exam.teacher,
-        studentName: pupil.name, cedula, level: pupil.level, parallel: pupil.parallel, score: 0, published: false, status: 'en_progreso', startedAt: live.startedAt, details: []
-      });
-    } catch(e) {
-      showMessage('studentMessage', 'Error al registrar inicio en la nube: ' + e.message);
-      return;
-    }
-
-    $('examScreen').classList.remove('hidden'); $('topBar').classList.add('hidden'); $('mainApp').classList.add('hidden');
-    $('liveTitle').textContent = `${exam.subject} — ${exam.title}`; $('liveStudent').textContent = `${pupil.name} · C.I. ${cedula}`;
-    finalizing = false;
-    try { await $('examScreen').requestFullscreen(); } catch(_){}
-    setTimeout(()=>{ if(live) live.strict = true; }, 750);
-    renderLiveQuestion(); startTimer();
-  };
-}
-
-// Lógica de interacción Sopa de Letras
-let wsDragStart = null;
-let wsDragCurrent = [];
-
-function getLineCells(r0, c0, r1, c1) {
-  const dr = r1 - r0, dc = c1 - c0;
-  if (dr === 0 && dc === 0) return [[r0, c0]];
-  if (dr === 0 || dc === 0 || Math.abs(dr) === Math.abs(dc)) {
-    const steps = Math.max(Math.abs(dr), Math.abs(dc));
-    const stepR = dr === 0 ? 0 : dr / steps;
-    const stepC = dc === 0 ? 0 : dc / steps;
-    const res = [];
-    for (let k = 0; k <= steps; k++) {
-      res.push([r0 + stepR * k, c0 + stepC * k]);
-    }
-    return res;
-  }
-  return [[r0, c0]];
-}
-
-function updateWsHighlight() {
-  document.querySelectorAll('.ws-cell').forEach(c => c.classList.remove('selecting'));
-  wsDragCurrent.forEach(([r, c]) => {
-    const el = document.querySelector(`.ws-cell[data-r="${r}"][data-c="${c}"]`);
-    if (el) el.classList.add('selecting');
-  });
-}
-
-function commitWsSelection() {
-  if (!live || !wsDragCurrent.length) {
-    wsDragStart = null; wsDragCurrent = []; updateWsHighlight(); return;
-  }
-  const q = live.exam.questions[live.index];
-  const ans = live.answers[live.index];
-  if (q && q.type === 'wordsearch' && q._ws) {
-    const wordStr = wsDragCurrent.map(([r, c]) => q._ws.grid[r][c]).join('');
-    const revStr = wordStr.split('').reverse().join('');
-    const targetWords = q._ws.placed.map(p => p.word);
-
-    let matched = null;
-    if (targetWords.includes(wordStr) && !ans.foundWords.includes(wordStr)) matched = wordStr;
-    else if (targetWords.includes(revStr) && !ans.foundWords.includes(revStr)) matched = revStr;
-
-    if (matched) {
-      ans.foundWords.push(matched);
-      wsDragCurrent.forEach(([r, c]) => {
-        const key = `${r},${c}`;
-        if (!ans.foundCoords.includes(key)) ans.foundCoords.push(key);
-      });
-      wsDragStart = null; wsDragCurrent = [];
-      renderLiveQuestion();
-      return;
-    }
-  }
-  wsDragStart = null; wsDragCurrent = [];
-  updateWsHighlight();
-}
-
-function renderLiveQuestion(){
-  if(!live) return;
-  const q = live.exam.questions[live.index], qType = q.type||'multiple', ans = live.answers[live.index];
-  $('examProgress').style.width = ((live.index + 1)/live.exam.questions.length*100) + '%';
-
-  const imgHtml = (q.imageUrl && qType !== 'image_labels') ? `<div style="text-align:center;margin:14px 0"><img src="${esc(q.imageUrl)}" style="max-height:240px;max-width:100%;border-radius:12px;border:1px solid var(--line)"></div>` : '';
-
-  let bodyHtml = '';
-  if(qType === 'open'){
-    bodyHtml = `<textarea id="liveOpenInput" rows="5" style="width:100%;border:2px solid #e3e5ea;border-radius:13px;padding:15px" placeholder="Escribe tu respuesta aquí...">${esc(ans.text||'')}</textarea>`;
-  } else if(qType === 'math_combo'){
-    bodyHtml = `
-      <div class="math-matrix">
-        <div><span class="math-col-title">Opciones</span>${(q.options||[]).map((o,j)=>`<div style="font-size:14px;margin-bottom:4px"><b>${'ABCD'[j]}.</b> ${esc(o)}</div>`).join('')}</div>
-        <div><span class="math-col-title">Procedimientos</span>${(q.procedures||[]).map((p,j)=>`<div style="font-size:14px;margin-bottom:4px"><b>${j+1}.</b> ${esc(p)}</div>`).join('')}</div>
-      </div>
-      <div class="combo-grid topgap">${MATH_COMBOS.map(c=>`<div class="combo-chip ${ans.combo===c?'selected':''}" data-pick-combo="${c}">${c}</div>`).join('')}</div>
-      ${q.requireWrittenProc?`<textarea id="liveProcInput" rows="3" class="topgap" style="width:100%;border:1px solid #d6d9e1;border-radius:10px;padding:10px" placeholder="Justifica tu procedimiento...">${esc(ans.writtenProcedure||'')}</textarea>`:''}
-    `;
-  } else if(qType === 'wordsearch'){
-    const ws = q._ws || { gridSize: 10, grid: [], placed: [] };
-    const targetWords = ws.placed.map(p => p.word);
-    bodyHtml = `
-      <div class="ws-container">
-        <div style="font-size:13px;font-weight:700;color:var(--wine)">👆 Arrastra el ratón o tu dedo sobre las letras para encerrar cada palabra (${ans.foundWords.length}/${targetWords.length} encontradas)</div>
-        <div class="ws-grid" id="liveWsGrid" style="grid-template-columns:repeat(${ws.gridSize}, 1fr)">
-          ${ws.grid.map((row, r) => row.map((ch, c) => {
-            const isFound = ans.foundCoords.includes(`${r},${c}`);
-            return `<div class="ws-cell ${isFound?'found':''}" data-r="${r}" data-c="${c}">${esc(ch)}</div>`;
-          }).join('')).join('')}
-        </div>
-        <div class="ws-words-list">
-          ${targetWords.map(w => `<span class="ws-word-pill ${ans.foundWords.includes(w)?'found':''}">${esc(w)}</span>`).join('')}
-        </div>
-      </div>
-    `;
-  } else if(qType === 'image_labels'){
-    const pins = Array.isArray(q.imageLabels) ? q.imageLabels : [];
-    const chips = Array.isArray(q._shuffledLabels) ? q._shuffledLabels : pins.map(p=>p.label);
-    const usedValues = Object.values(ans.labelsMap || {});
-    bodyHtml = `
-      <div style="text-align:center;margin-top:10px">
-        <div class="notice good" style="margin-bottom:12px;text-align:left">
-          <b>¿Cómo resolver?</b> 1️⃣ Toca una etiqueta de palabra abajo para seleccionarla y 2️⃣ toca el círculo numerado correspondiente sobre el dibujo. (También puedes tocar un número ya marcado para quitar su etiqueta).
-        </div>
-        <div class="label-stage-wrap">
-          <img src="${esc(q.imageUrl)}" alt="Gráfico a etiquetar">
-          ${pins.map((p, pIdx) => {
-            const placedWord = ans.labelsMap[pIdx];
-            const isTarget = ans.selectedChip !== null && !placedWord;
-            return `<button type="button" class="label-pin-student ${placedWord?'assigned':''} ${isTarget?'target-active':''}" data-pin-idx="${pIdx}" style="left:${p.x}%;top:${p.y}%">${placedWord ? `${pIdx+1}: ${esc(placedWord)}` : pIdx+1}</button>`;
-          }).join('')}
-        </div>
-        <div class="word-bank-kids">
-          ${chips.map(word => {
-            const isSelected = ans.selectedChip === word;
-            const isUsed = usedValues.includes(word);
-            return `<button type="button" class="kid-chip ${isSelected?'selected':''} ${isUsed?'used':''}" data-kid-word="${esc(word)}">${esc(word)}</button>`;
-          }).join('')}
-        </div>
-      </div>
-    `;
-  } else {
-    bodyHtml = (q.options||[]).map((o,j)=>`<label class="answer ${ans.option===j?'selected':''}"><input type="radio" name="opt" value="${j}" ${ans.option===j?'checked':''}><span><b>${'ABCD'[j]}.</b> ${esc(o)}</span></label>`).join('');
-  }
-
-  $('examQuestionArea').innerHTML = `
-    <span class="tag">Pregunta ${live.index+1} de ${live.exam.questions.length}</span>
-    <h2>${esc(q.text)}</h2>
-    ${imgHtml}
-    ${bodyHtml}
-    <div class="exam-bottom">
-      <button type="button" class="btn neutral" id="skipBtn">Pasar</button>
-      <button type="button" class="btn" id="nextBtn">${live.index===live.exam.questions.length-1?'Finalizar y enviar →':'Siguiente →'}</button>
-    </div>
-  `;
-
-  renderMathSafe($('examQuestionArea'));
-
-  // Eventos según tipo de pregunta
-  if(qType==='open') {
-    $('liveOpenInput').oninput = e => live.answers[live.index].text = e.target.value;
-  } else if(qType==='math_combo'){
-    document.querySelectorAll('[data-pick-combo]').forEach(el => el.onclick = () => { live.answers[live.index].combo = el.dataset.pickCombo; renderLiveQuestion(); });
-    if($('liveProcInput')) $('liveProcInput').oninput = e => live.answers[live.index].writtenProcedure = e.target.value;
-  } else if(qType==='wordsearch'){
-    const gridEl = $('liveWsGrid');
-    if (gridEl) {
-      gridEl.onpointerdown = e => {
-        const cell = e.target.closest('.ws-cell');
-        if (!cell) return;
-        e.preventDefault();
-        wsDragStart = [Number(cell.dataset.r), Number(cell.dataset.c)];
-        wsDragCurrent = [wsDragStart];
-        updateWsHighlight();
-      };
-      gridEl.onpointermove = e => {
-        if (!wsDragStart) return;
-        const elUnder = document.elementFromPoint(e.clientX, e.clientY);
-        const cell = elUnder?.closest('.ws-cell');
-        if (!cell) return;
-        wsDragCurrent = getLineCells(wsDragStart[0], wsDragStart[1], Number(cell.dataset.r), Number(cell.dataset.c));
-        updateWsHighlight();
-      };
-      window.onpointerup = () => {
-        if (wsDragStart) commitWsSelection();
-      };
-    }
-  } else if(qType==='image_labels'){
-    document.querySelectorAll('[data-kid-word]').forEach(chip => {
-      chip.onclick = () => {
-        const w = chip.dataset.kidWord;
-        ans.selectedChip = (ans.selectedChip === w) ? null : w;
-        renderLiveQuestion();
-      };
-    });
-    document.querySelectorAll('[data-pin-idx]').forEach(pinBtn => {
-      pinBtn.onclick = () => {
-        const pIdx = Number(pinBtn.dataset.pinIdx);
-        if (ans.selectedChip) {
-          // Quitar si esa palabra ya estaba en otro pin
-          for (const k of Object.keys(ans.labelsMap)) {
-            if (ans.labelsMap[k] === ans.selectedChip) delete ans.labelsMap[k];
-          }
-          ans.labelsMap[pIdx] = ans.selectedChip;
-          ans.selectedChip = null;
-          renderLiveQuestion();
-        } else if (ans.labelsMap[pIdx]) {
-          delete ans.labelsMap[pIdx];
-          renderLiveQuestion();
-        }
-      };
-    });
-  } else {
-    document.querySelectorAll('input[name="opt"]').forEach(r => r.onchange = () => { live.answers[live.index].option = Number(r.value); renderLiveQuestion(); });
-  }
-
-  $('skipBtn').onclick = () => advanceQuestion();
-  $('nextBtn').onclick = () => advanceQuestion();
-}
-
-function advanceQuestion(){
-  if(!live) return;
-  if(live.index < live.exam.questions.length - 1){
-    live.index++; live.questionDeadline = Date.now() + live.exam.seconds * 1000; renderLiveQuestion();
-  } else {
-    finishExam('finalizado', '');
-  }
-}
-
-function startTimer(){
-  clearInterval(interval);
-  interval = setInterval(()=>{
-    if(!live) return;
-    const now = Date.now(), qRem = (live.questionDeadline - now)/1000, wRem = (endAt(live.exam) - now)/1000;
-    $('questionTime').textContent = formatClock(qRem); $('windowTime').textContent = formatClock(wRem);
-    if(wRem <= 0){ finishExam('tiempo_agotado', 'Se agotó la ventana de disponibilidad.'); return; }
-    if(qRem <= 0) advanceQuestion();
-  }, 250);
-}
-
-async function finishExam(statusText, reason){
-  if(!live || finalizing) return;
-  finalizing = true; clearInterval(interval);
-  const current = live; live = null; current.strict = false;
-  $('examQuestionArea').innerHTML = '<div style="text-align:center;padding:40px"><h3>Sincronizando respuestas con la nube...</h3><p class="hint">Por favor espera un momento.</p></div>';
-
-  const totalQ = current.exam.questions.length;
-  const details = [];
-  let earnedTotal = 0;
-
-  if(statusText !== 'infraccion'){
-    for(let i=0; i<totalQ; i++){
-      const q = current.exam.questions[i], ans = current.answers[i] || {}, qType = q.type||'multiple';
-      if(qType === 'open'){
-        const res = q.gradingMode==='ai' ? await evaluateOpenAnswerWithAI(q.text, q.rubric, ans.text) : {score:0, feedback:'Pendiente de revisión docente'};
-        details.push({type:'open', studentAnswerText:ans.text||'', pointsEarned:res.score, aiFeedback:res.feedback});
-        earnedTotal += res.score;
-      } else if(qType === 'math_combo'){
-        const ok = ans.combo === q.correctCombo ? 1 : 0;
-        details.push({type:'math_combo', selectedCombo:ans.combo, writtenProcedure:ans.writtenProcedure||'', pointsEarned:ok});
-        earnedTotal += ok;
-      } else if(qType === 'wordsearch'){
-        const totalWords = (q._ws?.placed?.length || q.words?.length || 1);
-        const foundCount = (ans.foundWords || []).length;
-        const pts = Math.min(1, Math.round((foundCount / totalWords) * 100) / 100);
-        details.push({type:'wordsearch', foundWords:ans.foundWords||[], pointsEarned:pts});
-        earnedTotal += pts;
-      } else if(qType === 'image_labels'){
-        const pins = Array.isArray(q.imageLabels) ? q.imageLabels : [];
-        let correctPins = 0;
-        pins.forEach((p, pIdx) => {
-          if ((ans.labelsMap || {})[pIdx] === p.label) correctPins++;
-        });
-        const pts = pins.length ? Math.round((correctPins / pins.length) * 100) / 100 : 0;
-        details.push({type:'image_labels', studentLabels:ans.labelsMap||{}, pointsEarned:pts});
-        earnedTotal += pts;
-      } else {
-        const ok = ans.option === q.correct ? 1 : 0;
-        details.push({type:'multiple', selectedOption:ans.option, pointsEarned:ok});
-        earnedTotal += ok;
-      }
-    }
-  }
-
-  const finalScore = statusText === 'infraccion' ? 0 : (totalQ ? Number(((earnedTotal/totalQ)*10).toFixed(2)) : 0);
-
-  if(cloudReady && db){
-    try {
-      await db.collection(COL_ATTEMPTS).doc(current.attemptId).update({
-        score: finalScore, status: statusText, reason, finishedAt: Date.now(), details
-      });
-    } catch(e){}
-  }
-
-  $('examQuestionArea').innerHTML = `
-    <div style="text-align:center;padding:20px 0">
-      <div class="eyebrow" style="color:var(--wine)">Evaluación finalizada</div>
-      <div class="big-result">✓ Recibido</div>
-      <p style="font-size:15px;font-weight:700;color:var(--ink)">Tu evaluación ha sido enviada y sincronizada en la nube.</p>
-      <p class="hint" style="max-width:480px;margin:10px auto">Por disposición institucional, tu calificación estará visible en el botón <b>"Mis calificaciones"</b> una vez que el docente las publique oficialmente.</p>
-      ${reason?`<p class="notice red" style="max-width:480px;margin:12px auto">${esc(reason)}</p>`:''}
-      <button class="btn topgap" id="backHomeBtn">Volver al inicio</button>
-    </div>
-  `;
-  $('backHomeBtn').onclick = async () => {
-    try{ if(document.fullscreenElement) await document.exitFullscreen(); }catch(_){}
-    $('examScreen').classList.add('hidden'); $('topBar').classList.remove('hidden'); $('mainApp').classList.remove('hidden'); renderStudent();
-  };
-}
-
-document.addEventListener('visibilitychange', () => { if(live?.strict && document.hidden) finishExam('infraccion', 'Anulado por cambiar de pestaña.'); });
-window.addEventListener('blur', () => { if(live?.strict) finishExam('infraccion', 'Anulado por salir de la ventana.'); });
-document.addEventListener('fullscreenchange', () => { if(live?.strict && !document.fullscreenElement) finishExam('infraccion', 'Anulado por salir de pantalla completa.'); });
-
-// Inicializar aplicación
-resetEditor();
-initCloud();
-</script>
-</body>
-</html>
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('fecha').value=new Date().toLocaleDateString('en-CA');
+try{firebase.initializeApp(firebaseConfig);auth=firebase.auth();db=firebase.firestore();auth.signInAnonymously().then(()=>{firebaseListo=true;$('firebaseEstado').innerHTML='<strong>✓ Conectado a Firebase.</strong> Los intentos y resultados de este examen se registran en línea.'}).catch(e=>{$('firebaseEstado').innerHTML='<strong>No se pudo conectar a Firebase:</strong> '+esc(e.message)})}catch(e){$('firebaseEstado').textContent='Error de inicialización de Firebase: '+e.message}
+function actualizarBotonInicio(){$('btnIniciar').disabled=!$('acepto').checked}
+async function prepararInicio(){
+ const nombre=$('nombre').value.trim(),cedula=$('cedula').value.trim(),materia=$('materia').value,curso=$('curso').value,fecha=$('fecha').value;
+ if(!nombre||!/^\d{10}$/.test(cedula)||!curso||!fecha){alert('Complete nombres, cédula de 10 dígitos, curso y fecha.');return}
+ if(!$('acepto').checked)return;
+ if(!firebaseListo||!auth.currentUser){alert('Sin conexión con Firebase. Verifique la conexión y el inicio de sesión anónimo.');return}
+ alumno={nombre,cedula,materia,curso,fecha};
+ const ref=db.collection(COLECCION).doc(cedula);
+ // No se consulta la cédula previamente: Firestore autoriza crear el documento
+ // pero prohíbe reiniciar un intento existente mediante sus reglas de seguridad.
+ try{await ref.set({ownerUid:auth.currentUser.uid,...alumno,docente:'Ing. Janeth Intriago',estado:'EN PROCESO',nota:null,aciertos:0,total:preguntas.length,inicio:firebase.firestore.FieldValue.serverTimestamp(),ultimaActualizacion:firebase.firestore.FieldValue.serverTimestamp()})}
+ catch(e){alert(e.code==='permission-denied'?'Firebase no autorizó el registro. Puede existir un intento anterior para esta cédula o faltar la regla de permisos de esta colección.':'No se pudo registrar el intento: '+e.message);return}
+ try{if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen()}catch(e){await registrarInfraccionFirebase('No se pudo activar la pantalla completa');alert('No se pudo activar pantalla completa; el intento quedó registrado.');return}
+ iniciarExamen();
+}
+function iniciarExamen(){indice=0;respuestas=[];examenActivo=true;finalizando=false;proteccionActiva=false;$('inicio').classList.add('hidden');$('examen').classList.remove('hidden');setTimeout(()=>{if(examenActivo)proteccionActiva=true},1500);mostrarPregunta()}
+function mostrarPregunta(){clearInterval(intervalo);if(indice>=preguntas.length){finalizarNormal();return}const p=preguntas[indice];$('contador').textContent=`Pregunta ${indice+1} de ${preguntas.length}`;$('barra').style.width=`${100*indice/preguntas.length}%`;$('preguntaTexto').textContent=p.texto;$('valorPregunta').textContent=`Valor: ${Number(p.puntos).toFixed(2).replace('.',',')} puntos`;
+ $('datosBarra').innerHTML=`<div><strong>ESTUDIANTE</strong>${esc(alumno.nombre)}</div><div><strong>CÉDULA</strong>${esc(alumno.cedula)}</div><div><strong>MATERIA</strong>${esc(alumno.materia)}</div><div><strong>CURSO</strong>${esc(alumno.curso)}</div><div><strong>FECHA</strong>${esc(alumno.fecha)}</div>`;
+ $('opciones').innerHTML='';p.opciones.forEach((o,i)=>{const l=document.createElement('label');l.className='option';l.innerHTML=`<input type="radio" name="respuesta" value="${i}"><strong>${'ABCD'[i]}.</strong> ${esc(o)}`;$('opciones').appendChild(l)});
+ $('btnSiguiente').textContent=indice===preguntas.length-1?'Finalizar examen':'Guardar respuesta y continuar';segundos=15;pintarTimer();intervalo=setInterval(()=>{segundos--;pintarTimer();if(segundos<=0){clearInterval(intervalo);guardarRespuesta(true)}},1000)}
+function pintarTimer(){const t=$('timer');t.textContent=`${String(Math.floor(segundos/60)).padStart(2,'0')}:${String(segundos%60).padStart(2,'0')}`;t.style.color=segundos<=10?'#c62828':'#6f1734'}
+function siguiente(){if(!document.querySelector('input[name="respuesta"]:checked')){alert('Seleccione una respuesta antes de continuar.');return}guardarRespuesta(false)}
+function guardarRespuesta(porTiempo){if(!examenActivo||finalizando)return;clearInterval(intervalo);const sel=document.querySelector('input[name="respuesta"]:checked');respuestas.push({pregunta:indice,respuesta:sel?Number(sel.value):null,agotadoTiempo:!!porTiempo});indice++;if(indice>=preguntas.length)finalizarNormal();else mostrarPregunta()}
+function completarNoRespondidas(){for(let i=respuestas.length;i<preguntas.length;i++)respuestas.push({pregunta:i,respuesta:null,agotadoTiempo:false})}
+function calcularNota(){let aciertos=0,nota=0;respuestas.forEach((r,i)=>{if(r.respuesta!==null&&r.respuesta===Number(preguntas[i].correcta)){aciertos++;nota+=Number(preguntas[i].puntos)||0}});return {aciertos,nota:Math.round((nota+Number.EPSILON)*100)/100}}
+async function finalizarNormal(){if(finalizando)return;finalizando=true;examenActivo=false;proteccionActiva=false;clearInterval(intervalo);completarNoRespondidas();const {aciertos,nota}=calcularNota();guardarResultado('FINALIZADO',aciertos,nota);mostrarResultado(false,'',aciertos,nota);try{if(document.fullscreenElement)await document.exitFullscreen()}catch(e){}}
+async function finalizarPorInfraccion(motivo){if(!examenActivo||finalizando||modoDocente)return;finalizando=true;examenActivo=false;proteccionActiva=false;clearInterval(intervalo);completarNoRespondidas();const {aciertos,nota}=calcularNota();guardarResultado('INFRACCIÓN DEL REGLAMENTO',aciertos,nota,motivo);mostrarResultado(true,motivo,aciertos,nota);try{if(document.fullscreenElement)await document.exitFullscreen()}catch(e){}}
+async function registrarInfraccionFirebase(motivo){try{await db.collection(COLECCION).doc(alumno.cedula).update({estado:'INFRACCIÓN DEL REGLAMENTO',motivo,finalizado:firebase.firestore.FieldValue.serverTimestamp()})}catch(e){console.error(e)}}
+async function actualizarResultadoFirebase(estado,aciertos,nota,motivo){try{await db.collection(COLECCION).doc(alumno.cedula).update({estado,nota,aciertos,motivo,docente:'Ing. Janeth Intriago',respuestas:respuestas.map((r,i)=>({pregunta:i+1,respuesta:r.respuesta,agotadoTiempo:r.agotadoTiempo})),finalizado:firebase.firestore.FieldValue.serverTimestamp(),ultimaActualizacion:firebase.firestore.FieldValue.serverTimestamp()})}catch(e){console.error('No se pudo guardar en Firebase',e);$('estadoFinal').innerHTML='<div class="warning">No se pudo confirmar el envío a Firebase. Comuníquelo a la docente.</div>'}}
+function guardarResultado(estado,aciertos,nota,motivo=''){const r={...alumno,docente:'Ing. Janeth Intriago',estado,aciertos,nota,total:preguntas.length,motivo,respuestas:clonar(respuestas),finalizado:new Date().toLocaleString('es-EC')};try{const arr=JSON.parse(localStorage.getItem(STORAGE_RESULTADOS)||'[]');arr.push(r);localStorage.setItem(STORAGE_RESULTADOS,JSON.stringify(arr))}catch(e){}actualizarResultadoFirebase(estado,aciertos,nota,motivo)}
+function mostrarResultado(infraccion,motivo,aciertos,nota){$('examen').classList.add('hidden');$('resultado').classList.remove('hidden');$('estadoFinal').innerHTML=infraccion?`<div class="violation">EXAMEN FINALIZADO POR INFRACCIÓN DEL REGLAMENTO. ${esc(motivo)}</div>`:'<div class="notice">Evaluación finalizada. El sistema intentará almacenar el resultado en línea.</div>';$('nota').textContent=`${nota.toFixed(2)} / 10`;$('resumen').innerHTML=`<p><strong>Estudiante:</strong> ${esc(alumno.nombre)}</p><p><strong>Cédula:</strong> ${esc(alumno.cedula)}</p><p><strong>Materia:</strong> Estudios Sociales</p><p><strong>Curso:</strong> ${esc(alumno.curso)}</p><p><strong>Fecha:</strong> ${esc(alumno.fecha)}</p><p><strong>Docente:</strong> Ing. Janeth Intriago</p><p><strong>Aciertos:</strong> ${aciertos} de ${preguntas.length}</p><div class="notice">Cada respuesta correcta suma el valor de su pregunta (0,50; 0,60 o 0,90 puntos). Calificación máxima: 10 puntos.</div>`}
+// Las protecciones del navegador disuaden conductas, pero no son un sistema antifraude infalible.
+document.addEventListener('visibilitychange',()=>{if(examenActivo&&proteccionActiva&&document.hidden)finalizarPorInfraccion('Cambio de pestaña o ventana')});
+window.addEventListener('blur',()=>{if(!examenActivo||!proteccionActiva||modoDocente)return;clearTimeout(blurTimer);blurTimer=setTimeout(()=>{if(examenActivo&&proteccionActiva&&!document.hasFocus())finalizarPorInfraccion('La ventana perdió el foco')},700)});
+document.addEventListener('fullscreenchange',()=>{if(examenActivo&&proteccionActiva&&!document.fullscreenElement)finalizarPorInfraccion('Salida de pantalla completa')});
+window.addEventListener('beforeunload',e=>{if(examenActivo){e.preventDefault();e.returnValue=''}});
+document.addEventListener('contextmenu',e=>{if(examenActivo)e.preventDefault()});
+document.addEventListener('keydown',e=>{if(examenActivo){const k=e.key.toLowerCase();if(['f11','f12','escape'].includes(k)||(e.ctrlKey&&['r','l','t','w','u','s','p'].includes(k))||(e.ctrlKey&&e.shiftKey&&['i','j','c'].includes(k))){e.preventDefault();return}}if(!examenActivo&&e.altKey&&e.shiftKey&&e.key.toLowerCase()==='d'){e.preventDefault();accesoDocente()}});
+function accesoDocente(){if(examenActivo)return;const clave=prompt('Contraseña de acceso docente:');if(clave===CLAVE_DOCENTE){modoDocente=true;$('inicio').classList.add('hidden');$('resultado').classList.add('hidden');$('docente').classList.remove('hidden');verSeccion('config');renderEditor()}else if(clave!==null)alert('Contraseña incorrecta.')}
+function cerrarDocente(){modoDocente=false;$('docente').classList.add('hidden');$('inicio').classList.remove('hidden')}
+function verSeccion(sec){$('config').classList.toggle('hidden',sec!=='config');$('resultados').classList.toggle('hidden',sec!=='resultados');if(sec==='resultados')cargarResultados()}
+function renderEditor(){$('editor').innerHTML='';preguntas.forEach((p,i)=>{const box=document.createElement('div');box.className='admin-q';box.innerHTML=`<h4>Pregunta ${i+1} · ${Number(p.puntos).toFixed(2).replace('.',',')} puntos</h4><label>Enunciado<textarea data-field="texto">${esc(p.texto)}</textarea></label><div class="grid">${p.opciones.map((o,j)=>`<label>Opción ${'ABCD'[j]}<input data-op="${j}" value="${esc(o)}"></label>`).join('')}</div><div class="grid" style="margin-top:12px"><label>Respuesta correcta<select data-field="correcta">${p.opciones.map((_,j)=>`<option value="${j}" ${j===Number(p.correcta)?'selected':''}>${'ABCD'[j]}</option>`).join('')}</select></label></div>`;$('editor').appendChild(box)})}
+function guardarConfig(){const nuevas=[];document.querySelectorAll('.admin-q').forEach((box,i)=>{nuevas.push({texto:box.querySelector('[data-field="texto"]').value.trim(),opciones:[0,1,2,3].map(j=>box.querySelector(`[data-op="${j}"]`).value.trim()),correcta:Number(box.querySelector('[data-field="correcta"]').value),puntos:preguntasOriginales[i].puntos,tiempo:15})});if(nuevas.length!==15||nuevas.some(q=>!q.texto||q.opciones.some(x=>!x))){alert('Complete los enunciados y las cuatro opciones de las 15 preguntas.');return}preguntas=nuevas;localStorage.setItem(STORAGE_PREGUNTAS,JSON.stringify(preguntas));alert('Configuración guardada en este navegador. Los cambios de contenido no se sincronizan con otros dispositivos; el tiempo de 15 segundos sí está fijado para todos.')}
+function restaurarConfig(){if(confirm('¿Restaurar las 15 preguntas originales del documento Word?')){preguntas=clonar(preguntasOriginales);localStorage.removeItem(STORAGE_PREGUNTAS);renderEditor()}}
+function fechaFirebase(v){try{return v&&typeof v.toDate==='function'?v.toDate().toLocaleString('es-EC'):v?.seconds?new Date(v.seconds*1000).toLocaleString('es-EC'):String(v||'')}catch(e){return ''}}
+async function cargarResultados(){const tb=$('tablaResultados');tb.innerHTML='<tr><td colspan="10">Consultando resultados...</td></tr>';let datos=[];try{if(!firebaseListo)throw Error('Sin conexión');const snap=await db.collection(COLECCION).get();snap.forEach(d=>{const r=d.data();datos.push({...r,cedula:r.cedula||d.id,finalizado:fechaFirebase(r.finalizado||r.ultimaActualizacion||r.inicio)})});$('tituloResultados').textContent=`Resultados almacenados en línea (${datos.length})`}catch(e){datos=JSON.parse(localStorage.getItem(STORAGE_RESULTADOS)||'[]');$('tituloResultados').textContent='Resultados locales (sin acceso a Firestore)';console.warn(e)}resultadosOnlineCache=datos;tb.innerHTML=datos.length?'':'<tr><td colspan="10">No hay resultados.</td></tr>';datos.forEach(r=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${esc(r.nombre)}</td><td>${esc(r.cedula)}</td><td>${esc(r.materia)}</td><td>${esc(r.curso)}</td><td>${esc(r.fecha)}</td><td><strong>${r.nota==null?'—':Number(r.nota).toFixed(2)}</strong></td><td>${Number(r.aciertos||0)}/${Number(r.total||15)}</td><td>${esc(r.estado)}</td><td>${esc(r.docente||'Ing. Janeth Intriago')}</td><td>${esc(r.finalizado)}</td>`;tb.appendChild(tr)})}
+async function borrarResultados(){if(!confirm('¿Eliminar TODOS los resultados de Estudios Sociales de 9no, segundo trimestre? Esta acción no se puede deshacer.'))return;if(!firebaseListo){alert('Sin conexión con Firebase.');return}try{const snap=await db.collection(COLECCION).get();for(let i=0;i<snap.docs.length;i+=400){const batch=db.batch();snap.docs.slice(i,i+400).forEach(d=>batch.delete(d.ref));await batch.commit()}localStorage.removeItem(STORAGE_RESULTADOS);await cargarResultados();alert('Resultados eliminados.')}catch(e){alert('Error eliminando resultados: '+e.message)}}
+async function exportarCSV(){if(!resultadosOnlineCache.length)await cargarResultados();if(!resultadosOnlineCache.length){alert('No hay resultados');return}const rows=[['Estudiante','Cédula','Materia','Curso','Fecha','Nota','Aciertos','Total','Estado','Motivo','Docente','Finalizado']];resultadosOnlineCache.forEach(r=>rows.push([r.nombre,r.cedula,r.materia,r.curso,r.fecha,r.nota??'',r.aciertos??0,r.total??15,r.estado,r.motivo??'','Ing. Janeth Intriago',r.finalizado]));const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}));const a=document.createElement('a');a.href=url;a.download='Resultados_Estudios_Sociales_9no_Segundo_Trimestre.csv';a.click();URL.revokeObjectURL(url)}
+</script></body></html>
